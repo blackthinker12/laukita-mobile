@@ -37,58 +37,45 @@ class _MyHomePageState extends State<MyHomePage> {
     SizeConfig().init(context);
 
     return Scaffold(
-      appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: Icon(Icons.menu, color: Colors.white),
-              onPressed: null,
-            );
-          },
+      appBar: appBarActions(
+        true,
+        null,
+        SizeConfig.safeBlockVertical * 5.3,
+        TextField(
+          controller: searchController,
+          keyboardType: TextInputType.text,
+          decoration: appBarInputDecoration(
+            SizeConfig.safeBlockHorizontal * 3.3,
+            null
+          )
         ),
-        title: Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Color(0xFFFAFAFA),
-            borderRadius: BorderRadius.circular(3.0),
+        <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/scan');
+              },
+              child: Icon(Icons.scanner),
+            ),
           ),
-          height: SizeConfig.safeBlockVertical * 5.3,
-          child: TextField(
-            controller: searchController,
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(vertical: 1, horizontal: 4),
-              hintText: 'Find Something...',
-              hintStyle: TextStyle(
-                fontSize: SizeConfig.safeBlockHorizontal * 3.3,
-              ),
-              hintMaxLines: 2,
-              suffixIcon: IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                  size: 20.0,
-                ),
-                onPressed: null,
-              )),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                
+              },
+              child: Icon(Icons.email),
+            ),
           ),
-        ),
-        titleSpacing: 0.0,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.scanner),
-            onPressed: () {
-              Navigator.pushNamed(context, '/scan');
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.email),
-            onPressed: () {},
-          ),
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                
+              },
+              child: Icon(Icons.notifications),
+            ),
           ),
         ],
       ),
@@ -148,7 +135,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 width: SizeConfig.safeBlockHorizontal * 1.21,
                               ),
                               Text(
-                                'Your Orders',
+                                'Shopping Cart',
                                 style: TextStyle(
                                   fontSize: SizeConfig.safeBlockHorizontal * 2.8,
                                   fontWeight: FontWeight.bold
@@ -254,6 +241,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 CarouselSlider(
                   items: imageSliders,
                   options: CarouselOptions(
+                    height: SizeConfig.safeBlockVertical * 30,
                     autoPlay: true,
                     enlargeCenterPage: true,
                     aspectRatio: 3.0,
@@ -266,43 +254,28 @@ class _MyHomePageState extends State<MyHomePage> {
                   carouselController: _controller
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.only(left: 15.0),
-                      child: Text(
-                        "Promo Product",
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold, fontSize: SizeConfig.safeBlockHorizontal * 4.2),
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: imgList.map((url) {
+                    int index = imgList.indexOf(url);
+                    return GestureDetector(
+                      onTap: () {
+                        _controller.animateToPage(index, duration: Duration(milliseconds: 800));
+                      },
+                      child: Container(
+                        width: SizeConfig.safeBlockHorizontal * 2.4,
+                        height: SizeConfig.safeBlockVertical * 1.5,
+                        margin: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 4.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: _currentSlider == index
+                              ? Color.fromRGBO(0, 0, 0, 0.9)
+                              : Color.fromRGBO(0, 0, 0, 0.4),
+                        ),
                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: imgList.map((url) {
-                          int index = imgList.indexOf(url);
-                          return GestureDetector(
-                            onTap: () {
-                              _controller.animateToPage(index, duration: Duration(milliseconds: 800));
-                            },
-                            child: Container(
-                              width: SizeConfig.safeBlockHorizontal * 2.4,
-                              height: SizeConfig.safeBlockVertical * 1.5,
-                              margin: EdgeInsets.symmetric(
-                                  vertical: 10.0, horizontal: 4.0),
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: _currentSlider == index
-                                    ? Color.fromRGBO(0, 0, 0, 0.9)
-                                    : Color.fromRGBO(0, 0, 0, 0.4),
-                              ),
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                    ),
-                  ],
+                    );
+                  }).toList(),
                 ),
                 Container(
                   color: Colors.white,
@@ -583,7 +556,7 @@ class _MyHomePageState extends State<MyHomePage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.shopping_cart),
               title: Text(
-                'Cart',
+                'My Order',
                 style: TextStyle(
                   fontSize: SizeConfig.safeBlockHorizontal * 3.0,
                 ),
@@ -617,16 +590,45 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> imageSliders = imgList
     .map((item) => Container(
-      margin: EdgeInsets.only(top: 15.0, bottom: 8.0),
-      child: ClipRRect(
-          borderRadius: BorderRadius.all(Radius.circular(5.0)),
-          child: Stack(
-            children: <Widget>[
-              Image.asset(
-                item, fit: BoxFit.contain,
-              ),
-            ],
-          )),
+      child: Container(
+        margin: EdgeInsets.fromLTRB(5.0, 15.0, 5.0, 5.0),
+        child: ClipRRect(
+            borderRadius: BorderRadius.all(Radius.circular(5.0)),
+            child: Stack(
+              children: <Widget>[
+                Image.asset(
+                  item, fit: BoxFit.cover, width: double.infinity, height: double.infinity,
+                ),
+                Positioned(
+                  bottom: 0.0,
+                  left: 0.0,
+                  right: 0.0,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        colors: [
+                          Color.fromARGB(200, 0, 0, 0),
+                          Color.fromARGB(0, 0, 0, 0)
+                        ],
+                        begin: Alignment.bottomCenter,
+                        end: Alignment.topCenter,
+                      ),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+                    child: Text(
+                      'Discount 25%',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                        fontStyle: FontStyle.italic
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )),
+      ),
     ))
   .toList();
 }

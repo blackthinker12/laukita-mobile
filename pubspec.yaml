@@ -14,7 +14,7 @@ description: A new Flutter project.
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.6.0 <3.0.0"
 
 dependencies:
   flutter:
@@ -25,7 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   expandable: ^4.1.4
   carousel_slider: ^2.2.1
-  flutter_barcode_scanner: ^1.0.1
+  flutter_barcode_scanner: 1.0.0
   flutter_rating_bar: ^3.0.1+1
 
 dev_dependencies:
@@ -58,6 +58,7 @@ flutter:
   - assets/images/2.jpg
   - assets/images/3.jpg
   - assets/images/4.jpg
+  - assets/images/user_pic.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
