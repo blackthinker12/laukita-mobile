@@ -90,7 +90,6 @@ class _ProductDetailState extends State<ProductDetail> {
     return Scaffold(
       appBar: appBarActions(
         false,
-        () => Navigator.pop(context),
         SizeConfig.safeBlockVertical * 5.3,
         TextField(
           controller: searchController,
@@ -137,14 +136,26 @@ class _ProductDetailState extends State<ProductDetail> {
               child: Icon(Icons.share),
             ),
           ),
-        ]
+        ],
+        Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            );
+          },
+        ),
       ),
       body: Column(
         children: <Widget>[
           Expanded(
             child: ListView(
               scrollDirection: Axis.vertical,
-              physics: ScrollPhysics(),
               children: <Widget>[
                 Column(
                   children: <Widget>[
@@ -596,17 +607,17 @@ class _ProductDetailState extends State<ProductDetail> {
             height: SizeConfig.safeBlockVertical * 7.5,
             decoration: BoxDecoration(
               color: Color(0xFFcc0001),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey,
-                  blurRadius: 5.0, // soften the shadow
-                  spreadRadius: 3.0, //extend the shadow
-                  offset: Offset(
-                    0.0, // Move to right 10  horizontally
-                    0.0, // Move to bottom 10 Vertically
-                  ),
-                )
-              ],
+              // boxShadow: [
+              //   BoxShadow(
+              //     color: Colors.grey,
+              //     blurRadius: 5.0, // soften the shadow
+              //     spreadRadius: 3.0, //extend the shadow
+              //     offset: Offset(
+              //       0.0, // Move to right 10  horizontally
+              //       0.0, // Move to bottom 10 Vertically
+              //     ),
+              //   )
+              // ],
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -737,7 +748,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Icon(
-                        Icons.shopping_cart,
+                        Icons.add_shopping_cart,
                         size: 15,
                         color: Colors.white,
                       ),

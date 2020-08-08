@@ -17,7 +17,8 @@ class MyApp extends StatelessWidget {
       home: MyHomePage(),
       routes: {
         '/product_detail': (_) => ProductDetail(),
-        '/scan': (_) => Scanner()
+        '/scan': (_) => Scanner(),
+        '/order_payment': (_) => OrderPayment(),
       },
     );
   }

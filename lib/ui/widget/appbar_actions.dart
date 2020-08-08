@@ -2,23 +2,13 @@ part of 'widgets.dart';
 
 AppBar appBarActions(
   bool isHomePage,
-  Function leadingEvents,
   double heightTextBox,
   Widget textField,
-  List<Widget> actionsList
+  List<Widget> actionsList,
+  Widget leading
 ) {
   return AppBar(
-    leading: Builder(
-      builder: (BuildContext context) {
-        return IconButton(
-          icon: Icon(
-            isHomePage ? Icons.menu : Icons.arrow_back,
-            color: Colors.white
-          ),
-          onPressed: leadingEvents,
-        );
-      },
-    ),
+    leading: leading,
     title: Container(
       margin: const EdgeInsets.only(right: 5.0),
       alignment: Alignment.centerLeft,

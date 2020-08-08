@@ -11,3 +11,4 @@ import 'package:laukita_apps/ui/widget/widgets.dart';
 part 'home.dart';
 part 'product_detail.dart';
 part 'scan.dart';
+part 'order_payment.dart';
