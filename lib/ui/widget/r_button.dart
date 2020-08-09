@@ -73,3 +73,17 @@ Widget rButtonType2(
       ]),
   );
 }
+
+Widget rIconButton(
+  Function action,
+  Icon icon,
+  {EdgeInsets paddingIcon = const EdgeInsets.symmetric(horizontal: 4.0)}
+) {
+  return Padding(
+    padding: paddingIcon,
+    child: GestureDetector(
+      onTap: action,
+      child: icon,
+    ),
+  );
+}

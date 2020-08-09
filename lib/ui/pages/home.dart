@@ -17,7 +17,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _currentSlider = 0;
-  final CarouselController _controller = CarouselController();
+  final CarouselController _imageSliderController = CarouselController();
 
   @override
   void initState() {
@@ -143,7 +143,7 @@ class _HomePageState extends State<HomePage> {
                       });
                     },
                   ),
-                  carouselController: _controller
+                  carouselController: _imageSliderController
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                     int index = imgList.indexOf(url);
                     return GestureDetector(
                       onTap: () {
-                        _controller.animateToPage(index, duration: Duration(milliseconds: 800));
+                        _imageSliderController.animateToPage(index, duration: Duration(milliseconds: 800));
                       },
                       child: Container(
                         width: SizeConfig.safeBlockHorizontal * 2.4,
@@ -169,251 +169,100 @@ class _HomePageState extends State<HomePage> {
                     );
                   }).toList(),
                 ),
-                Container(
-                  color: Colors.white,
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Recommended For You',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: SizeConfig.safeBlockHorizontal * 4.2),
-                            ),
-                            Text(
-                              'See All',
-                              style: TextStyle(
-                                fontSize: SizeConfig.safeBlockHorizontal * 2.5,
-                              ),
-                            )
-                          ]
-                        ),
+                containerList(
+                  cardList(
+                    SizeConfig.safeBlockVertical * 22,
+                    0xFFfafaed,
+                    <Widget> [
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/3.jpg'
                       ),
-                      Container(
-                        height: SizeConfig.safeBlockVertical * 22,
-                        color: Color(0xFFfafaed),
-                        padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 5.0, left: 15.0, right: 15.0),
-                          child: ListView(
-                            physics: BouncingScrollPhysics(),
-                            scrollDirection: Axis.horizontal,
-                            children: <Widget>[
-                              GestureDetector(
-                                onTap: () {
-                                  Navigator.pushNamed(context, '/product_detail');
-                                },
-                                child: Card(
-                                  child: Container(
-                                    margin: const EdgeInsets.all(10),
-                                    constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                    child: Column(
-                                      children: <Widget>[
-                                        Image.asset('assets/images/3.jpg'),
-                                        SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                        Text(
-                                          "Product Name",
-                                          style: TextStyle(
-                                            fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                          ),
-                                        ),
-                                        SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/3.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/1.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/2.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ]
-                          ),
-                        ),
-                      )
-                    ]
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/1.jpg'
+                      ),
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/2.jpg'
+                      ),
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/4.jpg'
+                      ),
+                    ],
                   ),
+                  'Recommended For You',
+                  SizeConfig.safeBlockHorizontal * 4.2,
+                  SizeConfig.safeBlockHorizontal * 2.5
                 ),
-                Container(
-                  color: Colors.white,
-                  padding: const EdgeInsets.only(top: 10.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'Favorite and Best Reviewed',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: SizeConfig.safeBlockHorizontal * 4.2),
-                            ),
-                            Text(
-                              'See All',
-                              style: TextStyle(
-                                fontSize: SizeConfig.safeBlockHorizontal * 2.5,
-                              ),
-                            )
-                          ]
-                        ),
+                containerList(
+                  cardList(
+                    SizeConfig.safeBlockVertical * 22,
+                    0xFFfafaed,
+                    <Widget> [
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/4.jpg'
                       ),
-                      Container(
-                        height: SizeConfig.safeBlockVertical * 22,
-                        color: Color(0xFFfafaed),
-                        padding: const EdgeInsets.only(top: 5.0, bottom: 10.0),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top: 5.0, left: 15.0, right: 15.0),
-                          child: ListView(
-                            physics: BouncingScrollPhysics(),
-                            scrollDirection: Axis.horizontal,
-                            children: <Widget>[
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/3.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/4.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/1.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                              Card(
-                                child: Container(
-                                  margin: const EdgeInsets.all(10),
-                                  constraints: BoxConstraints(maxWidth: SizeConfig.safeBlockHorizontal * 22.6273),
-                                  child: Column(
-                                    children: <Widget>[
-                                      Image.asset('assets/images/1.jpg'),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 0.151,),
-                                      Text(
-                                        "Product Name",
-                                        style: TextStyle(
-                                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                        ),
-                                      ),
-                                      SizedBox(height: SizeConfig.safeBlockVertical * 1.515,),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ]
-                          ),
-                        ),
-                      )
-                    ]
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/3.jpg'
+                      ),
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/1.jpg'
+                      ),
+                      productCard(
+                        () => Navigator.pushNamed(context, '/product_detail'),
+                        SizeConfig.safeBlockHorizontal * 22.6273,
+                        SizeConfig.safeBlockVertical * 0.151,
+                        SizeConfig.safeBlockHorizontal * 2.8,
+                        SizeConfig.safeBlockVertical * 1.515,
+                        'Product Name',
+                        'assets/images/2.jpg'
+                      ),
+                    ],
                   ),
-                )
+                  'Favorite and Best Reviewed',
+                  SizeConfig.safeBlockHorizontal * 4.2,
+                  SizeConfig.safeBlockHorizontal * 2.5
+                ),
               ],
             ),
           ),

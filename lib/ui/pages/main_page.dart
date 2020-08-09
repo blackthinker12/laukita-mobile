@@ -46,42 +46,22 @@ class _MainPageState extends State<MainPage> {
           )
         ),
         <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/scan');
-              },
-              child: Icon(Icons.scanner),
-            ),
+          rIconButton(
+            () => Navigator.pushNamed(context, '/scan'),
+            Icon(Icons.scanner)
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.settings),
-            ),
+          rIconButton(
+            null,
+            Icon(Icons.settings)
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.email),
-            ),
+          rIconButton(
+            null,
+            Icon(Icons.email)
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.notifications),
-            ),
-          ),
+          rIconButton(
+            null,
+            Icon(Icons.notifications)
+          )
         ],
         Builder(
           builder: (BuildContext context) {

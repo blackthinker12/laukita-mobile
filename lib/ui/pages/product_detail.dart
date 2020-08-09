@@ -100,41 +100,21 @@ class _ProductDetailState extends State<ProductDetail> {
           )
         ),
         <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/scan');
-              },
-              child: Icon(Icons.scanner),
-            ),
+          rIconButton(
+            () => Navigator.pushNamed(context, '/scan'),
+            Icon(Icons.scanner)
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.shopping_cart),
-            ),
+          rIconButton(
+            null,
+            Icon(Icons.shopping_cart)
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.navigation),
-            ),
+          rIconButton(
+            null,
+            Icon(Icons.navigation)
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.share),
-            ),
+          rIconButton(
+            null,
+            Icon(Icons.share)
           ),
         ],
         Builder(
@@ -176,7 +156,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                   },
                                   child: Container(
                                     width: MediaQuery.of(context).size.width-80,
-                                    height: 148,
+                                    height: SizeConfig.safeBlockVertical * 22.424,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
                                         image: AssetImage(currentImage),
@@ -327,107 +307,57 @@ class _ProductDetailState extends State<ProductDetail> {
                           ],
                         ),
                         Container(
-                          width: 80,
-                          height: 190,
+                          width: SizeConfig.safeBlockHorizontal * 19.4,
+                          height: SizeConfig.safeBlockVertical * 28.7,
                           child: ListView(
                             physics: BouncingScrollPhysics(),
                             scrollDirection: Axis.vertical,
                             children: <Widget>[
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    currentImage = "assets/images/ayam_kecombrang.jpg";
-                                    currentTitle = "Ayam Kecombrang";
-                                  });
-                                },
-                                child: Container(
-                                  width: 80,
-                                  height: 40,
-                                  margin: const EdgeInsets.only(bottom: 4.0),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/ayam_kecombrang.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
+                              imageScrollable(
+                                () => setState(() {
+                                  currentImage = "assets/images/ayam_kecombrang.jpg";
+                                  currentTitle = "Ayam Kecombrang";
+                                }),
+                                SizeConfig.safeBlockHorizontal * 19.46,
+                                SizeConfig.safeBlockVertical * 6,
+                                'assets/images/ayam_kecombrang.jpg'
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    currentImage = "assets/images/ayam_rica.jpg";
-                                    currentTitle = "Ayam Rica";
-                                  });
-                                },
-                                child: Container(
-                                  width: 80,
-                                  height: 40,
-                                  margin: const EdgeInsets.only(bottom: 4.0),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/ayam_rica.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
+                              imageScrollable(
+                                () => setState(() {
+                                  currentImage = "assets/images/ayam_rica.jpg";
+                                  currentTitle = "Ayam Rica";
+                                }),
+                                SizeConfig.safeBlockHorizontal * 19.46,
+                                SizeConfig.safeBlockVertical * 6,
+                                'assets/images/ayam_rica.jpg'
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    currentImage = "assets/images/ayam_cabe_ijo.jpg";
-                                    currentTitle = "Ayam Cabe Ijo";
-                                  });
-                                },
-                                child: Container(
-                                  width: 80,
-                                  height: 40,
-                                  margin: const EdgeInsets.only(bottom: 4.0),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/ayam_cabe_ijo.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
+                              imageScrollable(
+                                () => setState(() {
+                                  currentImage = "assets/images/ayam_cabe_ijo.jpg";
+                                  currentTitle = "Ayam Cabe Ijo";
+                                }),
+                                SizeConfig.safeBlockHorizontal * 19.46,
+                                SizeConfig.safeBlockVertical * 6,
+                                'assets/images/ayam_cabe_ijo.jpg'
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    currentImage = "assets/images/cakalang_woku.jpg";
-                                    currentTitle = "Cakalang Woku";
-                                  });
-                                },
-                                child: Container(
-                                  width: 80,
-                                  height: 40,
-                                  margin: const EdgeInsets.only(bottom: 4.0),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/cakalang_woku.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
+                              imageScrollable(
+                                () => setState(() {
+                                  currentImage = "assets/images/cakalang_woku.jpg";
+                                  currentTitle = "Cakalang Woku";
+                                }),
+                                SizeConfig.safeBlockHorizontal * 19.46,
+                                SizeConfig.safeBlockVertical * 6,
+                                'assets/images/cakalang_woku.jpg'
                               ),
-                              GestureDetector(
-                                onTap: () {
-                                  setState(() {
-                                    currentImage = "assets/images/opor_ayam.jpg";
-                                    currentTitle = "Opor Ayam";
-                                  });
-                                },
-                                child: Container(
-                                  width: 80,
-                                  height: 40,
-                                  margin: const EdgeInsets.only(bottom: 4.0),
-                                  decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: AssetImage('assets/images/opor_ayam.jpg'),
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                              )
+                              imageScrollable(
+                                () => setState(() {
+                                  currentImage = "assets/images/opor_ayam.jpg";
+                                  currentTitle = "Opor Ayam";
+                                }),
+                                SizeConfig.safeBlockHorizontal * 19.46,
+                                SizeConfig.safeBlockVertical * 6,
+                                'assets/images/opor_ayam.jpg'
+                              ),
                             ],
                           ),
                           decoration: BoxDecoration(
