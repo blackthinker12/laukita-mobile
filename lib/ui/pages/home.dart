@@ -8,24 +8,16 @@ final List<String> imgList = [
   "assets/images/opor_ayam.jpg",
 ];
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key}) : super(key: key);
+class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _HomePageState createState() => _HomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
-  TextEditingController searchController = TextEditingController();
-  int _selectedIndex = 0;
+class _HomePageState extends State<HomePage> {
   int _currentSlider = 0;
   final CarouselController _controller = CarouselController();
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   void initState() {
@@ -37,213 +29,101 @@ class _MyHomePageState extends State<MyHomePage> {
     SizeConfig().init(context);
 
     return Scaffold(
-      appBar: appBarActions(
-        true,
-        SizeConfig.safeBlockVertical * 5.3,
-        TextField(
-          controller: searchController,
-          keyboardType: TextInputType.text,
-          decoration: appBarInputDecoration(
-            SizeConfig.safeBlockHorizontal * 3.3,
-            null
-          )
-        ),
-        <Widget>[
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/scan');
-              },
-              child: Icon(Icons.scanner),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.email),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 5.0),
-            child: GestureDetector(
-              onTap: () {
-                
-              },
-              child: Icon(Icons.notifications),
-            ),
-          ),
-        ],
-        Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: Icon(
-                Icons.menu,
-                color: Colors.white
-              ),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-            );
-          },
-        ),
-      ),
       body: Column(
         children: <Widget>[
           Container(
             child: Stack(
               children: <Widget>[
-                Container(
-                  height: SizeConfig.safeBlockVertical * 7.5,
-                  decoration: BoxDecoration(
-                    color: Color(0xFFFD6400),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey,
-                        blurRadius: 5.0, // soften the shadow
-                        spreadRadius: 3.0, //extend the shadow
-                        offset: Offset(
-                          0.0, // Move to right 10  horizontally
-                          0.0, // Move to bottom 10 Vertically
+                rectangleActions(
+                  SizeConfig.safeBlockVertical * 7.5,
+                  true,
+                  <Widget>[
+                    GestureDetector(
+                      onTap: () {
+
+                      },
+                      child: rButtonType2(
+                        Material(
+                          color: Color(0xFFFE954E),
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Icon(
+                              Icons.refresh,
+                              size: 15,
+                            ),
+                          ),
                         ),
+                        BoxDecoration(
+                          color: Color(0xFFff973f),
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        SizeConfig.safeBlockHorizontal * 1.21,
+                        'Shopping Cart',
+                        TextStyle(
+                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                          fontWeight: FontWeight.bold
+                        ),
+                        SizeConfig.safeBlockHorizontal * 2.2
                       )
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      InkWell(
-                        onTap: () {
+                    ),
+                    GestureDetector(
+                      onTap: () {
 
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFff973f),
-                            borderRadius: BorderRadius.circular(6.0),
+                      },
+                      child: rButtonType2(
+                        Material(
+                          color: Color(0xFFFE954E),
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Icon(
+                              Icons.monetization_on,
+                              size: 15,
+                            ),
                           ),
-                          child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              ClipOval(
-                                child: Material(
-                                  color: Color(0xFFFE954E),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3.0),
-                                    child: Icon(
-                                      Icons.refresh,
-                                      size: 15,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: SizeConfig.safeBlockHorizontal * 1.21,
-                              ),
-                              Text(
-                                'Shopping Cart',
-                                style: TextStyle(
-                                  fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                  fontWeight: FontWeight.bold
-                                ),
-                              ),
-                              SizedBox(
-                                width: SizeConfig.safeBlockHorizontal * 2.2,
-                              ),
-                            ]),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
+                        BoxDecoration(
+                          color: Color(0xFFff973f),
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        SizeConfig.safeBlockHorizontal * 1.21,
+                        '14.300 Points',
+                        TextStyle(
+                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                          fontWeight: FontWeight.bold
+                        ),
+                        0.0
+                      )
+                    ),
+                    GestureDetector(
+                      onTap: () {
 
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFff973f),
-                            borderRadius: BorderRadius.circular(6.0),
+                      },
+                      child: rButtonType2(
+                        Material(
+                          color: Color(0xFFFE954E),
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Icon(
+                              Icons.favorite,
+                              size: 15,
+                            ),
                           ),
-                          child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              ClipOval(
-                                child: Material(
-                                  color: Color(0xFFFE954E),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3.0),
-                                    child: Icon(
-                                      Icons.monetization_on,
-                                      size: 15,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: SizeConfig.safeBlockHorizontal * 1.21,
-                              ),
-                              Text(
-                                '14.300 Points',
-                                style: TextStyle(
-                                  fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                  fontWeight: FontWeight.bold
-                                ),
-                              )
-                            ]),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {
-
-                        },
-                        child: Container(
-                          padding: const EdgeInsets.all(4.0),
-                          decoration: BoxDecoration(
-                            color: Color(0xFFff973f),
-                            borderRadius: BorderRadius.circular(6.0),
-                          ),
-                          child: Row(
-                            mainAxisAlignment:
-                                MainAxisAlignment.spaceEvenly,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: <Widget>[
-                              ClipOval(
-                                child: Material(
-                                  color: Color(0xFFFE954E),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(3.0),
-                                    child: Icon(
-                                      Icons.favorite,
-                                      size: 15,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              SizedBox(
-                                width: SizeConfig.safeBlockHorizontal * 1.21,
-                              ),
-                              Text(
-                                'Wishlist',
-                                style: TextStyle(
-                                  fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                                  fontWeight: FontWeight.bold
-                                ),
-                              ),
-                              SizedBox(
-                                width: SizeConfig.safeBlockHorizontal * 6,
-                              ),
-                            ]),
+                        BoxDecoration(
+                          color: Color(0xFFff973f),
+                          borderRadius: BorderRadius.circular(6.0),
                         ),
-                      ),
-                    ]),
-                ),
+                        SizeConfig.safeBlockHorizontal * 1.21,
+                        'Wishlist',
+                        TextStyle(
+                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                          fontWeight: FontWeight.bold
+                        ),
+                        SizeConfig.safeBlockHorizontal * 6
+                      )
+                    ),
+                  ]
+                )
               ],
             ),
           ),
@@ -538,278 +418,6 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
         ],
-      ),
-      drawer: Drawer(
-        child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: BoxDecoration(
-            color: Color(0xFFD13536),
-          ),
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-              DrawerHeader(
-                margin: EdgeInsets.all(5.0),
-                padding: EdgeInsets.all(0.0),
-                child: Center(
-                  child: Image.asset(
-                    'assets/images/laukita.png',
-                    width: SizeConfig.safeBlockHorizontal * 30,
-                  )
-                ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(height: 5,),
-              DashSeparator(color: Colors.white, width: 2.0,),
-              SizedBox(height: 15,),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                width: double.infinity,
-                height: 42.0,
-                decoration: BoxDecoration(
-                  color: Color(0XFF8F0100),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.only(left: 15.0),
-                      child: Text(
-                        'Products',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                        )  
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 15.0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(32.0, 11.0, 0.0, 12.0),
-                child: Text(
-                  'Catalog',
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                width: double.infinity,
-                height: 42.0,
-                decoration: BoxDecoration(
-                  color: Color(0XFF8F0100),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.only(left: 15.0),
-                      child: Text(
-                        'Referral / Agent',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold
-                        )  
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 15.0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(32.0, 11.0, 0.0, 12.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Text(
-                        'Registration',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Text(
-                        'Dashboard',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/order_payment');
-                      },
-                      child: Text(
-                        'Demo Order Payment Page',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                      ),
-                    )
-                  ],
-                ),
-              ),
-              SizedBox(height: 160,),
-              Container(
-                margin: const EdgeInsets.only(left: 30.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(top: 1.0),
-                      margin: const EdgeInsets.only(right: 6.0),
-                      child: Icon(
-                        Icons.help,
-                        color: Colors.white,
-                        size: 15,
-                      ),
-                    ),
-                    Text(
-                      'Help',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold
-                      )  
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(height: 15,),
-              DashSeparator(color: Colors.white, width: 2.0,),
-              SizedBox(height: 15,),
-              Align(
-                alignment: Alignment.centerRight,
-                child: Container(
-                  width: 120,
-                  padding: const EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 8.0),
-                  margin: const EdgeInsets.only(right: 9.0, bottom: 15.0),
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(6.0),
-                  ),
-                  child: Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        Icons.exit_to_app,
-                        size: 15,
-                        color: Color(0xFF9E0505),
-                      ),
-                      SizedBox(
-                        width: SizeConfig.safeBlockHorizontal * 1.21,
-                      ),
-                      Text(
-                        'Sign out',
-                        style: TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold,
-                          color: Color(0xFF9E0505)
-                        ),
-                      ),
-                      SizedBox(
-                        width: SizeConfig.safeBlockHorizontal * 2.2,
-                      ),
-                    ]),
-                  ),
-              ),
-            ],
-          ),
-        ),
-      ),
-      bottomNavigationBar: Theme(
-        data: Theme.of(context).copyWith(
-          canvasColor: Color(0xFFcc0001),
-        ),
-        child: BottomNavigationBar(
-          selectedItemColor: Colors.white70,
-          unselectedItemColor: Colors.black12,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              title: Text(
-                'Home',
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3.0,
-                ),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.navigation),
-              title: Text(
-                'Near by',
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3.0,
-                ),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
-              title: Text(
-                'My Order',
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3.0,
-                ),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.featured_play_list),
-              title: Text(
-                'Feeds',
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3.0,
-                ),
-              ),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
-              title: Text(
-                'Accounts',
-                style: TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 3.0,
-                ),
-              ),
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-        ),
       ),
     );
   }

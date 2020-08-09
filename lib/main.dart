@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         primaryColor: Color(0xFFcc0001),
       ),
       debugShowCheckedModeBanner: false,
-      home: MyHomePage(),
+      home: MainPage(),
       routes: {
         '/product_detail': (_) => ProductDetail(),
         '/scan': (_) => Scanner(),

@@ -22,6 +22,7 @@ class _OrderPaymentState extends State<OrderPayment> {
         children: [
           Expanded(
             child: ListView(
+              padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 10.0),
               scrollDirection: Axis.vertical,
               children: [
                 Text(
@@ -93,6 +94,92 @@ class _OrderPaymentState extends State<OrderPayment> {
                 ),
                 SizedBox(height: 9,),
                 Divider(height: 1,),
+                SizedBox(height: 9,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Total Shopping cart (5 items)',
+                      style: TextStyle(
+                        color: Colors.grey, 
+                      ),
+                    ),
+                    Text(
+                      '580.000',
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColor, 
+                        fontWeight: FontWeight.bold
+                      ),
+                    ),
+                  ]
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top:8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Total Shipping fee (2 kgs)',
+                        style: TextStyle(
+                          color: Colors.grey, 
+                        ),
+                      ),
+                      Text(
+                        '37.000',
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor, 
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ]
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top:8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Used Coupon (code: -)',
+                        style: TextStyle(
+                          color: Colors.grey, 
+                        ),
+                      ),
+                      Text(
+                        '0',
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor, 
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ]
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top:8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Payment Fee - Credit Card',
+                        style: TextStyle(
+                          color: Colors.grey, 
+                        ),
+                      ),
+                      Text(
+                        '13.000',
+                        style: TextStyle(
+                          color: Theme.of(context).primaryColor, 
+                          fontWeight: FontWeight.bold
+                        ),
+                      ),
+                    ]
+                  ),
+                )
               ],
             ),
           ),
@@ -105,24 +192,54 @@ class _OrderPaymentState extends State<OrderPayment> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    width: 70.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        color: Colors.blueGrey,
-                        width: 2.0,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(left: 20.0),
+                      child: Text(
+                        'Total: ',
+                        style: TextStyle(
+                          decoration: TextDecoration.underline,
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold
+                        ),
                       ),
                     ),
-                    child: Row(
-                      children: <Widget>[
-
-                      ]
-                    )
-                  )
+                    Container(
+                      margin: EdgeInsets.only(left: 8.0),
+                      child: Text(
+                        'Rp. 630.000,-',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18
+                        ),
+                      ),
+                    ),
+                  ]
+                ),
+                rButtonType1(
+                  BoxDecoration(
+                    color: Color(0xFF9E0505),
+                    borderRadius: BorderRadius.circular(6.0),
+                  ),
+                  SizeConfig.safeBlockHorizontal * 1.21,
+                  'Paynow',
+                  TextStyle(
+                    fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white
+                  ),
+                  SizeConfig.safeBlockHorizontal * 2.2,
+                  marginButton: const EdgeInsets.only(right: 11),
+                  iconButton: Icon(
+                    Icons.add_shopping_cart,
+                    size: 15,
+                    color: Colors.white,
+                  ),
+                  widthButton : SizeConfig.safeBlockHorizontal * 2
                 )
               ]
             )

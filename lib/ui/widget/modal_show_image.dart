@@ -50,6 +50,7 @@ class Modals {
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.only(bottomLeft: Radius.circular(7), bottomRight: Radius.circular(7)),
                 ),
                 child: Stack(
                   children: [

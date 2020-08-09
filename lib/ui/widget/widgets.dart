@@ -4,3 +4,5 @@ part 'appbar_actions.dart';
 part 'appbar_input_decoration.dart';
 part 'modal_show_image.dart';
 part 'dash_separator.dart';
+part 'rectangle_actions.dart';
+part 'r_button.dart';

@@ -603,173 +603,146 @@ class _ProductDetailState extends State<ProductDetail> {
               ],
             ),
           ),
-          Container(
-            height: SizeConfig.safeBlockVertical * 7.5,
-            decoration: BoxDecoration(
-              color: Color(0xFFcc0001),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.grey,
-              //     blurRadius: 5.0, // soften the shadow
-              //     spreadRadius: 3.0, //extend the shadow
-              //     offset: Offset(
-              //       0.0, // Move to right 10  horizontally
-              //       0.0, // Move to bottom 10 Vertically
-              //     ),
-              //   )
-              // ],
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Container(
-                    width: 70.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(5.0),
-                      border: Border.all(
-                        color: Colors.blueGrey,
-                        width: 2.0,
-                      ),
-                    ),
-                    child: Row(
-                      children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(left: 4),
-                          child: InkWell(
-                            child: Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            onTap: int.parse(quantityController.text) > 1 ? () {
-                              int currentValue = int.parse(quantityController.text);
-                              setState(() {
-                                currentValue--;
-                                quantityController.text = (currentValue)
-                                    .toString(); // incrementing value
-                              });
-                            } : null,
-                          ),
-                        ),
-                        Expanded(
-                          child: TextFormField(
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(5.0),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                            ),
-                            controller: quantityController,
-                            keyboardType: TextInputType.numberWithOptions(
-                              decimal: false,
-                              signed: true,
-                            ),
-                            inputFormatters: <TextInputFormatter>[
-                              WhitelistingTextInputFormatter.digitsOnly
-                            ],
-                          ),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(right: 4),
-                          child: InkWell(
-                            child: Icon(
-                              Icons.add,
-                              size: 15,
-                            ),
-                            onTap: () {
-                              int currentValue = int.parse(quantityController.text);
-                              setState(() {
-                                currentValue++;
-                                quantityController.text = (currentValue)
-                                    .toString(); // incrementing value
-                              });
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.only(right: 4.0),
-                  width: 100.0,
-                  height: 27.0,
+          rectangleActions(
+            SizeConfig.safeBlockVertical * 7.5,
+            false,
+            <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Container(
+                  width: 70.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    shape: BoxShape.rectangle,
-                    borderRadius: BorderRadius.circular(5.0)
-                  ),
-                  child: DropdownButtonHideUnderline(
-                    child: DropdownButton(
-                      isExpanded: true,
-                      value: _selectedType,
-                      items: _dropdownTypeItems,
-                      onChanged: onChangeDropdownTypeItem,
-                    )
-                  ),
-                ),
-                Container(
-                  margin: const EdgeInsets.symmetric(horizontal: 7.0),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      Text(
-                        "Rp. 110.000",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16
-                        ),
-                      ),
-                      Text(
-                        "Hands on: Agent #09",
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 9
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  padding: const EdgeInsets.fromLTRB(8.0, 8.0, 0.0, 8.0),
-                  margin: const EdgeInsets.only(right: 9.0),
-                  decoration: BoxDecoration(
-                    color: Color(0xFF9E0505),
-                    borderRadius: BorderRadius.circular(6.0),
+                    borderRadius: BorderRadius.circular(5.0),
+                    border: Border.all(
+                      color: Colors.blueGrey,
+                      width: 2.0,
+                    ),
                   ),
                   child: Row(
-                    mainAxisAlignment:
-                        MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Icon(
-                        Icons.add_shopping_cart,
-                        size: 15,
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        width: SizeConfig.safeBlockHorizontal * 1.21,
-                      ),
-                      Text(
-                        'Add to cart',
-                        style: TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white
+                      Container(
+                        margin: EdgeInsets.only(left: 4),
+                        child: InkWell(
+                          child: Icon(
+                            Icons.remove,
+                            size: 15,
+                          ),
+                          onTap: int.parse(quantityController.text) > 1 ? () {
+                            int currentValue = int.parse(quantityController.text);
+                            setState(() {
+                              currentValue--;
+                              quantityController.text = (currentValue)
+                                  .toString(); // incrementing value
+                            });
+                          } : null,
                         ),
                       ),
-                      SizedBox(
-                        width: SizeConfig.safeBlockHorizontal * 2.2,
+                      Expanded(
+                        child: TextFormField(
+                          textAlign: TextAlign.center,
+                          decoration: InputDecoration(
+                            contentPadding: EdgeInsets.all(5.0),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(5.0),
+                            ),
+                          ),
+                          controller: quantityController,
+                          keyboardType: TextInputType.numberWithOptions(
+                            decimal: false,
+                            signed: true,
+                          ),
+                          inputFormatters: <TextInputFormatter>[
+                            WhitelistingTextInputFormatter.digitsOnly
+                          ],
+                        ),
                       ),
-                    ]),
+                      Container(
+                        margin: EdgeInsets.only(right: 4),
+                        child: InkWell(
+                          child: Icon(
+                            Icons.add,
+                            size: 15,
+                          ),
+                          onTap: () {
+                            int currentValue = int.parse(quantityController.text);
+                            setState(() {
+                              currentValue++;
+                              quantityController.text = (currentValue)
+                                  .toString(); // incrementing value
+                            });
+                          },
+                        ),
+                      ),
+                    ]
+                  )
+                )
+              ),
+              Container(
+                margin: const EdgeInsets.only(right: 4.0),
+                width: 100.0,
+                height: 27.0,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(5.0)
                 ),
-              ]
-            )
+                child: DropdownButtonHideUnderline(
+                  child: DropdownButton(
+                    isExpanded: true,
+                    value: _selectedType,
+                    items: _dropdownTypeItems,
+                    onChanged: onChangeDropdownTypeItem,
+                  )
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 7.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Rp. 110.000",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16
+                      ),
+                    ),
+                    Text(
+                      "Hands on: Agent #09",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 9
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              rButtonType1(
+                BoxDecoration(
+                  color: Color(0xFF9E0505),
+                  borderRadius: BorderRadius.circular(6.0),
+                ),
+                SizeConfig.safeBlockHorizontal * 1.21,
+                'Add to cart',
+                TextStyle(
+                  fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white
+                ),
+                SizeConfig.safeBlockHorizontal * 2.2,
+                marginButton: const EdgeInsets.only(right: 9.0),
+                widthButton: SizeConfig.safeBlockHorizontal * 1.1,
+                iconButton: Icon(
+                  Icons.add_shopping_cart,
+                  size: 15,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            color: 0xFFcc0001
           )
         ],
       ),

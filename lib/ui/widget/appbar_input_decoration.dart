@@ -7,7 +7,6 @@ InputDecoration appBarInputDecoration(fontSize, searchAction) {
     hintText: 'Find Something...',
     hintStyle: TextStyle(
       fontSize: fontSize
-      //fontSize: SizeConfig.safeBlockHorizontal * 3.3,
     ),
     hintMaxLines: 2,
     suffixIcon: IconButton(

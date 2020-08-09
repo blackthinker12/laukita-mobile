@@ -63,50 +63,68 @@ class _ScannerState extends State<Scanner> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Container(
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Color(0xFFFAFAFA),
-            borderRadius: BorderRadius.circular(3.0),
-          ),
-          height: SizeConfig.safeBlockVertical * 5.3,
-          child: TextField(
-            controller: searchController,
-            keyboardType: TextInputType.text,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.symmetric(vertical: 1, horizontal: 4),
-              hintText: 'Find Something...',
-              hintStyle: TextStyle(
-                fontSize: SizeConfig.safeBlockHorizontal * 3.3,
-              ),
-              hintMaxLines: 2,
-              suffixIcon: IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: Colors.black,
-                  size: 20.0,
-                ),
-                onPressed: null,
-              )),
-          ),
+      appBar: appBarActions(
+        false,
+        SizeConfig.safeBlockVertical * 5.3,
+        TextField(
+          controller: searchController,
+          keyboardType: TextInputType.text,
+          decoration: appBarInputDecoration(
+            SizeConfig.safeBlockHorizontal * 3.3,
+            null
+          )
         ),
-        titleSpacing: 0.0,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.scanner),
-            onPressed: () {},
+        <Widget>[
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/scan');
+              },
+              child: Icon(Icons.scanner),
+            ),
           ),
-          IconButton(
-            icon: const Icon(Icons.shopping_cart),
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                
+              },
+              child: Icon(Icons.settings),
+            ),
           ),
-          IconButton(
-            icon: const Icon(Icons.share),
-            onPressed: () {},
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                
+              },
+              child: Icon(Icons.email),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5.0),
+            child: GestureDetector(
+              onTap: () {
+                
+              },
+              child: Icon(Icons.notifications),
+            ),
           ),
         ],
+        Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: Icon(
+                Icons.arrow_back,
+                color: Colors.white
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            );
+          },
+        ),
       ),
       body: Center(
         child: Column(
