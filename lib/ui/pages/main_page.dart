@@ -19,14 +19,24 @@ class _MainPageState extends State<MainPage> {
     super.initState();
 
     bottomNavBarIndex = widget.bottomNavBarIndex;
-    pageController = PageController(initialPage: bottomNavBarIndex);
+    //pageController = PageController(initialPage: bottomNavBarIndex);
   }
 
   void _onItemTapped(int index) {
     setState(() {
       bottomNavBarIndex = index;
-      pageController.jumpToPage(index);
     });
+  }
+
+  callPage(int bottomNavBarIndex) {
+    switch (bottomNavBarIndex) {
+      case 0: return HomePage();
+
+      case 1: return NearBy();
+
+        break;
+      default:
+    }
   }
 
   @override
@@ -77,23 +87,24 @@ class _MainPageState extends State<MainPage> {
           },
         ),
       ),
-      body: Stack(
-        children: <Widget>[
-          PageView(
-            physics: NeverScrollableScrollPhysics(),
-            controller: pageController,
-            onPageChanged: (index) {
-              setState(() {
-                bottomNavBarIndex = index;
-              });
-            },
-            children: <Widget>[
-              HomePage(),
-              NearBy()
-            ],
-          )
-        ],
-      ),
+      body: callPage(bottomNavBarIndex),
+      // body: Stack(
+      //   children: <Widget>[
+      //     PageView(
+      //       physics: NeverScrollableScrollPhysics(),
+      //       controller: pageController,
+      //       onPageChanged: (index) {
+      //         setState(() {
+      //           bottomNavBarIndex = index;
+      //         });
+      //       },
+      //       children: <Widget>[
+      //         HomePage(),
+      //         NearBy()
+      //       ],
+      //     )
+      //   ],
+      // ),
       drawer: Drawer(
         child: Container(
           width: double.infinity,

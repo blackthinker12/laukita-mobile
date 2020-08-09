@@ -311,6 +311,7 @@ class _NearByState extends State<NearBy> {
 
   @override
   Widget build(BuildContext context) {
+    print('render juga');
     SizeConfig().init(context);
     _panelHeightOpen = MediaQuery.of(context).size.height * .75;
 
@@ -397,11 +398,5 @@ class _NearByState extends State<NearBy> {
         )
       )
     );
-  }
-
-  @override
-  void dispose() {
-    _events.close();
-    super.dispose();
   }
 }
