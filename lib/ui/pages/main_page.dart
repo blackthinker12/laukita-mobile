@@ -11,7 +11,6 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   int bottomNavBarIndex;
-  PageController pageController;
   TextEditingController searchController = TextEditingController();
 
   @override
@@ -19,7 +18,6 @@ class _MainPageState extends State<MainPage> {
     super.initState();
 
     bottomNavBarIndex = widget.bottomNavBarIndex;
-    //pageController = PageController(initialPage: bottomNavBarIndex);
   }
 
   void _onItemTapped(int index) {
@@ -88,23 +86,6 @@ class _MainPageState extends State<MainPage> {
         ),
       ),
       body: callPage(bottomNavBarIndex),
-      // body: Stack(
-      //   children: <Widget>[
-      //     PageView(
-      //       physics: NeverScrollableScrollPhysics(),
-      //       controller: pageController,
-      //       onPageChanged: (index) {
-      //         setState(() {
-      //           bottomNavBarIndex = index;
-      //         });
-      //       },
-      //       children: <Widget>[
-      //         HomePage(),
-      //         NearBy()
-      //       ],
-      //     )
-      //   ],
-      // ),
       drawer: Drawer(
         child: Container(
           width: double.infinity,

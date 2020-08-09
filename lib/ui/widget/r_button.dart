@@ -14,6 +14,7 @@ Widget rButtonType1(
   }
 ) {
   return Container(
+    width: widthButton,
     padding: paddingButton,
     margin: marginButton,
     decoration: boxButton,
