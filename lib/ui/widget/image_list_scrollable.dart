@@ -11,7 +11,7 @@ Widget imageScrollable(
     child: Container(
       width: width,
       height: height,
-      margin: const EdgeInsets.only(bottom: 4.0),
+      margin: EdgeInsets.only(bottom: 4.0),
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage(imageUrl),

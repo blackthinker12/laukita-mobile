@@ -19,15 +19,15 @@ class Modals {
               Container(
                 width: MediaQuery.of(context).size.width-20,
                 decoration: BoxDecoration(
-                  color: Color(0xFFcc0001),
+                  color: Theme.of(context).primaryColor,
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(7), topRight: Radius.circular(7)),
                 ),
                 child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
+                  padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                   child: Row(
                     children: [
-                      GestureDetector(
+                      InkWell(
                         onTap: () {
                           Navigator.pop(context);
                         },
@@ -37,7 +37,7 @@ class Modals {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.only(left: 20.0),
+                        padding: EdgeInsets.only(left: 20.0),
                         child: Text(title, style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white, fontSize: 16),),
                       ),
                     ],
@@ -46,7 +46,7 @@ class Modals {
               ),
               Container(
                 width: MediaQuery.of(context).size.width-20,
-                padding: const EdgeInsets.all(5.0),
+                padding: EdgeInsets.all(5.0),
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   shape: BoxShape.rectangle,
@@ -58,10 +58,10 @@ class Modals {
                     Column(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
+                          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
                           child: Align(
                             alignment: Alignment.topRight,
-                            child: GestureDetector(
+                            child: InkWell(
                               onTap: () {
 
                               },

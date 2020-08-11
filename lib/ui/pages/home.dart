@@ -38,90 +38,81 @@ class _HomePageState extends State<HomePage> {
                   SizeConfig.safeBlockVertical * 7.5,
                   true,
                   <Widget>[
-                    GestureDetector(
-                      onTap: () {
-
-                      },
-                      child: rButtonType2(
-                        Material(
-                          color: Color(0xFFFE954E),
+                    rButtonWithCircleIcon(
+                      Material(
+                        color: Color(0xFFF59622),
+                        child: Container(
+                          margin: EdgeInsets.symmetric(vertical: 1.8),
                           child: Padding(
-                            padding: const EdgeInsets.all(3.0),
+                            padding: EdgeInsets.all(3.0),
                             child: Icon(
-                              Icons.refresh,
-                              size: 15,
+                              RizalIcons.basket,
+                              size: 16,
                             ),
                           ),
                         ),
-                        BoxDecoration(
-                          color: Color(0xFFff973f),
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        SizeConfig.safeBlockHorizontal * 1.21,
-                        'Shopping Cart',
-                        TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold
-                        ),
-                        SizeConfig.safeBlockHorizontal * 2.2
-                      )
+                      ),
+                      BoxDecoration(
+                        color: Color(0xFFff973f),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      'Shopping Cart',
+                      TextStyle(
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                        fontWeight: FontWeight.bold
+                      ),
+                      null,
+                      SizeConfig.safeBlockHorizontal * 31.38,
+                      SizeConfig.safeBlockHorizontal * 31.63
                     ),
-                    GestureDetector(
-                      onTap: () {
-
-                      },
-                      child: rButtonType2(
-                        Material(
-                          color: Color(0xFFFE954E),
-                          child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: Icon(
-                              Icons.monetization_on,
-                              size: 15,
-                            ),
+                    rButtonWithCircleIcon(
+                      Material(
+                        color: Color(0xFFFE954E),
+                        child: Padding(
+                          padding: const EdgeInsets.all(1.5),
+                          child: Icon(
+                            RizalIcons.points,
+                            size: 22,
                           ),
                         ),
-                        BoxDecoration(
-                          color: Color(0xFFff973f),
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        SizeConfig.safeBlockHorizontal * 1.21,
-                        '14.300 Points',
-                        TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold
-                        ),
-                        0.0
-                      )
+                      ),
+                      BoxDecoration(
+                        color: Color(0xFFff973f),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      '900 Pts',
+                      TextStyle(
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                        fontWeight: FontWeight.bold
+                      ),
+                      null,
+                      SizeConfig.safeBlockHorizontal * 31.38,
+                      SizeConfig.safeBlockHorizontal * 31.63
                     ),
-                    GestureDetector(
-                      onTap: () {
-
-                      },
-                      child: rButtonType2(
-                        Material(
-                          color: Color(0xFFFE954E),
-                          child: Padding(
-                            padding: const EdgeInsets.all(3.0),
-                            child: Icon(
-                              Icons.favorite,
-                              size: 15,
-                            ),
+                    rButtonWithCircleIcon(
+                      Material(
+                        color: Color(0xFFF59622),
+                        child: Padding(
+                          padding: EdgeInsets.all(2.0),
+                          child: Icon(
+                            Icons.bookmark_border,
+                            size: 20,
                           ),
                         ),
-                        BoxDecoration(
-                          color: Color(0xFFff973f),
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        SizeConfig.safeBlockHorizontal * 1.21,
-                        'Wishlist',
-                        TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold
-                        ),
-                        SizeConfig.safeBlockHorizontal * 6
-                      )
-                    ),
+                      ),
+                      BoxDecoration(
+                        color: Color(0xFFff973f),
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      'Bookmark',
+                      TextStyle(
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                        fontWeight: FontWeight.bold
+                      ),
+                      null,
+                      SizeConfig.safeBlockHorizontal * 31.38,
+                      SizeConfig.safeBlockHorizontal * 31.63
+                    )
                   ]
                 )
               ],
@@ -275,6 +266,7 @@ class _HomePageState extends State<HomePage> {
     .map((item) => Container(
       child: Container(
         margin: EdgeInsets.fromLTRB(5.0, 15.0, 5.0, 5.0),
+        color: Colors.grey,
         child: ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(5.0)),
             child: Stack(

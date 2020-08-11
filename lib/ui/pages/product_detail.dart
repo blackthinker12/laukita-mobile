@@ -88,8 +88,7 @@ class _ProductDetailState extends State<ProductDetail> {
     SizeConfig().init(context);
 
     return Scaffold(
-      appBar: appBarActions(
-        false,
+      appBar: appBarWithSearch(
         SizeConfig.safeBlockVertical * 5.3,
         TextField(
           controller: searchController,
@@ -102,19 +101,32 @@ class _ProductDetailState extends State<ProductDetail> {
         <Widget>[
           rIconButton(
             () => Navigator.pushNamed(context, '/scan'),
-            Icon(Icons.scanner)
+            Icon(
+              RizalIcons.scan,
+              size: 24,
+            )
           ),
           rIconButton(
             null,
-            Icon(Icons.shopping_cart)
+            Icon(
+              RizalIcons.basket,
+              size: 20,
+            )
           ),
           rIconButton(
             null,
-            Icon(Icons.navigation)
+            Icon(
+              RizalIcons.near_me,
+              size: 20,
+            )
           ),
           rIconButton(
             null,
-            Icon(Icons.share)
+            Icon(
+              Icons.share,
+              size: 20,
+            ),
+            paddingIcon: EdgeInsets.only(right: 5.0)
           ),
         ],
         Builder(
@@ -166,27 +178,27 @@ class _ProductDetailState extends State<ProductDetail> {
                                     child: Column(
                                       children: [
                                         Padding(
-                                          padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
+                                          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
                                           child: Align(
                                             alignment: Alignment.topRight,
-                                            child: GestureDetector(
+                                            child: InkWell(
                                               onTap: () {
                                                 setState(() {
                                                   isFavorited=!isFavorited;
                                                 });
                                               },
                                               child: Icon(
-                                                isFavorited ? Icons.favorite : Icons.favorite_border,
-                                                color: Color(0xFFcc0001),
+                                                isFavorited ? Icons.bookmark : Icons.bookmark_border,
+                                                color: Theme.of(context).primaryColor,
                                               ),
                                             ),
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                                          padding: EdgeInsets.symmetric(horizontal: 5.0),
                                           child: Align(
                                             alignment: Alignment.bottomRight,
-                                            child: GestureDetector(
+                                            child: InkWell(
                                               onTap: () {
                                                 Modals.showImage(
                                                   context,
@@ -214,7 +226,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               child: Container(
                                 width: MediaQuery.of(context).size.width-80,
                                 height: 42,
-                                padding: const EdgeInsets.only(left: 15.0),
+                                padding: EdgeInsets.only(left: 15.0),
                                 decoration: BoxDecoration(
                                   color: Color(0xFF900A09)
                                 ),
@@ -242,7 +254,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                       crossAxisAlignment: CrossAxisAlignment.center,
                                       children: <Widget>[
                                         Padding(
-                                          padding: const EdgeInsets.only(right: 8.0),
+                                          padding: EdgeInsets.only(right: 8.0),
                                           child: RatingBar(
                                             itemSize: 15,
                                             initialRating: 3,
@@ -263,7 +275,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                           ),
                                         ),
                                         Padding(
-                                          padding: const EdgeInsets.only(right: 8.0),
+                                          padding: EdgeInsets.only(right: 8.0),
                                           child: Text(
                                             '4.5 of 5 (215 Reviews)',
                                             style: TextStyle(
@@ -284,7 +296,7 @@ class _ProductDetailState extends State<ProductDetail> {
                               child: Container(
                                 width: MediaQuery.of(context).size.width/2,
                                 height: 27,
-                                padding: const EdgeInsets.only(left: 15.0),
+                                padding: EdgeInsets.only(left: 15.0),
                                 decoration: BoxDecoration(
                                   color: Color(0xFFC17D1C).withOpacity(0.8)
                                 ),
@@ -372,16 +384,16 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                     ExpandableNotifier(
                       child: Padding(
-                        padding: const EdgeInsets.all(10),
+                        padding: EdgeInsets.all(10),
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           child: Column(
                             children: <Widget>[
                               ScrollOnExpand(
                                 scrollOnExpand: true,
-                                scrollOnCollapse: false,
+                                scrollOnCollapse: true,
                                 child: ExpandablePanel(
-                                  theme: const ExpandableThemeData(
+                                  theme: ExpandableThemeData(
                                     headerAlignment: ExpandablePanelHeaderAlignment.center,
                                     tapBodyToCollapse: false,
                                   ),
@@ -413,7 +425,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                       child: Expandable(
                                         collapsed: collapsed,
                                         expanded: expanded,
-                                        theme: const ExpandableThemeData(crossFadePoint: 0),
+                                        theme: ExpandableThemeData(crossFadePoint: 0),
                                       ),
                                     );
                                   },
@@ -426,7 +438,7 @@ class _ProductDetailState extends State<ProductDetail> {
                     ),
                     ExpandableNotifier(
                       child: Padding(
-                        padding: const EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
+                        padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 10.0),
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           child: Column(
@@ -435,7 +447,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                 scrollOnExpand: true,
                                 scrollOnCollapse: false,
                                 child: ExpandablePanel(
-                                  theme: const ExpandableThemeData(
+                                  theme: ExpandableThemeData(
                                     headerAlignment: ExpandablePanelHeaderAlignment.center,
                                     tapBodyToCollapse: false,
                                   ),
@@ -453,7 +465,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                     childAspectRatio: 3/2,
                                     crossAxisCount: 2,
                                     shrinkWrap: true,
-                                    padding: const EdgeInsets.all(0.0),
+                                    padding: EdgeInsets.all(0.0),
                                     children: List.generate(4, (i) {
                                       return ListTile(
                                         title: Text(
@@ -517,7 +529,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                       child: Expandable(
                                         collapsed: collapsed,
                                         expanded: expanded,
-                                        theme: const ExpandableThemeData(crossFadePoint: 0),
+                                        theme: ExpandableThemeData(crossFadePoint: 0),
                                       ),
                                     );
                                   },
@@ -538,25 +550,27 @@ class _ProductDetailState extends State<ProductDetail> {
             false,
             <Widget>[
               Padding(
-                padding: const EdgeInsets.all(10.0),
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 14),
                 child: Container(
                   width: 70.0,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(5.0),
                     border: Border.all(
-                      color: Colors.blueGrey,
-                      width: 2.0,
+                      color: Colors.black,
                     ),
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        margin: EdgeInsets.only(left: 4),
+                        width: 10,
+                        margin: EdgeInsets.only(right: 4),
                         child: InkWell(
                           child: Icon(
                             Icons.remove,
-                            size: 15,
+                            size: 10,
                           ),
                           onTap: int.parse(quantityController.text) > 1 ? () {
                             int currentValue = int.parse(quantityController.text);
@@ -568,31 +582,35 @@ class _ProductDetailState extends State<ProductDetail> {
                           } : null,
                         ),
                       ),
-                      Expanded(
-                        child: TextFormField(
-                          textAlign: TextAlign.center,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.all(5.0),
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(5.0),
+                      Container(
+                        width: 27,
+                        child: Center(
+                          child: TextFormField(
+                            style: TextStyle(fontSize: 10),
+                            textAlign: TextAlign.center,
+                            decoration: InputDecoration(
+                              contentPadding: EdgeInsets.all(5.0),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(5.0),
+                              ),
                             ),
+                            controller: quantityController,
+                            keyboardType: TextInputType.numberWithOptions(
+                              decimal: false,
+                              signed: true,
+                            ),
+                            inputFormatters: <TextInputFormatter>[
+                              WhitelistingTextInputFormatter.digitsOnly
+                            ],
                           ),
-                          controller: quantityController,
-                          keyboardType: TextInputType.numberWithOptions(
-                            decimal: false,
-                            signed: true,
-                          ),
-                          inputFormatters: <TextInputFormatter>[
-                            WhitelistingTextInputFormatter.digitsOnly
-                          ],
                         ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(right: 4),
+                        margin: EdgeInsets.only(left: 4),
                         child: InkWell(
                           child: Icon(
                             Icons.add,
-                            size: 15,
+                            size: 10,
                           ),
                           onTap: () {
                             int currentValue = int.parse(quantityController.text);
@@ -609,25 +627,33 @@ class _ProductDetailState extends State<ProductDetail> {
                 )
               ),
               Container(
-                margin: const EdgeInsets.only(right: 4.0),
-                width: 100.0,
-                height: 27.0,
+                width: 70.0,
+                height: 20.0,
+                padding: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   shape: BoxShape.rectangle,
                   borderRadius: BorderRadius.circular(5.0)
                 ),
                 child: DropdownButtonHideUnderline(
-                  child: DropdownButton(
-                    isExpanded: true,
-                    value: _selectedType,
-                    items: _dropdownTypeItems,
-                    onChanged: onChangeDropdownTypeItem,
+                  child: Padding(
+                    padding: EdgeInsets.only(left: 2.0),
+                    child: DropdownButton(
+                      style: TextStyle(
+                        fontSize: 12,
+                        color: Colors.black
+                      ),
+                      iconSize: 20,
+                      isExpanded: true,
+                      value: _selectedType,
+                      items: _dropdownTypeItems,
+                      onChanged: onChangeDropdownTypeItem,
+                    ),
                   )
                 ),
               ),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 7.0),
+                margin: EdgeInsets.symmetric(horizontal: 7.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -649,7 +675,7 @@ class _ProductDetailState extends State<ProductDetail> {
                   ],
                 ),
               ),
-              rButtonType1(
+              rButton(
                 BoxDecoration(
                   color: Color(0xFF9E0505),
                   borderRadius: BorderRadius.circular(6.0),
@@ -657,16 +683,15 @@ class _ProductDetailState extends State<ProductDetail> {
                 SizeConfig.safeBlockHorizontal * 1.21,
                 'Add to cart',
                 TextStyle(
-                  fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                  fontSize: SizeConfig.safeBlockHorizontal * 3.6,
                   fontWeight: FontWeight.bold,
                   color: Colors.white
                 ),
                 SizeConfig.safeBlockHorizontal * 2.2,
-                marginButton: const EdgeInsets.only(right: 9.0),
-                widthButton: SizeConfig.safeBlockHorizontal * 1.1,
+                marginButton: EdgeInsets.only(right: 9.0),
                 iconButton: Icon(
                   Icons.add_shopping_cart,
-                  size: 15,
+                  size: 20,
                   color: Colors.white,
                 ),
               ),

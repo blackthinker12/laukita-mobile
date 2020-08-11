@@ -1,7 +1,7 @@
 part of 'shared.dart';
 
 class SizeConfig {
-  // set width, height & fontSize of all elements in the application
+  // set width, height & fontSize of all elements in the application, size icon
   static MediaQueryData _mediaQueryData;
   static double screenWidth;
   static double screenHeight;

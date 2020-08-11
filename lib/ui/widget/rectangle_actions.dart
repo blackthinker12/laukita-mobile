@@ -6,7 +6,7 @@ Widget rectangleActions(
   List<Widget> content,
   {
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.spaceEvenly,
-    int color = 0xFFFD6400
+    int color = 0xFFF05828
   }
 ) {
   return Container(

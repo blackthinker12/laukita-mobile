@@ -1,4 +1,4 @@
-package com.example.laukita_apps
+package com.laukita_mobile
 
 import androidx.annotation.NonNull;
 import io.flutter.embedding.android.FlutterActivity

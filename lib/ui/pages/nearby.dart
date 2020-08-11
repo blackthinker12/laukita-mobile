@@ -38,7 +38,7 @@ class _NearByState extends State<NearBy> {
               color: Colors.white,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 5.0),
+              padding: EdgeInsets.only(left: 5.0),
               child: Text(
                 'Tunggu Sebentar...',
                 style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.9, color: Colors.white),

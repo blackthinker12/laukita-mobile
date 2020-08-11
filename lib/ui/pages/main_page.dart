@@ -42,33 +42,49 @@ class _MainPageState extends State<MainPage> {
     SizeConfig().init(context);
 
     return Scaffold(
-      appBar: bottomNavBarIndex == 1 ? null : appBarActions(
-        true,
+      appBar: bottomNavBarIndex == 1 ? null : appBarWithSearch(
         SizeConfig.safeBlockVertical * 5.3,
-        TextField(
-          controller: searchController,
-          keyboardType: TextInputType.text,
-          decoration: appBarInputDecoration(
-            SizeConfig.safeBlockHorizontal * 3.3,
-            null
-          )
+        Expanded(
+          child: TextField(
+            textAlign: TextAlign.start,
+            textAlignVertical: TextAlignVertical.top,
+            controller: searchController,
+            keyboardType: TextInputType.text,
+            decoration: appBarInputDecoration(
+              SizeConfig.safeBlockHorizontal * 3.3,
+              null
+            )
+          ),
         ),
         <Widget>[
           rIconButton(
             () => Navigator.pushNamed(context, '/scan'),
-            Icon(Icons.scanner)
+            Icon(
+              RizalIcons.scan,
+              size: 24,
+            )
           ),
           rIconButton(
             null,
-            Icon(Icons.settings)
+            Icon(
+              Icons.settings,
+              size: 20,
+            )
           ),
           rIconButton(
             null,
-            Icon(Icons.email)
+            Icon(
+              Icons.email,
+              size: 20,
+            )
           ),
           rIconButton(
             null,
-            Icon(Icons.notifications)
+            Icon(
+              RizalIcons.notification,
+              color: Colors.white,
+              size: 20,
+            )
           )
         ],
         Builder(
@@ -89,205 +105,150 @@ class _MainPageState extends State<MainPage> {
       drawer: Drawer(
         child: Container(
           width: double.infinity,
-          height: double.infinity,
           decoration: BoxDecoration(
             color: Color(0xFFD13536),
           ),
-          child: ListView(
-            scrollDirection: Axis.vertical,
-            children: [
-              DrawerHeader(
-                margin: EdgeInsets.all(5.0),
-                padding: EdgeInsets.all(0.0),
-                child: Center(
-                  child: Image.asset(
-                    'assets/images/laukita.png',
-                    width: SizeConfig.safeBlockHorizontal * 30,
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(5.0),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(4.0),
+                    color: Colors.white,
+                  ),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        top: 5,
+                        right: 5,
+                        child: InkWell(
+                          onTap: () {
+                            Navigator.pop(context);
+                          },
+                          child: Icon(
+                            Icons.menu,
+                            color: Theme.of(context).primaryColor,
+                          ),
+                        ),
+                      ),
+                      Container(
+                        margin: EdgeInsets.all(30.0),
+                        child: Center(
+                          child: Image.asset(
+                            'assets/images/laukita.png',
+                            width: SizeConfig.safeBlockHorizontal * 30,
+                          ),
+                        ),
+                      ),
+                    ],
                   )
                 ),
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4.0),
-                  color: Colors.white,
+                SizedBox(height: SizeConfig.safeBlockVertical * 0.75,),
+                DashSeparator(color: Colors.white, width: SizeConfig.safeBlockHorizontal * 0.48,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 2.3,),
+                drawerMainMenu(
+                  SizeConfig.safeBlockVertical * 6.363,
+                  'Products',
+                  null
                 ),
-              ),
-              SizedBox(height: 5,),
-              DashSeparator(color: Colors.white, width: 2.0,),
-              SizedBox(height: 15,),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                width: double.infinity,
-                height: 42.0,
-                decoration: BoxDecoration(
-                  color: Color(0XFF8F0100),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Container(
-                      margin: const EdgeInsets.only(left: 15.0),
-                      child: Text(
-                        'Products',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold
-                        )  
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 15.0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(32.0, 11.0, 0.0, 12.0),
-                child: Text(
-                  'Catalog',
-                  style: TextStyle(
-                    color: Colors.white
-                  ),
-                ),
-              ),
-              Container(
-                margin: EdgeInsets.symmetric(horizontal: 5.0),
-                width: double.infinity,
-                height: 42.0,
-                decoration: BoxDecoration(
-                  color: Color(0XFF8F0100),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {
-
-                      },
-                      child: Container(
-                        margin: const EdgeInsets.only(left: 15.0),
-                        child: Text(
-                          'Referral / Agent',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold
-                          )  
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(right: 15.0),
-                      child: Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                margin: const EdgeInsets.fromLTRB(32.0, 11.0, 0.0, 12.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Text(
-                        'Registration',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    InkWell(
-                      onTap: () {
-                        
-                      },
-                      child: Text(
-                        'Dashboard',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/order_payment');
-                      },
-                      child: Text(
-                        'Demo Order Payment Page',
-                        style: TextStyle(
-                          color: Colors.white
-                        ),
-                      ),
+                drawerSubmenuContainer(
+                  <Widget>[
+                    drawerSubmenu(
+                      null,
+                      'Catalog'
                     )
-                  ],
+                  ]
                 ),
-              ),
-              SizedBox(height: 160,),
-              Container(
-                margin: const EdgeInsets.only(left: 30.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(top: 1.0),
-                      margin: const EdgeInsets.only(right: 6.0),
-                      child: Icon(
-                        Icons.help,
-                        color: Colors.white,
-                        size: 15,
+                drawerMainMenu(
+                  SizeConfig.safeBlockVertical * 6.363,
+                  'Referral',
+                  () => Navigator.pushNamed(context, 'referral')
+                ),
+                drawerSubmenuContainer(
+                  <Widget>[
+                    drawerSubmenu(
+                      null,
+                      'Registration'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      null,
+                      'Dashboard'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, '/order_payment'),
+                      'Demo Order Payment Page'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, 'distribution_portal'),
+                      'Demo Distribution Portal'
+                    ),
+                  ]
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Container(
+                        margin: EdgeInsets.only(left: 30.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.only(top: 1.0),
+                              margin: EdgeInsets.only(right: 6.0),
+                              child: Icon(
+                                Icons.help,
+                                color: Colors.white,
+                                size: 15,
+                              ),
+                            ),
+                            Text(
+                              'Help',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold
+                              )  
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    Text(
-                      'Help',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold
-                      )  
-                    ),
-                  ],
+                      SizedBox(height: SizeConfig.safeBlockVertical * 2.307,),
+                      DashSeparator(color: Colors.white, width: SizeConfig.safeBlockHorizontal * 0.48,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 2.307,),
+                      rPreferredSizeButton(
+                        BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        SizeConfig.safeBlockHorizontal * 1.21,
+                        'Sign out',
+                        TextStyle(
+                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xFF9E0505)
+                        ),
+                        SizeConfig.safeBlockHorizontal * 2.2,
+                        iconButton: Icon(
+                          Icons.exit_to_app,
+                          size: 15,
+                          color: Color(0xFF9E0505),
+                        ),
+                        widthButton: SizeConfig.safeBlockHorizontal * 29.197,
+                      )
+                    ],
+                  ),
                 ),
-              ),
-              SizedBox(height: 15,),
-              DashSeparator(color: Colors.white, width: 2.0,),
-              SizedBox(height: 15,),
-              Align(
-                alignment: Alignment.centerRight,
-                child: rButtonType1(
-                  BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(6.0),
-                  ),
-                  SizeConfig.safeBlockHorizontal * 1.21,
-                  'Sign out',
-                  TextStyle(
-                    fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xFF9E0505)
-                  ),
-                  SizeConfig.safeBlockHorizontal * 2.2,
-                  iconButton: Icon(
-                    Icons.exit_to_app,
-                    size: 15,
-                    color: Color(0xFF9E0505),
-                  ),
-                  widthButton: SizeConfig.safeBlockHorizontal * 29.197,
-                )
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -296,8 +257,8 @@ class _MainPageState extends State<MainPage> {
           canvasColor: Color(0xFFcc0001),
         ),
         child: BottomNavigationBar(
-          selectedItemColor: Colors.white70,
-          unselectedItemColor: Colors.black26,
+          selectedItemColor: Colors.white,
+          unselectedItemColor: Colors.white70,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
@@ -309,7 +270,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.navigation),
+              icon: Icon(RizalIcons.near_me),
               title: Text(
                 'Near by',
                 style: TextStyle(
@@ -318,7 +279,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart),
+              icon: Icon(RizalIcons.basket),
               title: Text(
                 'My Order',
                 style: TextStyle(
@@ -327,7 +288,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.featured_play_list),
+              icon: Icon(RizalIcons.feeds),
               title: Text(
                 'Feeds',
                 style: TextStyle(
@@ -336,7 +297,7 @@ class _MainPageState extends State<MainPage> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle),
+              icon: Icon(RizalIcons.account),
               title: Text(
                 'Accounts',
                 style: TextStyle(
@@ -349,7 +310,7 @@ class _MainPageState extends State<MainPage> {
           type: BottomNavigationBarType.fixed,
           onTap: _onItemTapped,
         ),
-      ),
+      )
     );
   }
 }

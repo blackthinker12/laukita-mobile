@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Laukita',
       theme: ThemeData(
-        primaryColor: Color(0xFFcc0001),
+        //primaryColor: Theme.of(context).primaryColor,
+        primaryColor: Color(0xFFe8282e)
       ),
       debugShowCheckedModeBanner: false,
       home: MainPage(),
@@ -19,6 +20,8 @@ class MyApp extends StatelessWidget {
         '/product_detail': (_) => ProductDetail(),
         '/scan': (_) => Scanner(),
         '/order_payment': (_) => OrderPayment(),
+        'referral': (_) => Referral(),
+        'distribution_portal': (_) => DistributionPortal(),
       },
     );
   }

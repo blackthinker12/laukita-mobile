@@ -47,7 +47,7 @@ class _OrderPaymentState extends State<OrderPayment> {
                       _checked = !_checked;
                     });
                   },
-                  activeColor: Color(0xFFcc0001),
+                  activeColor: Theme.of(context).primaryColor,
                 ),
                 Container(
                   decoration: BoxDecoration(
@@ -115,7 +115,7 @@ class _OrderPaymentState extends State<OrderPayment> {
                   ]
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:8.0),
+                  padding: EdgeInsets.only(top:8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -137,7 +137,7 @@ class _OrderPaymentState extends State<OrderPayment> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:8.0),
+                  padding: EdgeInsets.only(top:8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -159,7 +159,7 @@ class _OrderPaymentState extends State<OrderPayment> {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(top:8.0),
+                  padding: EdgeInsets.only(top:8.0),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -186,7 +186,7 @@ class _OrderPaymentState extends State<OrderPayment> {
           Container(
             height: SizeConfig.safeBlockVertical * 7.5,
             decoration: BoxDecoration(
-              color: Color(0xFFcc0001),
+              color: Theme.of(context).primaryColor,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -220,7 +220,7 @@ class _OrderPaymentState extends State<OrderPayment> {
                     ),
                   ]
                 ),
-                rButtonType1(
+                rButton(
                   BoxDecoration(
                     color: Color(0xFF9E0505),
                     borderRadius: BorderRadius.circular(6.0),
@@ -228,18 +228,17 @@ class _OrderPaymentState extends State<OrderPayment> {
                   SizeConfig.safeBlockHorizontal * 1.21,
                   'Paynow',
                   TextStyle(
-                    fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                    fontSize: SizeConfig.safeBlockHorizontal * 4,
                     fontWeight: FontWeight.bold,
                     color: Colors.white
                   ),
                   SizeConfig.safeBlockHorizontal * 2.2,
-                  marginButton: const EdgeInsets.only(right: 11),
+                  marginButton: EdgeInsets.only(right: 11),
                   iconButton: Icon(
                     Icons.add_shopping_cart,
                     size: 15,
                     color: Colors.white,
-                  ),
-                  widthButton : SizeConfig.safeBlockHorizontal * 2
+                  )
                 )
               ]
             )
