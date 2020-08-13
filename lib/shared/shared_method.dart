@@ -14,3 +14,11 @@ String capitalize(str) {
     }).join(' ');
   }
 }
+
+int convertToEpochTime(String date) {
+  return (DateTime.parse(date)).millisecondsSinceEpoch;
+}
+
+int getCurrentTimeStamp() {
+  return new DateTime.now().millisecondsSinceEpoch;
+}

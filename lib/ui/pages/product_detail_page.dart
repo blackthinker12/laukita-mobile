@@ -21,14 +21,14 @@ class Type {
   }
 }
 
-class ProductDetail extends StatefulWidget {
-  ProductDetail({Key key}) : super(key: key);
+class ProductDetailPage extends StatefulWidget {
+  ProductDetailPage({Key key}) : super(key: key);
 
   @override
-  _ProductDetailState createState() => _ProductDetailState();
+  _ProductDetailPageState createState() => _ProductDetailPageState();
 }
 
-class _ProductDetailState extends State<ProductDetail> {
+class _ProductDetailPageState extends State<ProductDetailPage> {
   bool isFavorited = true;
   Type _selectedType;
   TextEditingController searchController = TextEditingController();
@@ -181,7 +181,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                           padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
                                           child: Align(
                                             alignment: Alignment.topRight,
-                                            child: InkWell(
+                                            child: GestureDetector(
                                               onTap: () {
                                                 setState(() {
                                                   isFavorited=!isFavorited;
@@ -198,7 +198,7 @@ class _ProductDetailState extends State<ProductDetail> {
                                           padding: EdgeInsets.symmetric(horizontal: 5.0),
                                           child: Align(
                                             alignment: Alignment.bottomRight,
-                                            child: InkWell(
+                                            child: GestureDetector(
                                               onTap: () {
                                                 Modals.showImage(
                                                   context,
@@ -567,7 +567,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       Container(
                         width: 10,
                         margin: EdgeInsets.only(right: 4),
-                        child: InkWell(
+                        child: GestureDetector(
                           child: Icon(
                             Icons.remove,
                             size: 10,
@@ -607,7 +607,7 @@ class _ProductDetailState extends State<ProductDetail> {
                       ),
                       Container(
                         margin: EdgeInsets.only(left: 4),
-                        child: InkWell(
+                        child: GestureDetector(
                           child: Icon(
                             Icons.add,
                             size: 10,

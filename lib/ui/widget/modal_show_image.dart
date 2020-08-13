@@ -27,7 +27,7 @@ class Modals {
                   padding: EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
                   child: Row(
                     children: [
-                      InkWell(
+                      GestureDetector(
                         onTap: () {
                           Navigator.pop(context);
                         },
@@ -61,7 +61,7 @@ class Modals {
                           padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 5.0),
                           child: Align(
                             alignment: Alignment.topRight,
-                            child: InkWell(
+                            child: GestureDetector(
                               onTap: () {
 
                               },

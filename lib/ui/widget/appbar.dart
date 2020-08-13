@@ -9,7 +9,8 @@ AppBar appBarWithSearch(
   return AppBar(
     leading: leading,
     title: Container(
-      margin: EdgeInsets.all(10.0),
+      margin: const EdgeInsets.only(right: 2.0),
+      alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
         color: Color(0xFFFAFAFA),
         borderRadius: BorderRadius.circular(3.0),

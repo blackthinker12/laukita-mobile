@@ -11,17 +11,24 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:latlong/latlong.dart';
-
-import 'package:laukita_apps/shared/shared.dart';
-import 'package:laukita_apps/ui/widget/widgets.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
+import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
+import 'package:pin_code_fields/pin_code_fields.dart';
+
+import 'package:Laukita/shared/shared.dart';
+import 'package:Laukita/ui/widget/widgets.dart';
 
 part 'main_page.dart';
-part 'home.dart';
-part 'nearby.dart';
-part 'product_detail.dart';
-part 'scan.dart';
-part 'order_payment.dart';
-part 'referral.dart';
-part 'my_orders.dart';
-part 'distribution_portal.dart';
+part 'home_page.dart';
+part 'nearby_page.dart';
+part 'product_detail_page.dart';
+part 'scan_page.dart';
+part 'order_payment_page.dart';
+part 'referral_page.dart';
+part 'my_orders_page.dart';
+part 'distribution_portal_page.dart';
+part 'registration_page.dart';
+part 'email_verification_page.dart';
+part 'upgrade_account_page.dart';
+part 'table.dart';
+part 'shipment_form_page.dart';

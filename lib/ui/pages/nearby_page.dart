@@ -4,12 +4,12 @@ class Poi {
 
 }
 
-class NearBy extends StatefulWidget {
+class NearByPage extends StatefulWidget {
   @override
-  _NearByState createState() => _NearByState();
+  _NearByPageState createState() => _NearByPageState();
 }
 
-class _NearByState extends State<NearBy> {
+class _NearByPageState extends State<NearByPage> {
   final double _initFabHeight = 90.0;
   double _fabHeight;
   double _panelHeightOpen;
@@ -23,6 +23,8 @@ class _NearByState extends State<NearBy> {
     super.initState();
     _fabHeight = _initFabHeight;
     mapController = MapController();
+     _events = new StreamController<List<Poi>>();
+    _events?.add([]);
   }
 
   Widget _loading() {
@@ -397,5 +399,11 @@ class _NearByState extends State<NearBy> {
         )
       )
     );
+  }
+
+  @override
+  void dispose() {
+    _events.close();
+    super.dispose();
   }
 }

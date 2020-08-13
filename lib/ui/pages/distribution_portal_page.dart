@@ -1,13 +1,13 @@
 part of 'pages.dart';
 
-class DistributionPortal extends StatefulWidget {
-  DistributionPortal({Key key}) : super(key: key);
+class DistributionPortalPage extends StatefulWidget {
+  DistributionPortalPage({Key key}) : super(key: key);
 
   @override
-  _DistributionPortalState createState() => _DistributionPortalState();
+  _DistributionPortalPageState createState() => _DistributionPortalPageState();
 }
 
-class _DistributionPortalState extends State<DistributionPortal> {
+class _DistributionPortalPageState extends State<DistributionPortalPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:laukita_apps/ui/pages/pages.dart';
+import 'package:Laukita/ui/pages/pages.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,16 +12,23 @@ class MyApp extends StatelessWidget {
       title: 'Laukita',
       theme: ThemeData(
         //primaryColor: Theme.of(context).primaryColor,
-        primaryColor: Color(0xFFe8282e)
+        primaryColor: Color(0xFFe8282e),
+        primaryColorLight: Color(0xFFF05828),
+        accentColor: Color(0xFFFE954E)
       ),
       debugShowCheckedModeBanner: false,
       home: MainPage(),
       routes: {
-        '/product_detail': (_) => ProductDetail(),
-        '/scan': (_) => Scanner(),
-        '/order_payment': (_) => OrderPayment(),
-        'referral': (_) => Referral(),
-        'distribution_portal': (_) => DistributionPortal(),
+        '/product_detail': (_) => ProductDetailPage(),
+        '/scan': (_) => ScannerPage(),
+        '/order_payment': (_) => OrderPaymentPage(),
+        '/referral': (_) => ReferralPage(),
+        '/distribution_portal': (_) => DistributionPortalPage(),
+        '/registration': (_) => RegistrationPage(isLoginWithSocialMedia: false),
+        '/email_verification': (_) => EmailVerificationPage(),
+        '/upgrade_account': (_) => UpgradeAccountPage(),
+        '/table': (_) => TableExample(),
+        '/shipment_form': (_) => ShipmentFormPage()
       },
     );
   }

@@ -1,12 +1,12 @@
 part of 'pages.dart';
 
-class MyOrders extends StatefulWidget {
+class MyOrdersPage extends StatefulWidget {
 
   @override
-  _MyOrdersState createState() => _MyOrdersState();
+  _MyOrdersPageState createState() => _MyOrdersPageState();
 }
 
-class _MyOrdersState extends State<MyOrders> {
+class _MyOrdersPageState extends State<MyOrdersPage> {
   @override
   void initState() {
     super.initState();

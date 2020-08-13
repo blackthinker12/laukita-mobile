@@ -30,7 +30,7 @@ class _MainPageState extends State<MainPage> {
     switch (bottomNavBarIndex) {
       case 0: return HomePage();
 
-      case 1: return NearBy();
+      case 1: return NearByPage();
 
         break;
       default:
@@ -46,8 +46,6 @@ class _MainPageState extends State<MainPage> {
         SizeConfig.safeBlockVertical * 5.3,
         Expanded(
           child: TextField(
-            textAlign: TextAlign.start,
-            textAlignVertical: TextAlignVertical.top,
             controller: searchController,
             keyboardType: TextInputType.text,
             decoration: appBarInputDecoration(
@@ -165,12 +163,13 @@ class _MainPageState extends State<MainPage> {
                 drawerMainMenu(
                   SizeConfig.safeBlockVertical * 6.363,
                   'Referral',
-                  () => Navigator.pushNamed(context, 'referral')
+                  //() => Navigator.pushNamed(context, 'referral')
+                  null
                 ),
                 drawerSubmenuContainer(
                   <Widget>[
                     drawerSubmenu(
-                      null,
+                      () => Navigator.pushNamed(context, '/registration'),
                       'Registration'
                     ),
                     SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
@@ -178,20 +177,29 @@ class _MainPageState extends State<MainPage> {
                       null,
                       'Dashboard'
                     ),
-                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
-                    drawerSubmenu(
-                      () => Navigator.pushNamed(context, '/order_payment'),
-                      'Demo Order Payment Page'
-                    ),
-                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
-                    drawerSubmenu(
-                      () => Navigator.pushNamed(context, 'distribution_portal'),
-                      'Demo Distribution Portal'
-                    ),
+                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    // drawerSubmenu(
+                    //   () => Navigator.pushNamed(context, '/order_payment'),
+                    //   'Demo Order Payment Page'
+                    // ),
+                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    // drawerSubmenu(
+                    //   () => Navigator.pushNamed(context, '/distribution_portal'),
+                    //   'Demo Distribution Portal'
+                    // ),
+                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    // drawerSubmenu(
+                    //   () => Navigator.pushNamed(context, '/upgrade_account'),
+                    //   'Demo Upgrade Account'
+                    // ),
+                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    // drawerSubmenu(
+                    //   () => Navigator.pushNamed(context, '/table'),
+                    //   'Demo Table'
+                    // ),
                   ]
                 ),
                 Expanded(
-                  flex: 1,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.end,
                     crossAxisAlignment: CrossAxisAlignment.end,

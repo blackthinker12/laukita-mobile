@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       BoxDecoration(
-                        color: Color(0xFFff973f),
+                        color: Theme.of(context).accentColor,
                         borderRadius: BorderRadius.circular(6.0),
                       ),
                       'Shopping Cart',
@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       BoxDecoration(
-                        color: Color(0xFFff973f),
+                        color: Theme.of(context).accentColor,
                         borderRadius: BorderRadius.circular(6.0),
                       ),
                       '900 Pts',
@@ -101,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                       BoxDecoration(
-                        color: Color(0xFFff973f),
+                        color: Theme.of(context).accentColor,
                         borderRadius: BorderRadius.circular(6.0),
                       ),
                       'Bookmark',
@@ -171,7 +171,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Cakalang Woku',
                         'assets/images/3.jpg'
                       ),
                       productCard(
@@ -180,7 +180,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Ayam Rica Kemangi',
                         'assets/images/1.jpg'
                       ),
                       productCard(
@@ -189,7 +189,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Ayam Cabe Ijo',
                         'assets/images/2.jpg'
                       ),
                       productCard(
@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Opor Ayam',
                         'assets/images/4.jpg'
                       ),
                     ],
@@ -218,7 +218,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Opor Ayam',
                         'assets/images/4.jpg'
                       ),
                       productCard(
@@ -227,7 +227,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Cakalang Woku',
                         'assets/images/3.jpg'
                       ),
                       productCard(
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Ayam Rica Kemangi',
                         'assets/images/1.jpg'
                       ),
                       productCard(
@@ -245,7 +245,7 @@ class _HomePageState extends State<HomePage> {
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
                         SizeConfig.safeBlockVertical * 1.515,
-                        'Product Name',
+                        'Ayam Cabe Ijo',
                         'assets/images/2.jpg'
                       ),
                     ],

@@ -1,13 +1,13 @@
 part of 'pages.dart';
 
-class Scanner extends StatefulWidget {
-  Scanner({Key key}) : super(key: key);
+class ScannerPage extends StatefulWidget {
+  ScannerPage({Key key}) : super(key: key);
 
   @override
-  _ScannerState createState() => _ScannerState();
+  _ScannerPageState createState() => _ScannerPageState();
 }
 
-class _ScannerState extends State<Scanner> {
+class _ScannerPageState extends State<ScannerPage> {
   TextEditingController searchController = TextEditingController();
   String _scanBarcode = 'Unknown';
 

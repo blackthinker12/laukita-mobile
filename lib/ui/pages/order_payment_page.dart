@@ -2,12 +2,12 @@ part of 'pages.dart';
 
 enum PaymentType { cash, transfer, credit_card }
 
-class OrderPayment extends StatefulWidget {
+class OrderPaymentPage extends StatefulWidget {
   @override
-  _OrderPaymentState createState() => _OrderPaymentState();
+  _OrderPaymentPageState createState() => _OrderPaymentPageState();
 }
 
-class _OrderPaymentState extends State<OrderPayment> {
+class _OrderPaymentPageState extends State<OrderPaymentPage> {
   bool _checked = false;
 
   PaymentType _selected = PaymentType.cash;

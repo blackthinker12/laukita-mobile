@@ -1,12 +1,12 @@
 part of 'pages.dart';
 
-class Referral extends StatefulWidget {
+class ReferralPage extends StatefulWidget {
 
   @override
-  _ReferralState createState() => _ReferralState();
+  _ReferralPageState createState() => _ReferralPageState();
 }
 
-class _ReferralState extends State<Referral> {
+class _ReferralPageState extends State<ReferralPage> {
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _ReferralState extends State<Referral> {
             () => Navigator.pushNamed(context, '/scan'),
             Icon(
               Icons.settings,
-              size: 22.5,
+              size: 24,
             ),
             paddingIcon: EdgeInsets.only(left: 13.0, right: 16.0)
           ),
@@ -33,7 +33,7 @@ class _ReferralState extends State<Referral> {
             null,
             Icon(
               Icons.email,
-              size: 22.5,
+              size: 24,
             ),
             paddingIcon: EdgeInsets.only(left: 13.0, right: 13.0)
           ),

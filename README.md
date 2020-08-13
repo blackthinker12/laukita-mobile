@@ -1,4 +1,4 @@
-# laukita_apps
+# Laukita
 
 A new Flutter project.
 
