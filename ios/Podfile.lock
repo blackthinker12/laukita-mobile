@@ -1,7 +1,5 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_barcode_scanner (1.0.0):
-    - Flutter
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -15,7 +13,6 @@ PODS:
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
-  - flutter_barcode_scanner (from `.symlinks/plugins/flutter_barcode_scanner/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - searchable_dropdown (from `.symlinks/plugins/searchable_dropdown/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
@@ -27,8 +24,6 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   Flutter:
     :path: Flutter
-  flutter_barcode_scanner:
-    :path: ".symlinks/plugins/flutter_barcode_scanner/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   searchable_dropdown:
@@ -38,7 +33,6 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  flutter_barcode_scanner: 4bb3096d5b26d84bf3f588fac18cd0b53a6e6125
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   searchable_dropdown: 5058be32fdc5e0481d300ff2087129072e71bd62

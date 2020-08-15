@@ -65,7 +65,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         DropdownMenuItem(
           value: type,
           child: Container(
-            width: 250,
+            width: SizeConfig.safeBlockHorizontal * 60.82,
             child: Text(
               type.type,
               overflow: TextOverflow.ellipsis,
@@ -86,6 +86,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    
+    double paddingBottomAction;
+    if (MediaQuery.of(context).size.width <= 375) {
+      paddingBottomAction = 1;
+    } else {
+      paddingBottomAction = SizeConfig.safeBlockHorizontal * 3.4;
+    }
 
     return Scaffold(
       appBar: appBarWithSearch(
@@ -218,14 +225,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: 40,),
+                                SizedBox(height: SizeConfig.safeBlockVertical * 6.15,),
                               ],
                             ),
                             Positioned(
                               bottom: 0,
                               child: Container(
                                 width: MediaQuery.of(context).size.width-80,
-                                height: 42,
+                                height: SizeConfig.safeBlockVertical * 6.46,
                                 padding: EdgeInsets.only(left: 15.0),
                                 decoration: BoxDecoration(
                                   color: Color(0xFF900A09)
@@ -238,13 +245,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       mainAxisAlignment: MainAxisAlignment.center,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: <Widget>[
-                                        SizedBox(height: 14,),
+                                        SizedBox(height: SizeConfig.safeBlockVertical * 2.15,),
                                         Text(
                                           "Kategori: ayam, makanan pedas",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontStyle: FontStyle.italic,
-                                            fontSize: 11
+                                            fontSize: SizeConfig.safeBlockHorizontal * 2.919
                                          )
                                         ),
                                       ],
@@ -281,7 +288,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontStyle: FontStyle.italic,
-                                              fontSize: 9
+                                              fontSize: SizeConfig.safeBlockHorizontal * 2.18
                                             ),
                                           ),
                                         )
@@ -295,7 +302,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               bottom: 24,
                               child: Container(
                                 width: MediaQuery.of(context).size.width/2,
-                                height: 27,
+                                height: SizeConfig.safeBlockVertical * 4.15,
                                 padding: EdgeInsets.only(left: 15.0),
                                 decoration: BoxDecoration(
                                   color: Color(0xFFC17D1C).withOpacity(0.8)
@@ -309,7 +316,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                        fontSize: SizeConfig.safeBlockHorizontal * 3.89
                                      )
                                     ),
                                   ],
@@ -405,7 +412,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       "Product Information",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                        fontSize: SizeConfig.safeBlockHorizontal * 3.89
                                       ),
                                     ),
                                   ),
@@ -459,7 +466,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       "Reviews",
                                       style: TextStyle(
                                         fontWeight: FontWeight.bold,
-                                        fontSize: 16
+                                        fontSize: SizeConfig.safeBlockHorizontal * 3.89
                                       ),
                                     ),
                                   ),
@@ -473,7 +480,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                         title: Text(
                                           reviews[i].name,
                                           style: TextStyle(
-                                            fontSize: 14,
+                                            fontSize: SizeConfig.safeBlockHorizontal * 3.4,
                                             fontWeight: FontWeight.bold
                                           ),
                                         ),
@@ -502,7 +509,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                             Text(
                                               reviews[i].review,
                                               style: TextStyle(
-                                                fontSize: 11,
+                                                fontSize: SizeConfig.safeBlockHorizontal * 2.676,
                                               ),
                                               maxLines: 4,
                                               overflow: TextOverflow.ellipsis,
@@ -552,9 +559,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             false,
             <Widget>[
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 14),
+                padding: EdgeInsets.symmetric(
+                  horizontal: SizeConfig.safeBlockHorizontal * 2.4,
+                  vertical: SizeConfig.safeBlockVertical * 2.16
+                ),
                 child: Container(
-                  width: 70.0,
+                  width: SizeConfig.safeBlockHorizontal * 17.03,
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.circular(5.0),
@@ -567,7 +577,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Container(
-                        width: 10,
+                        width: SizeConfig.safeBlockHorizontal * 2.4,
                         margin: EdgeInsets.only(right: 4),
                         child: GestureDetector(
                           child: Icon(
@@ -585,10 +595,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         ),
                       ),
                       Container(
-                        width: 27,
+                        width: SizeConfig.safeBlockHorizontal * 6.56,
                         child: Center(
                           child: TextFormField(
-                            style: TextStyle(fontSize: 10),
+                            style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 2.4),
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.all(5.0),
@@ -629,8 +639,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 )
               ),
               Container(
-                width: 70.0,
-                height: 20.0,
+                width: SizeConfig.safeBlockHorizontal * 17.03,
+                height: SizeConfig.safeBlockVertical * 3,
                 padding: EdgeInsets.zero,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -642,10 +652,10 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     padding: EdgeInsets.only(left: 2.0),
                     child: DropdownButton(
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.9,
                         color: Colors.black
                       ),
-                      iconSize: 20,
+                      iconSize: SizeConfig.safeBlockHorizontal * 4.8,
                       isExpanded: true,
                       value: _selectedType,
                       items: _dropdownTypeItems,
@@ -655,7 +665,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 7.0),
+                margin: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 1.7),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -664,14 +674,14 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       "Rp. 110.000",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16
+                        fontSize: SizeConfig.safeBlockHorizontal * 3.89
                       ),
                     ),
                     Text(
                       "Hands on: Agent #09",
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 9
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.19
                       ),
                     ),
                   ],
@@ -690,16 +700,17 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   color: Colors.white
                 ),
                 SizeConfig.safeBlockHorizontal * 2.2,
-                marginButton: EdgeInsets.only(right: 9.0),
+                marginButton: EdgeInsets.only(right: SizeConfig.safeBlockHorizontal * 2.19),
                 iconButton: Icon(
                   Icons.add_shopping_cart,
-                  size: 20,
+                  size: SizeConfig.safeBlockHorizontal * 4.8,
                   color: Colors.white,
                 ),
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            color: 0xFFcc0001
+            color: 0xFFcc0001,
+            padding: EdgeInsets.symmetric(horizontal: paddingBottomAction)
           )
         ],
       ),

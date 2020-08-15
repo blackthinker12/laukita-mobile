@@ -113,7 +113,8 @@ class _HomePageState extends State<HomePage> {
                       SizeConfig.safeBlockHorizontal * 29.3,
                       SizeConfig.safeBlockHorizontal * 29.6
                     )
-                  ]
+                  ],
+                  padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 3.4)              
                 )
               ],
             ),

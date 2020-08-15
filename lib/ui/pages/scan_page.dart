@@ -112,6 +112,7 @@ class _ScannerPageState extends State<ScannerPage> {
         ),
       ),
       body: Center(
+        //child: Text('scanner versi ios masih error'),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
