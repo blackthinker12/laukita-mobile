@@ -318,65 +318,67 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             ),
                           ],
                         ),
-                        Container(
-                          width: SizeConfig.safeBlockHorizontal * 19.4,
-                          height: SizeConfig.safeBlockVertical * 28.7,
-                          child: ListView(
-                            physics: BouncingScrollPhysics(),
-                            scrollDirection: Axis.vertical,
-                            children: <Widget>[
-                              imageScrollable(
-                                () => setState(() {
-                                  currentImage = "assets/images/ayam_kecombrang.jpg";
-                                  currentTitle = "Ayam Kecombrang";
-                                }),
-                                SizeConfig.safeBlockHorizontal * 19.46,
-                                SizeConfig.safeBlockVertical * 6,
-                                'assets/images/ayam_kecombrang.jpg'
+                        Expanded(
+                          child: Container(
+                            width: SizeConfig.safeBlockHorizontal * 19.4,
+                            height: SizeConfig.safeBlockVertical * 28.7,
+                            child: ListView(
+                              physics: BouncingScrollPhysics(),
+                              scrollDirection: Axis.vertical,
+                              children: <Widget>[
+                                imageScrollable(
+                                  () => setState(() {
+                                    currentImage = "assets/images/ayam_kecombrang.jpg";
+                                    currentTitle = "Ayam Kecombrang";
+                                  }),
+                                  SizeConfig.safeBlockHorizontal * 19.46,
+                                  SizeConfig.safeBlockVertical * 6,
+                                  'assets/images/ayam_kecombrang.jpg'
+                                ),
+                                imageScrollable(
+                                  () => setState(() {
+                                    currentImage = "assets/images/ayam_rica.jpg";
+                                    currentTitle = "Ayam Rica";
+                                  }),
+                                  SizeConfig.safeBlockHorizontal * 19.46,
+                                  SizeConfig.safeBlockVertical * 6,
+                                  'assets/images/ayam_rica.jpg'
+                                ),
+                                imageScrollable(
+                                  () => setState(() {
+                                    currentImage = "assets/images/ayam_cabe_ijo.jpg";
+                                    currentTitle = "Ayam Cabe Ijo";
+                                  }),
+                                  SizeConfig.safeBlockHorizontal * 19.46,
+                                  SizeConfig.safeBlockVertical * 6,
+                                  'assets/images/ayam_cabe_ijo.jpg'
+                                ),
+                                imageScrollable(
+                                  () => setState(() {
+                                    currentImage = "assets/images/cakalang_woku.jpg";
+                                    currentTitle = "Cakalang Woku";
+                                  }),
+                                  SizeConfig.safeBlockHorizontal * 19.46,
+                                  SizeConfig.safeBlockVertical * 6,
+                                  'assets/images/cakalang_woku.jpg'
+                                ),
+                                imageScrollable(
+                                  () => setState(() {
+                                    currentImage = "assets/images/opor_ayam.jpg";
+                                    currentTitle = "Opor Ayam";
+                                  }),
+                                  SizeConfig.safeBlockHorizontal * 19.46,
+                                  SizeConfig.safeBlockVertical * 6,
+                                  'assets/images/opor_ayam.jpg'
+                                ),
+                              ],
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(
+                                width: 3,
+                                color: Colors.grey[300]
                               ),
-                              imageScrollable(
-                                () => setState(() {
-                                  currentImage = "assets/images/ayam_rica.jpg";
-                                  currentTitle = "Ayam Rica";
-                                }),
-                                SizeConfig.safeBlockHorizontal * 19.46,
-                                SizeConfig.safeBlockVertical * 6,
-                                'assets/images/ayam_rica.jpg'
-                              ),
-                              imageScrollable(
-                                () => setState(() {
-                                  currentImage = "assets/images/ayam_cabe_ijo.jpg";
-                                  currentTitle = "Ayam Cabe Ijo";
-                                }),
-                                SizeConfig.safeBlockHorizontal * 19.46,
-                                SizeConfig.safeBlockVertical * 6,
-                                'assets/images/ayam_cabe_ijo.jpg'
-                              ),
-                              imageScrollable(
-                                () => setState(() {
-                                  currentImage = "assets/images/cakalang_woku.jpg";
-                                  currentTitle = "Cakalang Woku";
-                                }),
-                                SizeConfig.safeBlockHorizontal * 19.46,
-                                SizeConfig.safeBlockVertical * 6,
-                                'assets/images/cakalang_woku.jpg'
-                              ),
-                              imageScrollable(
-                                () => setState(() {
-                                  currentImage = "assets/images/opor_ayam.jpg";
-                                  currentTitle = "Opor Ayam";
-                                }),
-                                SizeConfig.safeBlockHorizontal * 19.46,
-                                SizeConfig.safeBlockVertical * 6,
-                                'assets/images/opor_ayam.jpg'
-                              ),
-                            ],
-                          ),
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            border: Border.all(
-                              width: 3,
-                              color: Colors.grey[300]
                             ),
                           ),
                         ),

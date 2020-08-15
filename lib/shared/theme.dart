@@ -1,5 +1,8 @@
 part of 'shared.dart';
 
+const Color greenColor = Color(0xFF1EA64C);
+const Color redColor = Color(0xFF9E0505);
+
 class SizeConfig {
   // set width, height & fontSize of all elements in the application, size icon
   static MediaQueryData _mediaQueryData;

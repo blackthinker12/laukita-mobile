@@ -62,8 +62,8 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold
                       ),
                       null,
-                      SizeConfig.safeBlockHorizontal * 31.38,
-                      SizeConfig.safeBlockHorizontal * 31.63
+                      SizeConfig.safeBlockHorizontal * 29.3,
+                      SizeConfig.safeBlockHorizontal * 29.6
                     ),
                     rButtonWithCircleIcon(
                       Material(
@@ -86,8 +86,8 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold
                       ),
                       null,
-                      SizeConfig.safeBlockHorizontal * 31.38,
-                      SizeConfig.safeBlockHorizontal * 31.63
+                      SizeConfig.safeBlockHorizontal * 29.3,
+                      SizeConfig.safeBlockHorizontal * 29.6
                     ),
                     rButtonWithCircleIcon(
                       Material(
@@ -110,8 +110,8 @@ class _HomePageState extends State<HomePage> {
                         fontWeight: FontWeight.bold
                       ),
                       null,
-                      SizeConfig.safeBlockHorizontal * 31.38,
-                      SizeConfig.safeBlockHorizontal * 31.63
+                      SizeConfig.safeBlockHorizontal * 29.3,
+                      SizeConfig.safeBlockHorizontal * 29.6
                     )
                   ]
                 )

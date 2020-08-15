@@ -169,7 +169,7 @@ class _MainPageState extends State<MainPage> {
                 drawerSubmenuContainer(
                   <Widget>[
                     drawerSubmenu(
-                      () => Navigator.pushNamed(context, '/registration'),
+                      () => Navigator.pushNamed(context, '/email_verification'),
                       'Registration'
                     ),
                     SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
@@ -177,26 +177,31 @@ class _MainPageState extends State<MainPage> {
                       null,
                       'Dashboard'
                     ),
-                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
-                    // drawerSubmenu(
-                    //   () => Navigator.pushNamed(context, '/order_payment'),
-                    //   'Demo Order Payment Page'
-                    // ),
-                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
-                    // drawerSubmenu(
-                    //   () => Navigator.pushNamed(context, '/distribution_portal'),
-                    //   'Demo Distribution Portal'
-                    // ),
-                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
-                    // drawerSubmenu(
-                    //   () => Navigator.pushNamed(context, '/upgrade_account'),
-                    //   'Demo Upgrade Account'
-                    // ),
-                    // SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
-                    // drawerSubmenu(
-                    //   () => Navigator.pushNamed(context, '/table'),
-                    //   'Demo Table'
-                    // ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, '/order_payment'),
+                      'Demo Order Payment Page'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, '/distribution_portal'),
+                      'Demo Distribution Portal'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, '/upgrade_account'),
+                      'Demo Upgrade Account'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, '/shipment_form'),
+                      'Demo Shipment Form Page'
+                    ),
+                    SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
+                    drawerSubmenu(
+                      () => Navigator.pushNamed(context, '/table'),
+                      'Demo Table Page'
+                    ),
                   ]
                 ),
                 Expanded(
@@ -245,6 +250,7 @@ class _MainPageState extends State<MainPage> {
                           color: Color(0xFF9E0505)
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,
+                        null,
                         iconButton: Icon(
                           Icons.exit_to_app,
                           size: 15,

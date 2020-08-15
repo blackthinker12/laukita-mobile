@@ -10,6 +10,7 @@ Widget rectangleActions(
   }
 ) {
   return Container(
+    padding: const EdgeInsets.symmetric(horizontal: 14.0),
     height: heightContainer1,
     decoration: isShadow ? BoxDecoration(
       color: Color(color),

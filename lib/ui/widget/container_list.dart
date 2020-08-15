@@ -14,7 +14,7 @@ Widget containerList(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(left: 15.0, right: 15.0, bottom: 10.0),
+          padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -49,7 +49,7 @@ Widget cardList(
     color: Color(color),
     padding: EdgeInsets.only(top: 5.0, bottom: 10.0),
     child: Padding(
-      padding: EdgeInsets.only(top: 5.0, left: 15.0, right: 15.0),
+      padding: EdgeInsets.only(top: 5.0, left: 16.0, right: 16.0),
       child: ListView(
         physics: BouncingScrollPhysics(),
         scrollDirection: Axis.horizontal,

@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
         '/email_verification': (_) => EmailVerificationPage(),
         '/upgrade_account': (_) => UpgradeAccountPage(),
         '/table': (_) => TableExample(),
-        '/shipment_form': (_) => ShipmentFormPage()
+        '/shipment_form': (_) => ShipmentFormPage(),
+        '/login': (_) => LoginPage()
       },
     );
   }

@@ -6,194 +6,107 @@ class UpgradeAccountPage extends StatefulWidget {
 }
 
 class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
-  final _formKey = GlobalKey<FormState>();
   TextEditingController addressController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-
-  Widget _connectInstagram() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Instagram',
-        ),
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 8.0),
-          width: double.infinity,
-          child: RaisedButton(
-            elevation: 3.0,
-            onPressed: () {
-
-            }, 
-            padding: EdgeInsets.all(12.0),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            color: Color(0xFFD2136D),
-            child: Text(
-              'Connect to Your Instagram',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: SizeConfig.safeBlockHorizontal * 4.3,
-              )
-            ),
-          ),
-        ),
-      ],
-    );
-  }
+  final _formKey = GlobalKey<FormState>();
 
   Widget _inputAddress() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Address',
+    return Theme(
+      data: ThemeData(
+        primaryColor: Color(0xFFff973f),
+        primaryColorDark: Color(0xFFF05828),
+      ),
+      child: TextFormField(
+        validator: (value) {
+          if (value.isEmpty) {
+            return 'Please enter some text';
+          }
+          return null;
+        },
+        controller: addressController,
+        decoration: InputDecoration( 
+          labelText: "Address",
+          hintText: "Address"
         ),
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 8.0),
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Color(0xFFFAFAFA),
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6.0,
-                offset: Offset(0, 2)
-              )
-            ]
-          ),
-          height: 60.0,
-          child: TextField(
-            controller: addressController,
-            keyboardType: TextInputType.emailAddress,
-            decoration: InputDecoration(
-              contentPadding: EdgeInsets.only(top: 14.0),
-              border: InputBorder.none,
-              hintText: 'Enter your address',
-              hintStyle: TextStyle(color: Colors.black45),
-              prefixIcon: Icon(
-                Icons.location_on, 
-                color: Colors.black45,
-              ),
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 
   Widget _inputPhoneNumber() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          'Phone Number',
+    return Theme(
+      data: ThemeData(
+        primaryColor: Color(0xFFff973f),
+        primaryColorDark: Color(0xFFF05828),
+      ),
+      child: TextFormField(
+        validator: (value) {
+          if (value.isEmpty) {
+            return 'Please enter some text';
+          }
+          return null;
+        },
+        controller: addressController,
+        decoration: InputDecoration( 
+          labelText: "Phone Number",
+          hintText: "Phone Number"
         ),
-        Container(
-          margin: EdgeInsets.symmetric(vertical: 8.0),
-          alignment: Alignment.centerLeft,
-          decoration: BoxDecoration(
-            color: Color(0xFFFAFAFA),
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black12,
-                blurRadius: 6.0,
-                offset: Offset(0, 2)
-              )
-            ]
-          ),
-          height: 60.0,
-          child: TextField(
-            controller: phoneController,
-            keyboardType: TextInputType.phone,
-            decoration: InputDecoration(
-              border: InputBorder.none,
-              contentPadding: EdgeInsets.only(top: 14.0),
-              prefixIcon: Icon(
-                Icons.smartphone,
-                color: Colors.black45,
-              ),
-              hintText: 'Enter your phone number',
-              hintStyle: TextStyle(color: Colors.black45)
-            ),
-          ),
-        ),
-      ],
+      ),
     );
   }
 
   Widget _submitButton() {
-    return Container(
-      margin: EdgeInsets.symmetric(vertical: 15.0),
-      width: double.infinity,
-      child: RaisedButton(
-        elevation: 3.0,
-        onPressed: () {
-
-        }, 
-        padding: EdgeInsets.all(18.0),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        rPreferredSizeButton(
+          BoxDecoration(
+            color: greenColor,
+            borderRadius: BorderRadius.circular(6.0),
+          ),
+          SizeConfig.safeBlockHorizontal * 1.21,
+          'Connect to your Instagram',
+          TextStyle(
+            fontSize: SizeConfig.safeBlockHorizontal * 4,
+            fontWeight: FontWeight.bold,
+            color: Colors.white
+          ),
+          SizeConfig.safeBlockHorizontal * 2.2,
+          null,
+          image: 'assets/images/instagram.png',
+          widthImage: 24,
+          widthButton: SizeConfig.safeBlockHorizontal * 60,
         ),
-        color: Theme.of(context).accentColor,
-        child: Text(
-          'Upgrade',
-          style: TextStyle(
+        rPreferredSizeButton(
+          BoxDecoration(
+            color: redColor,
+            borderRadius: BorderRadius.circular(6.0),
+          ),
+          SizeConfig.safeBlockHorizontal * 1.21,
+          'Finish',
+          TextStyle(
+            fontSize: SizeConfig.safeBlockHorizontal * 4,
+            fontWeight: FontWeight.bold,
+            color: Colors.white
+          ),
+          SizeConfig.safeBlockHorizontal * 2.2,
+          null,
+          iconButton: Icon(
+            Icons.done,
+            size: 15,
             color: Colors.white,
-            fontSize: SizeConfig.safeBlockHorizontal * 4.3,
-          )
+          ),
+          widthButton: SizeConfig.safeBlockHorizontal * 20,
         ),
-      ),
+      ],
     );
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: appBar(
-        'Upgrade Account',
-        <Widget>[
-          rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
-            Icon(
-              Icons.settings,
-              size: 24,
-            ),
-            paddingIcon: EdgeInsets.only(left: 13.0, right: 16.0)
-          ),
-          rIconButton(
-            null,
-            Icon(
-              Icons.email,
-              size: 24,
-            ),
-            paddingIcon: EdgeInsets.only(left: 13.0, right: 13.0)
-          ),
-          rIconButton(
-            null,
-            Icon(
-              RizalIcons.notification,
-              color: Colors.white,
-            ),
-            paddingIcon: EdgeInsets.only(left: 10.0, right: 16.0)
-          )
-        ],
-        Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            );
-          },
-        ),
+      appBar: AppBar(
+        title: Text('Referral Registration'),
       ),
       body: Stack(
         children: [
@@ -206,26 +119,14 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
                 physics: AlwaysScrollableScrollPhysics(),
                 padding: EdgeInsets.fromLTRB(
                   SizeConfig.safeBlockHorizontal * 4.866,
-                  SizeConfig.safeBlockVertical * 10.76,
+                  MediaQuery.of(context).size.height/4,
                   SizeConfig.safeBlockHorizontal * 4.866,
-                  SizeConfig.safeBlockVertical * 3.69
+                  SizeConfig.safeBlockVertical * 0
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
-                    Text(
-                      'Upgrade your account',
-                      style: TextStyle(
-                        fontSize: SizeConfig.safeBlockHorizontal * 5.5,
-                        fontWeight: FontWeight.bold
-                      )
-                    ),
-                    SizedBox(
-                      height: SizeConfig.safeBlockVertical * 3.5,
-                    ),
-                    _connectInstagram(),
-                    SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
                     _inputAddress(),
                     SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
                     _inputPhoneNumber(),
@@ -234,7 +135,7 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
                   ]
                 )
               )
-            )
+            ),
           )
         ]
       )

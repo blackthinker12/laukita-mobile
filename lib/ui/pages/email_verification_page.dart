@@ -32,47 +32,8 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: scaffoldKey,
-      appBar: appBar(
-        'Email Verification',
-        <Widget>[
-          rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
-            Icon(
-              Icons.settings,
-              size: 22.5,
-            ),
-            paddingIcon: EdgeInsets.only(left: 13.0, right: 16.0)
-          ),
-          rIconButton(
-            null,
-            Icon(
-              Icons.email,
-              size: 22.5,
-            ),
-            paddingIcon: EdgeInsets.only(left: 13.0, right: 13.0)
-          ),
-          rIconButton(
-            null,
-            Icon(
-              RizalIcons.notification,
-              color: Colors.white,
-            ),
-            paddingIcon: EdgeInsets.only(left: 10.0, right: 16.0)
-          )
-        ],
-        Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-                color: Colors.white
-              ),
-              onPressed: () {
-                Navigator.pop(context, false);
-              },
-            );
-          },
-        ),
+      appBar: AppBar(
+        title: Text('Email Verification')
       ),
       body: Stack(
         children: [
@@ -91,13 +52,12 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Verify your email',
+                      'Please enter the 4 digit code sent to examp**@*****.com',
                       style: TextStyle(
-                        fontSize: SizeConfig.safeBlockHorizontal * 5.5,
-                        fontWeight: FontWeight.bold
+                        fontSize: SizeConfig.safeBlockHorizontal * 3.5,
                       )
                     ),
                     SizedBox(
@@ -141,32 +101,123 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         return true;
                       },
                     ),
-                    FloatingActionButton.extended(
-                      label: Text(
-                        'Verify',
-                        style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)
-                      ),
-                      elevation: 2.0,
-                      backgroundColor: Theme.of(context).accentColor,
-                      onPressed: () {
-                        _formKey.currentState.validate();
-                        if (currentText.length != 6 || currentText != "123456") {
-                          errorController.add(ErrorAnimationType.shake); // Triggering error shake animation
-                          setState(() {
-                            hasError = true;
-                          });
-                        }
-                        else {
-                          setState(() {
-                            hasError = false;
-                            scaffoldKey.currentState.showSnackBar(SnackBar(
-                              content: Text("Aye!!"),
-                              duration: Duration(seconds: 2),
-                            ));
-                          });
-                        }
-                      }
+                    SizedBox(
+                      height: SizeConfig.safeBlockVertical * 3.5,
                     ),
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: rPreferredSizeButton(
+                        BoxDecoration(
+                          color: redColor,
+                          borderRadius: BorderRadius.circular(6.0),
+                        ),
+                        SizeConfig.safeBlockHorizontal * 1.21,
+                        'Finish',
+                        TextStyle(
+                          fontSize: SizeConfig.safeBlockHorizontal * 4,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white
+                        ),
+                        SizeConfig.safeBlockHorizontal * 2.2,
+                        null,
+                        iconButton: Icon(
+                          Icons.done,
+                          size: 15,
+                          color: Colors.white,
+                        ),
+                        widthButton: SizeConfig.safeBlockHorizontal * 20,
+                      ),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 10.0, right: 20.0, top: 5.0, bottom: 10.0),
+                            child: Divider(
+                              color: Colors.black,
+                              height: 36,
+                            )
+                          ),
+                        ),
+                        Container(
+                          margin: const EdgeInsets.only(top: 5.0, bottom: 10.0),
+                          child: Text("OR")
+                        ),
+                        Expanded(
+                          child: Container(
+                            margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 5.0, bottom: 10.0),
+                            child: Divider(
+                              color: Colors.black,
+                              height: 36,
+                            )
+                          ),
+                        ),
+                      ]
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        rPreferredSizeButton(
+                          BoxDecoration(
+                            color: greenColor,
+                            borderRadius: BorderRadius.circular(6.0),
+                          ),
+                          SizeConfig.safeBlockHorizontal * 1.21,
+                          'Resend Code',
+                          TextStyle(
+                            fontSize: SizeConfig.safeBlockHorizontal * 4,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                          ),
+                          SizeConfig.safeBlockHorizontal * 2.2,
+                          null,
+                          widthButton: SizeConfig.safeBlockHorizontal * 30,
+                        ),
+                        rPreferredSizeButton(
+                          BoxDecoration(
+                            color: greenColor,
+                            borderRadius: BorderRadius.circular(6.0),
+                          ),
+                          SizeConfig.safeBlockHorizontal * 1.21,
+                          'Change Email',
+                          TextStyle(
+                            fontSize: SizeConfig.safeBlockHorizontal * 4,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white
+                          ),
+                          SizeConfig.safeBlockHorizontal * 2.2,
+                          null,
+                          widthButton: SizeConfig.safeBlockHorizontal * 30.6,
+                        )
+                      ],
+                    ),
+                    // FloatingActionButton.extended(
+                    //   label: Text(
+                    //     'Verify',
+                    //     style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold)
+                    //   ),
+                    //   elevation: 2.0,
+                    //   backgroundColor: Theme.of(context).accentColor,
+                    //   onPressed: () {
+                    //     _formKey.currentState.validate();
+                    //     if (currentText.length != 6 || currentText != "123456") {
+                    //       errorController.add(ErrorAnimationType.shake); // Triggering error shake animation
+                    //       setState(() {
+                    //         hasError = true;
+                    //       });
+                    //     }
+                    //     else {
+                    //       setState(() {
+                    //         hasError = false;
+                    //         scaffoldKey.currentState.showSnackBar(SnackBar(
+                    //           content: Text("Aye!!"),
+                    //           duration: Duration(seconds: 2),
+                    //         ));
+                    //       });
+                    //     }
+                    //   }
+                    // ),
                   ]
                 ),
               )

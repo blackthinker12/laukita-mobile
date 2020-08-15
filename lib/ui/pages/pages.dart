@@ -14,6 +14,7 @@ import 'package:latlong/latlong.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
+import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 import 'package:Laukita/shared/shared.dart';
 import 'package:Laukita/ui/widget/widgets.dart';
@@ -32,3 +33,4 @@ part 'email_verification_page.dart';
 part 'upgrade_account_page.dart';
 part 'table.dart';
 part 'shipment_form_page.dart';
+part 'login_page.dart';

@@ -19,7 +19,14 @@ AppBar appBarWithSearch(
       child: textField,
     ),
     titleSpacing: 0.0,
-    actions: actionsList,
+    actions: [
+      Container(
+        margin: EdgeInsets.only(right: 10.0),
+        child: Row(
+          children: actionsList
+        ),
+      )
+    ],
   );
 }
 
