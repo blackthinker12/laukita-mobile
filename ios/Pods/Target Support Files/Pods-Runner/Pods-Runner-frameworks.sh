@@ -199,6 +199,7 @@ fi
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${PODS_ROOT}/../Flutter/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_barcode_scanner/flutter_barcode_scanner.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/searchable_dropdown/searchable_dropdown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/sqflite/sqflite.framework"
@@ -206,6 +207,7 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${PODS_ROOT}/../Flutter/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_barcode_scanner/flutter_barcode_scanner.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/searchable_dropdown/searchable_dropdown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/sqflite/sqflite.framework"
@@ -213,6 +215,7 @@ fi
 if [[ "$CONFIGURATION" == "Profile" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework"
   install_framework "${PODS_ROOT}/../Flutter/Flutter.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/flutter_barcode_scanner/flutter_barcode_scanner.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/searchable_dropdown/searchable_dropdown.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/sqflite/sqflite.framework"
