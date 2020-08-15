@@ -6,11 +6,12 @@ Widget rectangleActions(
   List<Widget> content,
   {
     MainAxisAlignment mainAxisAlignment = MainAxisAlignment.spaceEvenly,
-    int color = 0xFFF05828
+    int color = 0xFFF05828,
+    EdgeInsets padding = const EdgeInsets.symmetric(horizontal: 14.0)
   }
 ) {
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 14.0),
+    padding: padding,
     height: heightContainer1,
     decoration: isShadow ? BoxDecoration(
       color: Color(color),
