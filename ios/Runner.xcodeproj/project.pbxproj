@@ -239,6 +239,7 @@
 				"${PODS_ROOT}/../Flutter/Flutter.framework",
 				"${BUILT_PRODUCTS_DIR}/flutter_barcode_scanner/flutter_barcode_scanner.framework",
 				"${BUILT_PRODUCTS_DIR}/path_provider/path_provider.framework",
+				"${BUILT_PRODUCTS_DIR}/searchable_dropdown/searchable_dropdown.framework",
 				"${BUILT_PRODUCTS_DIR}/sqflite/sqflite.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -247,6 +248,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_barcode_scanner.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/path_provider.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/searchable_dropdown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/sqflite.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

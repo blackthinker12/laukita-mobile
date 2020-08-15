@@ -1,0 +1,31 @@
+{
+  "name": "searchable_dropdown",
+  "version": "1.1.1",
+  "summary": "A new flutter plugin project.",
+  "description": "A new flutter plugin project.",
+  "homepage": "http://github.com/icemanbsi/searchable_dropdown",
+  "license": {
+    "file": "../LICENSE"
+  },
+  "authors": {
+    "Your Company": "email@example.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "Classes/**/*",
+  "dependencies": {
+    "Flutter": [
+
+    ]
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES",
+    "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+  },
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

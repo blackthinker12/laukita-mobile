@@ -1,0 +1,6 @@
+framework module searchable_dropdown {
+  umbrella header "searchable_dropdown-umbrella.h"
+
+  export *
+  module * { export * }
+}
