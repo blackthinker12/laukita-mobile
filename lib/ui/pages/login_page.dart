@@ -44,10 +44,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: SizeConfig.safeBlockVertical * 3.5,
                     ),
                     Theme(
-                      data: ThemeData(
-                        primaryColor: Color(0xFFff973f),
-                        primaryColorDark: Color(0xFFF05828),
-                      ),
+                      data: textBoxTheme(),
                       child: TextFormField(
                         validator: (value) {
                           if (value.isEmpty) {
@@ -67,10 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                       height: SizeConfig.safeBlockVertical * 2.461,
                     ),
                     Theme(
-                      data: ThemeData(
-                        primaryColor: Color(0xFFff973f),
-                        primaryColorDark: Color(0xFFF05828),
-                      ),
+                      data: textBoxTheme(),
                       child: TextFormField(
                         validator: (value) {
                           if (value.isEmpty) {
@@ -107,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                       alignment: Alignment.centerRight,
                       child: rPreferredSizeButton(
                         BoxDecoration(
-                          color: Color(0xFF9E0505),
+                          color: redButtonColor,
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         SizeConfig.safeBlockHorizontal * 1.21,

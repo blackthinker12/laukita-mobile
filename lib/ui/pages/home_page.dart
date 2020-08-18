@@ -40,7 +40,7 @@ class _HomePageState extends State<HomePage> {
                   <Widget>[
                     rButtonWithCircleIcon(
                       Material(
-                        color: Color(0xFFF59622),
+                        color: orangeButtonColor,
                         child: Container(
                           margin: EdgeInsets.symmetric(vertical: 1.8),
                           child: Padding(
@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     rButtonWithCircleIcon(
                       Material(
-                        color: Color(0xFFFE954E),
+                        color: orangeButtonColor,
                         child: Padding(
                           padding: const EdgeInsets.all(1.5),
                           child: Icon(
@@ -91,7 +91,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     rButtonWithCircleIcon(
                       Material(
-                        color: Color(0xFFF59622),
+                        color: orangeButtonColor,
                         child: Padding(
                           padding: EdgeInsets.all(2.0),
                           child: Icon(
@@ -164,7 +164,7 @@ class _HomePageState extends State<HomePage> {
                 containerList(
                   cardList(
                     SizeConfig.safeBlockVertical * 22,
-                    0xFFfafaed,
+                    cardColorInt,
                     <Widget> [
                       productCard(
                         () => Navigator.pushNamed(context, '/product_detail'),
@@ -211,7 +211,7 @@ class _HomePageState extends State<HomePage> {
                 containerList(
                   cardList(
                     SizeConfig.safeBlockVertical * 22,
-                    0xFFfafaed,
+                    cardColorInt,
                     <Widget> [
                       productCard(
                         () => Navigator.pushNamed(context, '/product_detail'),

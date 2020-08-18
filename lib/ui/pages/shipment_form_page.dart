@@ -156,7 +156,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Card(
-                      color: Color(0xFFFAFAFA),
+                      color: whiteContainer,
                       margin: EdgeInsets.only(left: 16.0, top: 10.0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -178,7 +178,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                       )
                     ),
                     Card(
-                      color: Color(0xFFFAFAFA),
+                      color: whiteContainer,
                       margin: EdgeInsets.only(left: 16.0, top: 10.0),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -219,7 +219,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
             <Widget>[
               rButton(
                 BoxDecoration(
-                  color: Color(0xFF9E0505),
+                  color: redButtonColor,
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 SizeConfig.safeBlockHorizontal * 1.21,
@@ -239,7 +239,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
               ),
               rButton(
                 BoxDecoration(
-                  color: Color(0xFF9E0505),
+                  color: redButtonColor,
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 SizeConfig.safeBlockHorizontal * 1.21,
@@ -259,7 +259,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            color: 0xFFcc0001,
+            color: containerRedColorInt,
             padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 3.4)
           ),
         ],

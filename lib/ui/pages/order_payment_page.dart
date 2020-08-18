@@ -52,7 +52,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6.0),
-                    color: Color(0xffFBFBEF),
+                    color: yellowContainer
                   ),
                   height: 170,
                   child: Column(
@@ -222,7 +222,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                 ),
                 rButton(
                   BoxDecoration(
-                    color: Color(0xFF9E0505),
+                    color: redButtonColor,
                     borderRadius: BorderRadius.circular(6.0),
                   ),
                   SizeConfig.safeBlockHorizontal * 1.21,

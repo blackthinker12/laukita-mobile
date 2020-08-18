@@ -105,10 +105,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         SizedBox(height: 9,),
                         Divider(height: 1,),
                         Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -128,10 +125,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           height: SizeConfig.safeBlockVertical * 2.461,
                         ),
                         Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -154,7 +148,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           alignment: Alignment.centerRight,
                           child: rPreferredSizeButton(
                             BoxDecoration(
-                              color: Color(0xFF9E0505),
+                              color: redButtonColor,
                               borderRadius: BorderRadius.circular(6.0),
                             ),
                             SizeConfig.safeBlockHorizontal * 1.21,
@@ -213,7 +207,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           children: [
                             rPreferredSizeButton(
                               BoxDecoration(
-                                color: Color(0xFF13A7DB),
+                                color: blueButtonColor,
                                 borderRadius: BorderRadius.circular(6.0),
                               ),
                               SizeConfig.safeBlockHorizontal * 1.21,
@@ -236,7 +230,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             ),
                             rPreferredSizeButton(
                               BoxDecoration(
-                                color: Color(0xFFCC1A7A),
+                                color: purpleButtonColor,
                                 borderRadius: BorderRadius.circular(6.0),
                               ),
                               SizeConfig.safeBlockHorizontal * 1.21,
@@ -312,10 +306,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           height: SizeConfig.safeBlockVertical * 2.461,
                         ) : SizedBox(),
                         Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -331,10 +322,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           ),
                         ),
                         !isLoginWithSocialMedia ? Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -377,7 +365,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           alignment: Alignment.centerRight,
                           child: rPreferredSizeButton(
                             BoxDecoration(
-                              color: Color(0xFF9E0505),
+                              color: redButtonColor,
                               borderRadius: BorderRadius.circular(6.0),
                             ),
                             SizeConfig.safeBlockHorizontal * 1.21,

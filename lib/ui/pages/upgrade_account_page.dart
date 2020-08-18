@@ -12,10 +12,7 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
 
   Widget _inputAddress() {
     return Theme(
-      data: ThemeData(
-        primaryColor: Color(0xFFff973f),
-        primaryColorDark: Color(0xFFF05828),
-      ),
+      data: textBoxTheme(),
       child: TextFormField(
         validator: (value) {
           if (value.isEmpty) {
@@ -34,10 +31,7 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
 
   Widget _inputPhoneNumber() {
     return Theme(
-      data: ThemeData(
-        primaryColor: Color(0xFFff973f),
-        primaryColorDark: Color(0xFFF05828),
-      ),
+      data: textBoxTheme(),
       child: TextFormField(
         validator: (value) {
           if (value.isEmpty) {
@@ -61,7 +55,7 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
       children: [
         rPreferredSizeButton(
           BoxDecoration(
-            color: greenColor,
+            color: greenButtonColor,
             borderRadius: BorderRadius.circular(6.0),
           ),
           SizeConfig.safeBlockHorizontal * 1.21,
@@ -79,7 +73,7 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
         ),
         rPreferredSizeButton(
           BoxDecoration(
-            color: redColor,
+            color: redButtonColor,
             borderRadius: BorderRadius.circular(6.0),
           ),
           SizeConfig.safeBlockHorizontal * 1.21,

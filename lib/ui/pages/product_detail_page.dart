@@ -235,7 +235,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                 height: SizeConfig.safeBlockVertical * 6.46,
                                 padding: EdgeInsets.only(left: 15.0),
                                 decoration: BoxDecoration(
-                                  color: Color(0xFF900A09)
+                                  color: containerTitleProductDetail
                                 ),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -689,7 +689,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ),
               rButton(
                 BoxDecoration(
-                  color: Color(0xFF9E0505),
+                  color: redButtonColor,
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 SizeConfig.safeBlockHorizontal * 1.21,
@@ -709,7 +709,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            color: 0xFFcc0001,
+            color: containerRedColorInt,
             padding: EdgeInsets.symmetric(horizontal: paddingBottomAction)
           )
         ],

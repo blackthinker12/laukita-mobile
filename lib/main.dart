@@ -1,3 +1,4 @@
+import 'package:Laukita/shared/shared.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,12 +17,7 @@ class MyApp extends StatelessWidget {
 
     return MaterialApp(
       title: 'Laukita',
-      theme: ThemeData(
-        //primaryColor: Theme.of(context).primaryColor,
-        primaryColor: Color(0xFFe8282e),
-        primaryColorLight: Color(0xFFF05828),
-        accentColor: Color(0xFFFE954E)
-      ),
+      theme: appTheme(),
       debugShowCheckedModeBanner: false,
       home: MainPage(),
       routes: {

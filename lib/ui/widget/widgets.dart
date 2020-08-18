@@ -1,3 +1,4 @@
+import 'package:Laukita/shared/shared.dart';
 import 'package:flutter/material.dart';
 
 part 'appbar.dart';

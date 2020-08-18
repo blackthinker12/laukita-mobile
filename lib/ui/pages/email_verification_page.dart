@@ -108,7 +108,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       alignment: Alignment.centerRight,
                       child: rPreferredSizeButton(
                         BoxDecoration(
-                          color: redColor,
+                          color: redButtonColor,
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         SizeConfig.safeBlockHorizontal * 1.21,
@@ -160,7 +160,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       children: [
                         rPreferredSizeButton(
                           BoxDecoration(
-                            color: greenColor,
+                            color: greenButtonColor,
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           SizeConfig.safeBlockHorizontal * 1.21,
@@ -176,7 +176,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         ),
                         rPreferredSizeButton(
                           BoxDecoration(
-                            color: greenColor,
+                            color: greenButtonColor,
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           SizeConfig.safeBlockHorizontal * 1.21,

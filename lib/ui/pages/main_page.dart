@@ -104,7 +104,7 @@ class _MainPageState extends State<MainPage> {
         child: Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: Color(0xFFD13536),
+            color: redMenuContainerColor,
           ),
           child: SafeArea(
             child: Column(
@@ -247,14 +247,14 @@ class _MainPageState extends State<MainPage> {
                         TextStyle(
                           fontSize: SizeConfig.safeBlockHorizontal * 2.8,
                           fontWeight: FontWeight.bold,
-                          color: Color(0xFF9E0505)
+                          color: redMenuTextColor
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,
                         null,
                         iconButton: Icon(
                           Icons.exit_to_app,
                           size: 15,
-                          color: Color(0xFF9E0505),
+                          color: redMenuTextColor
                         ),
                         widthButton: SizeConfig.safeBlockHorizontal * 29.197,
                       )
@@ -268,7 +268,7 @@ class _MainPageState extends State<MainPage> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          canvasColor: Color(0xFFcc0001),
+          canvasColor: primaryColor,
         ),
         child: BottomNavigationBar(
           selectedItemColor: Colors.white,

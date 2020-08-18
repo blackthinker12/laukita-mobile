@@ -12,7 +12,7 @@ AppBar appBarWithSearch(
       margin: const EdgeInsets.only(right: 2.0),
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: Color(0xFFFAFAFA),
+        color: whiteContainer,
         borderRadius: BorderRadius.circular(3.0),
       ),
       height: heightTextBox,
