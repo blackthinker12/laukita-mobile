@@ -32,7 +32,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                     fontSize: 16
                   ),
                 ),
-                SizedBox(height: 9,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                 Divider(height: 1,),
                 CheckboxListTile(
                   contentPadding: EdgeInsets.all(0.0),
@@ -54,7 +54,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                     borderRadius: BorderRadius.circular(6.0),
                     color: yellowContainer
                   ),
-                  height: 170,
+                  height: SizeConfig.safeBlockVertical * 26.15,
                   child: Column(
                     children: [
                       RadioListTile(
@@ -84,7 +84,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 11,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.69,),
                 Text(
                   'Overview',
                   style: TextStyle(
@@ -92,9 +92,9 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                     fontSize: 16
                   ),
                 ),
-                SizedBox(height: 9,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                 Divider(height: 1,),
-                SizedBox(height: 9,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,

@@ -91,7 +91,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     if (MediaQuery.of(context).size.width <= 375) {
       paddingBottomAction = 1;
     } else {
-      paddingBottomAction = SizeConfig.safeBlockHorizontal * 3.4;
+      paddingBottomAction = SizeConfig.safeBlockHorizontal * 3.2;
     }
 
     return Scaffold(

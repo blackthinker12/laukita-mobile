@@ -29,8 +29,8 @@ class _MainPageState extends State<MainPage> {
   callPage(int bottomNavBarIndex) {
     switch (bottomNavBarIndex) {
       case 0: return HomePage();
-
       case 1: return NearByPage();
+      case 4: return UserProfilePage();
 
         break;
       default:
@@ -76,14 +76,16 @@ class _MainPageState extends State<MainPage> {
               size: 20,
             )
           ),
-          rIconButton(
+          rIconButtonWithBadges(
             null,
             Icon(
               RizalIcons.notification,
               color: Colors.white,
-              size: 20,
-            )
-          )
+              size: 22,
+            ),
+            1,
+            context
+          ),
         ],
         Builder(
           builder: (BuildContext context) {

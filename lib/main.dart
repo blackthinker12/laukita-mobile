@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
         '/product_detail': (_) => ProductDetailPage(),
         '/scan': (_) => ScannerPage(),
         '/order_payment': (_) => OrderPaymentPage(),
-        '/referral': (_) => ReferralPage(),
         '/distribution_portal': (_) => DistributionPortalPage(),
         '/registration': (_) => RegistrationPage(isLoginWithSocialMedia: false),
         '/email_verification': (_) => EmailVerificationPage(),

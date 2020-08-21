@@ -130,7 +130,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                     ),
                   ]
                 ),
-                Divider(height: 4,),
+                Divider(height: SizeConfig.safeBlockVertical * 0.615,),
                 SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
                 Text(
                   "Delivery Address",

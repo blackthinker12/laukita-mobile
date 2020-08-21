@@ -9,3 +9,4 @@ part 'r_button.dart';
 part 'container_list.dart';
 part 'image_list_scrollable.dart';
 part 'menu.dart';
+part 'custom_tile.dart';

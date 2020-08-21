@@ -51,6 +51,81 @@ Widget rIconButton(
   );
 }
 
+Widget rIconButtonWithBadges(
+  Function onTap,
+  Icon icon,
+  int badgesCount,
+  BuildContext context,
+  {EdgeInsets paddingIcon = const EdgeInsets.symmetric(horizontal: 4.0)}
+) {
+  return Padding(
+    padding: paddingIcon,
+    child: Stack(
+      children: <Widget>[
+        InkWell(
+          onTap: onTap,
+          child: icon,
+        ),
+        badgesCount > 0
+          ? Positioned(
+              right: 0,
+              child: Container(
+                padding: EdgeInsets.all(1),
+                decoration: BoxDecoration(
+                  color: Theme.of(context).accentColor,
+                  borderRadius: BorderRadius.circular(7),
+                ),
+                constraints: BoxConstraints(
+                  minWidth: 14,
+                  minHeight: 14,
+                ),
+                child: Center(
+                  child: Text(
+                    badgesCount.toString(),
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 8,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
+          ) : SizedBox()
+      ],
+    ),
+  );
+}
+
+Widget underlineIconButton(
+  String buttonName,
+  IconData icon,
+  Function onTap,
+  double fontSize,
+  double iconSize
+) {
+  return InkWell(
+    onTap: onTap,
+    child: Row(
+      children: <Widget>[
+        Text(
+          buttonName,
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+            fontWeight: FontWeight.w700,
+            color: Colors.black87,
+            fontSize: fontSize
+          ),
+        ),
+        SizedBox(width: 2,),
+        Icon(
+          icon,
+          size: iconSize,
+        )
+      ],
+    ),
+  );
+}
+
 Widget rPreferredSizeButton(
   BoxDecoration boxButton,
   double spacing,
@@ -133,5 +208,81 @@ Widget rButtonWithCircleIcon(
         ]
       ),
     ),
+  );
+}
+
+Widget verticalIconButton(
+  String buttonName,
+  int badgesCount,
+  {
+    double fontSize = 11,
+    double spaceVertical = 5.0,
+    IconData icon,
+    double iconSize = 12,
+    double badgesSize = 12,
+  }
+) { 
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.center,
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: <Widget>[
+      Stack(
+        children: <Widget>[
+          Container(
+            height: 35,
+            width: 35,
+            decoration: BoxDecoration(
+              color: primaryColor,
+              shape: BoxShape.circle,
+            ),
+            child: Icon(
+              icon,
+              color: Colors.white,
+              size: iconSize,
+            ),
+          ),
+          badgesCount > 0
+            ? Positioned(
+                right: 0,
+                top: 0,
+                child: Container(
+                  padding: EdgeInsets.all(1),
+                  decoration: BoxDecoration(
+                    color: primaryColorLight,
+                    borderRadius: BorderRadius.circular(badgesSize / 2),
+                  ),
+                  constraints: BoxConstraints(
+                    minWidth: badgesSize,
+                    minHeight: badgesSize,
+                  ),
+                  child: Center(
+                    child: Text(
+                      badgesCount.toString(),
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 8,
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                  ),
+                ))
+            : SizedBox()
+        ],
+      ),
+      SizedBox(
+        height: spaceVertical,
+      ),
+      Text(
+        buttonName,
+        style: TextStyle(
+          fontSize: fontSize,
+          fontStyle: FontStyle.italic,
+          fontWeight: FontWeight.bold,
+          color: Colors.black45
+        ),
+        maxLines: 2,
+        textAlign: TextAlign.center,
+      ),
+    ],
   );
 }

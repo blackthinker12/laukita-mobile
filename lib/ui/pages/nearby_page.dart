@@ -149,7 +149,7 @@ class _NearByPageState extends State<NearByPage> {
                         child: Icon(
                           Icons.error_outline,
                           color: Colors.red,
-                          size: SizeConfig.safeBlockVertical * 9.75,
+                          size: SizeConfig.safeBlockHorizontal * 4.87,
                         ),
                       )
                     ),

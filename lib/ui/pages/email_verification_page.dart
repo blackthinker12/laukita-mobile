@@ -77,8 +77,8 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         activeColor: Colors.green,
                         shape: PinCodeFieldShape.box,
                         borderRadius: BorderRadius.circular(5),
-                        fieldHeight: 50,
-                        fieldWidth: 40,
+                        fieldHeight: SizeConfig.safeBlockVertical * 7.69,
+                        fieldWidth: SizeConfig.safeBlockHorizontal * 9.73,
                         activeFillColor: Colors.white,
                       ),
                       animationDuration: Duration(milliseconds: 300),
@@ -135,7 +135,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                             margin: const EdgeInsets.only(left: 10.0, right: 20.0, top: 5.0, bottom: 10.0),
                             child: Divider(
                               color: Colors.black,
-                              height: 36,
+                              height: SizeConfig.safeBlockVertical * 5.53,
                             )
                           ),
                         ),
@@ -148,7 +148,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                             margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 5.0, bottom: 10.0),
                             child: Divider(
                               color: Colors.black,
-                              height: 36,
+                              height: SizeConfig.safeBlockVertical * 5.53,
                             )
                           ),
                         ),

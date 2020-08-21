@@ -102,7 +102,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             fontSize: 14
                           ),
                         ),
-                        SizedBox(height: 9,),
+                        SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                         Divider(height: 1,),
                         Theme(
                           data: textBoxTheme(),
@@ -182,7 +182,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 margin: const EdgeInsets.only(left: 10.0, right: 20.0, top: 5.0, bottom: 10.0),
                                 child: Divider(
                                   color: Colors.black,
-                                  height: 36,
+                                  height: SizeConfig.safeBlockVertical * 5.53,
                                 )
                               ),
                             ),
@@ -195,7 +195,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 5.0, bottom: 10.0),
                                 child: Divider(
                                   color: Colors.black,
-                                  height: 36,
+                                  height: SizeConfig.safeBlockVertical * 5.53,
                                 )
                               ),
                             ),
@@ -300,7 +300,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             fontSize: 14
                           ),
                         ),
-                        SizedBox(height: 9,),
+                        SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                         Divider(height: 1,),
                         !isLoginWithSocialMedia ? SizedBox(
                           height: SizeConfig.safeBlockVertical * 2.461,
