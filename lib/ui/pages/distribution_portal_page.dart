@@ -18,7 +18,7 @@ class _DistributionPortalPageState extends State<DistributionPortalPage> {
             () => Navigator.pushNamed(context, '/scan'),
             Icon(
               Icons.settings,
-              size: 22.5,
+              size: SizeConfig.safeBlockHorizontal * 5.352798,
             ),
             paddingIcon: EdgeInsets.only(left: 13.0, right: 16.0)
           ),
@@ -26,7 +26,7 @@ class _DistributionPortalPageState extends State<DistributionPortalPage> {
             null,
             Icon(
               Icons.email,
-              size: 22.5,
+              size: SizeConfig.safeBlockHorizontal * 5.352798,
             ),
             paddingIcon: EdgeInsets.only(left: 13.0, right: 13.0)
           ),

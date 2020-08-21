@@ -47,7 +47,7 @@ class _HomePageState extends State<HomePage> {
                             padding: EdgeInsets.all(3.0),
                             child: Icon(
                               RizalIcons.basket,
-                              size: 16,
+                              size: SizeConfig.safeBlockHorizontal * 3.89294,
                             ),
                           ),
                         ),
@@ -72,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                           padding: const EdgeInsets.all(1.5),
                           child: Icon(
                             RizalIcons.points,
-                            size: 22,
+                            size: SizeConfig.safeBlockHorizontal * 5.352798,
                           ),
                         ),
                       ),
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                           padding: EdgeInsets.all(2.0),
                           child: Icon(
                             Icons.bookmark_border,
-                            size: 20,
+                            size: SizeConfig.safeBlockHorizontal * 4.86618,
                           ),
                         ),
                       ),
@@ -295,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                       'Discount 25%',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16.0,
+                        fontSize: SizeConfig.safeBlockHorizontal * 3.893,
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic
                       ),

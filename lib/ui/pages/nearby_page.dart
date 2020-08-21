@@ -295,7 +295,7 @@ class _NearByPageState extends State<NearByPage> {
                         trailing: Icon(
                           Icons.directions,
                           color: Colors.blueAccent,
-                          size: 30.0,
+                          size: SizeConfig.safeBlockHorizontal * 7.2992,
                         ),
                         contentPadding: EdgeInsets.all(3.0),
                       ),

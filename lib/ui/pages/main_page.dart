@@ -50,7 +50,8 @@ class _MainPageState extends State<MainPage> {
             keyboardType: TextInputType.text,
             decoration: appBarInputDecoration(
               SizeConfig.safeBlockHorizontal * 3.3,
-              null
+              null,
+              SizeConfig.safeBlockHorizontal * 4.86618
             )
           ),
         ),
@@ -59,21 +60,21 @@ class _MainPageState extends State<MainPage> {
             () => Navigator.pushNamed(context, '/scan'),
             Icon(
               RizalIcons.scan,
-              size: 24,
+              size: SizeConfig.safeBlockHorizontal * 5.8394,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.settings,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.email,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButtonWithBadges(
@@ -81,7 +82,7 @@ class _MainPageState extends State<MainPage> {
             Icon(
               RizalIcons.notification,
               color: Colors.white,
-              size: 22,
+              size: SizeConfig.safeBlockHorizontal * 5.352798,
             ),
             1,
             context
@@ -223,7 +224,7 @@ class _MainPageState extends State<MainPage> {
                               child: Icon(
                                 Icons.help,
                                 color: Colors.white,
-                                size: 15,
+                                size: SizeConfig.safeBlockHorizontal * 3.6496,
                               ),
                             ),
                             Text(
@@ -255,7 +256,7 @@ class _MainPageState extends State<MainPage> {
                         null,
                         iconButton: Icon(
                           Icons.exit_to_app,
-                          size: 15,
+                          size: SizeConfig.safeBlockHorizontal * 3.6496,
                           color: redMenuTextColor
                         ),
                         widthButton: SizeConfig.safeBlockHorizontal * 29.197,

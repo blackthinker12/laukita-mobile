@@ -50,7 +50,8 @@ AppBar appBar(
 
 InputDecoration appBarInputDecoration(
   double fontSize,
-  Function searchAction
+  Function searchAction,
+  double iconSize
   ) {
   return InputDecoration(
     border: InputBorder.none,
@@ -64,7 +65,7 @@ InputDecoration appBarInputDecoration(
       icon: Icon(
         Icons.search,
         color: Colors.black,
-        size: 20.0,
+        size: iconSize,
       ),
       onPressed: searchAction,
     )

@@ -122,7 +122,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         null,
                         iconButton: Icon(
                           Icons.done,
-                          size: 15,
+                          size: SizeConfig.safeBlockHorizontal * 3.6496,
                           color: Colors.white,
                         ),
                         widthButton: SizeConfig.safeBlockHorizontal * 20,

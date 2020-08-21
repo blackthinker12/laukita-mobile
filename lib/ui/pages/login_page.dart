@@ -83,7 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                               ? Icons.visibility_off
                               : Icons.visibility,
                               color: Colors.black45,
-                              size: 18,
+                              size: SizeConfig.blockSizeHorizontal * 4.3795,
                             ),
                             onPressed: () {
                               setState(() {

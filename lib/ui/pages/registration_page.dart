@@ -99,7 +99,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           'Step 1',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 14
+                            fontSize: SizeConfig.safeBlockHorizontal * 3.40633
                           ),
                         ),
                         SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
@@ -169,7 +169,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             },
                             iconButton: Icon(
                               Icons.arrow_forward,
-                              size: 15,
+                              size: SizeConfig.safeBlockHorizontal * 3.6496,
                               color: Colors.white,
                             ),
                             widthButton: SizeConfig.safeBlockHorizontal * 20,
@@ -297,7 +297,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           'Step 2',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 14
+                            fontSize: SizeConfig.safeBlockHorizontal * 3.40633
                           ),
                         ),
                         SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
@@ -383,7 +383,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             },
                             iconButton: Icon(
                               Icons.done,
-                              size: 15,
+                              size: SizeConfig.safeBlockHorizontal * 3.6496,
                               color: Colors.white,
                             ),
                             widthButton: SizeConfig.safeBlockHorizontal * 20,

@@ -27,7 +27,7 @@ Widget drawerMainMenu(
               titleMenu,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 18,
+                fontSize: SizeConfig.safeBlockHorizontal * 4.38,
                 fontWeight: FontWeight.bold
               )  
             ),

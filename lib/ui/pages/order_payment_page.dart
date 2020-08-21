@@ -29,7 +29,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                   'Payment Method',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16
+                    fontSize: SizeConfig.safeBlockHorizontal * 3.893
                   ),
                 ),
                 SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
@@ -38,7 +38,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                   contentPadding: EdgeInsets.all(0.0),
                   title: Text(
                     'Use my point rewards [14.300]',
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.40633),
                   ),
                   controlAffinity: ListTileControlAffinity.leading,
                   value: _checked,
@@ -89,7 +89,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                   'Overview',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16
+                    fontSize: SizeConfig.safeBlockHorizontal * 3.893
                   ),
                 ),
                 SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
@@ -214,7 +214,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18
+                          fontSize: SizeConfig.safeBlockHorizontal * 4.38
                         ),
                       ),
                     ),
@@ -236,7 +236,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                   marginButton: EdgeInsets.only(right: 11),
                   iconButton: Icon(
                     Icons.add_shopping_cart,
-                    size: 15,
+                    size: SizeConfig.safeBlockHorizontal * 3.6496,
                     color: Colors.white,
                   )
                 )

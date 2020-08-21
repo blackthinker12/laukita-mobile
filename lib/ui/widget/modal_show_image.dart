@@ -6,6 +6,7 @@ class Modals {
     String title,
     bool dismissible,
     String urlImage,
+    double iconSizeDownload
   ) {
     showDialog(
       context: context,
@@ -38,7 +39,7 @@ class Modals {
                       ),
                       Padding(
                         padding: EdgeInsets.only(left: 20.0),
-                        child: Text(title, style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white, fontSize: 16),),
+                        child: Text(title, style: Theme.of(context).textTheme.headline5.copyWith(color: Colors.white, fontSize: SizeConfig.safeBlockHorizontal * 3.893),),
                       ),
                     ],
                   ),
@@ -68,7 +69,7 @@ class Modals {
                               child: Icon(
                                 Icons.file_download,
                                 color: Colors.white70,
-                                size: 35,
+                                size: iconSizeDownload,
                               ),
                             ),
                           ),

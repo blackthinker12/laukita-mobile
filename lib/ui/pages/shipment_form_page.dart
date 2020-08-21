@@ -233,7 +233,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                 marginButton: EdgeInsets.only(right: 9.0),
                 iconButton: Icon(
                   Icons.print,
-                  size: 20,
+                  size: SizeConfig.safeBlockHorizontal * 4.86618,
                   color: Colors.white,
                 ),
               ),
@@ -253,7 +253,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                 marginButton: EdgeInsets.only(right: 1.0),
                 iconButton: Icon(
                   Icons.local_shipping,
-                  size: 20,
+                  size: SizeConfig.safeBlockHorizontal * 4.86618,
                   color: Colors.white,
                 ),
               ),

@@ -44,7 +44,7 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                               Row(
                                 children: <Widget>[
                                   Text(
-                                    "Verified referral",
+                                    "Verified Referral",
                                     style: TextStyle(
                                       color: greenButtonColor, fontSize: SizeConfig.safeBlockHorizontal * 2.92
                                     ),
@@ -52,7 +52,7 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                                   SizedBox(width: 2,),
                                   Icon(
                                     Icons.info,
-                                    size: 14,
+                                    size: SizeConfig.safeBlockHorizontal * 3.4063,
                                     color: greenButtonColor,
                                   )
                                 ],
@@ -158,6 +158,8 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                               spaceVertical: SizeConfig.safeBlockVertical * 0.77,
                               icon: Icons.insert_chart,
                               iconSize: SizeConfig.safeBlockHorizontal * 4.87,
+                              widthButton: SizeConfig.safeBlockHorizontal * 8.5158151,
+                              heightButton: SizeConfig.safeBlockVertical * 5.5385
                             ),
                             verticalIconButton(
                               "Rewards Claim",
@@ -166,6 +168,8 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                               spaceVertical: SizeConfig.safeBlockVertical * 0.77,
                               icon: Icons.bubble_chart,
                               iconSize: SizeConfig.safeBlockHorizontal * 4.87,
+                              widthButton: SizeConfig.safeBlockHorizontal * 8.5158151,
+                              heightButton: SizeConfig.safeBlockVertical * 5.5385
                             ),
                             verticalIconButton(
                               "Point Story",
@@ -174,6 +178,8 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                               spaceVertical: SizeConfig.safeBlockVertical * 0.77,
                               icon: Icons.av_timer,
                               iconSize: SizeConfig.safeBlockHorizontal * 4.87,
+                              widthButton: SizeConfig.safeBlockHorizontal * 8.5158151,
+                              heightButton: SizeConfig.safeBlockVertical * 5.5385
                             ),
                           ],
                         ),
@@ -243,6 +249,8 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                               spaceVertical: SizeConfig.safeBlockVertical * 0.77,
                               icon: Icons.filter_frames,
                               iconSize: SizeConfig.safeBlockHorizontal * 4.87,
+                              widthButton: SizeConfig.safeBlockHorizontal * 8.5158151,
+                              heightButton: SizeConfig.safeBlockVertical * 5.5385
                             ),
                             verticalIconButton(
                               "Followers",
@@ -251,6 +259,8 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                               spaceVertical: SizeConfig.safeBlockVertical * 0.77,
                               icon: Icons.person,
                               iconSize: SizeConfig.safeBlockHorizontal * 4.87,
+                              widthButton: SizeConfig.safeBlockHorizontal * 8.5158151,
+                              heightButton: SizeConfig.safeBlockVertical * 5.5385
                             ),
                           ],
                         ),

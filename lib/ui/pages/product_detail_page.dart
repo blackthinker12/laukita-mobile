@@ -102,7 +102,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           keyboardType: TextInputType.text,
           decoration: appBarInputDecoration(
             SizeConfig.safeBlockHorizontal * 3.3,
-            null
+            null,
+            SizeConfig.safeBlockHorizontal * 4.86618
           )
         ),
         <Widget>[
@@ -110,28 +111,28 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             () => Navigator.pushNamed(context, '/scan'),
             Icon(
               RizalIcons.scan,
-              size: 24,
+              size: SizeConfig.safeBlockHorizontal * 5.8394,
             )
           ),
           rIconButton(
             null,
             Icon(
               RizalIcons.basket,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
             null,
             Icon(
               RizalIcons.near_me,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.share,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             ),
             paddingIcon: EdgeInsets.only(right: 5.0)
           ),
@@ -171,6 +172,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       currentTitle,
                                       true,
                                       currentImage,
+                                      SizeConfig.safeBlockHorizontal * 8.51581
                                     );
                                   },
                                   child: Container(
@@ -212,6 +214,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                                   currentTitle,
                                                   true,
                                                   currentImage,
+                                                  SizeConfig.safeBlockHorizontal * 8.51581
                                                 );
                                               },
                                               child: Icon(

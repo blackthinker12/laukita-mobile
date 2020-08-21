@@ -78,11 +78,7 @@ class _UserProfilePageState extends State<UserProfilePage> with SingleTickerProv
               child: TabBarView(
                 controller: _tabController,
                 children: <Widget>[
-                  SingleChildScrollView(
-                    child: Text(
-                      "Buyer account",
-                    ),
-                  ),
+                  BuyerAccountPage(),
                   ReferralAccountPage()  
                 ],
               ),

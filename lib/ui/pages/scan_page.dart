@@ -64,7 +64,8 @@ class _ScannerPageState extends State<ScannerPage> {
           keyboardType: TextInputType.text,
           decoration: appBarInputDecoration(
             SizeConfig.safeBlockHorizontal * 3.3,
-            null
+            null,
+            SizeConfig.safeBlockHorizontal * 4.86618
           )
         ),
         <Widget>[
@@ -72,21 +73,21 @@ class _ScannerPageState extends State<ScannerPage> {
             () => Navigator.pushNamed(context, '/scan'),
             Icon(
               RizalIcons.scan,
-              size: 24,
+              size: SizeConfig.safeBlockHorizontal * 5.8394,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.settings,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.email,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
@@ -94,7 +95,7 @@ class _ScannerPageState extends State<ScannerPage> {
             Icon(
               RizalIcons.notification,
               color: Colors.white,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           )
         ],Builder(

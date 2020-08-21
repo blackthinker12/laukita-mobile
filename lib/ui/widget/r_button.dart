@@ -215,6 +215,8 @@ Widget verticalIconButton(
   String buttonName,
   int badgesCount,
   {
+    double widthButton = 35,
+    double heightButton = 35,
     double fontSize = 11,
     double spaceVertical = 5.0,
     IconData icon,
@@ -229,8 +231,8 @@ Widget verticalIconButton(
       Stack(
         children: <Widget>[
           Container(
-            height: 35,
-            width: 35,
+            height: heightButton,
+            width: widthButton,
             decoration: BoxDecoration(
               color: primaryColor,
               shape: BoxShape.circle,
