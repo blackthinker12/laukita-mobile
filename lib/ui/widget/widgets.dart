@@ -10,3 +10,4 @@ part 'container_list.dart';
 part 'image_list_scrollable.dart';
 part 'menu.dart';
 part 'custom_tile.dart';
+part 'rotate_text.dart';

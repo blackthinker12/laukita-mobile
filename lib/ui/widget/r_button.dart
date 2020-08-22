@@ -222,69 +222,105 @@ Widget verticalIconButton(
     IconData icon,
     double iconSize = 12,
     double badgesSize = 12,
+    Function onTap,
+    bool softWrap = true
   }
 ) { 
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.center,
-    mainAxisAlignment: MainAxisAlignment.start,
-    children: <Widget>[
-      Stack(
-        children: <Widget>[
-          Container(
-            height: heightButton,
-            width: widthButton,
-            decoration: BoxDecoration(
-              color: primaryColor,
-              shape: BoxShape.circle,
+  return InkWell(
+    onTap: onTap,
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: <Widget>[
+        Stack(
+          children: <Widget>[
+            Container(
+              height: heightButton,
+              width: widthButton,
+              decoration: BoxDecoration(
+                color: primaryColor,
+                shape: BoxShape.circle,
+              ),
+              child: Icon(
+                icon,
+                color: Colors.white,
+                size: iconSize,
+              ),
             ),
-            child: Icon(
-              icon,
-              color: Colors.white,
-              size: iconSize,
-            ),
-          ),
-          badgesCount > 0
-            ? Positioned(
-                right: 0,
-                top: 0,
-                child: Container(
-                  padding: EdgeInsets.all(1),
-                  decoration: BoxDecoration(
-                    color: primaryColorLight,
-                    borderRadius: BorderRadius.circular(badgesSize / 2),
-                  ),
-                  constraints: BoxConstraints(
-                    minWidth: badgesSize,
-                    minHeight: badgesSize,
-                  ),
-                  child: Center(
-                    child: Text(
-                      badgesCount.toString(),
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 8,
-                      ),
-                      textAlign: TextAlign.center,
+            badgesCount > 0
+              ? Positioned(
+                  right: 0,
+                  top: 0,
+                  child: Container(
+                    padding: EdgeInsets.all(1),
+                    decoration: BoxDecoration(
+                      color: primaryColorLight,
+                      borderRadius: BorderRadius.circular(badgesSize / 2),
                     ),
-                  ),
-                ))
-            : SizedBox()
-        ],
-      ),
-      SizedBox(
-        height: spaceVertical,
-      ),
-      Text(
-        buttonName,
-        style: TextStyle(
-          fontSize: fontSize,
-          fontStyle: FontStyle.italic,
-          fontWeight: FontWeight.bold,
-          color: Colors.black45
+                    constraints: BoxConstraints(
+                      minWidth: badgesSize,
+                      minHeight: badgesSize,
+                    ),
+                    child: Center(
+                      child: Text(
+                        badgesCount.toString(),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 8,
+                        ),
+                        textAlign: TextAlign.center,
+                      ),
+                    ),
+                  ))
+              : SizedBox()
+          ],
         ),
-        maxLines: 2,
-        textAlign: TextAlign.center,
-      ),
-    ],
+        SizedBox(
+          height: spaceVertical,
+        ),
+        Text(
+          buttonName,
+          softWrap: softWrap,
+          style: TextStyle(
+            fontSize: fontSize,
+            fontStyle: FontStyle.italic,
+            fontWeight: FontWeight.bold,
+            color: Colors.black45
+          ),
+          maxLines: 2,
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ),
+  );
+}
+
+Widget reverseUnderlineIconButton(
+  String buttonName,
+  IconData icon,
+  Function onTap,
+  double fontSize,
+  double iconSize
+) {
+  return InkWell(
+    onTap: onTap,
+    child: Row(
+      children: <Widget>[
+        Icon(
+          icon,
+          size: iconSize,
+        ),
+        SizedBox(width: 2,),
+        Text(
+          buttonName,
+          style: TextStyle(
+            decoration: TextDecoration.underline,
+            fontWeight: FontWeight.w700,
+            color: Colors.black87,
+            fontSize: fontSize
+          ),
+        ),
+      ],
+    ),
   );
 }

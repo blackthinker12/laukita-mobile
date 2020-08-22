@@ -85,6 +85,9 @@ flutter:
     - family: RizalIcons
       fonts:
         - asset: assets/fonts/RizalIcons.ttf
+    - family: CaveatBrush
+      fonts:
+        - asset: assets/fonts/CaveatBrush-Regular.ttf
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

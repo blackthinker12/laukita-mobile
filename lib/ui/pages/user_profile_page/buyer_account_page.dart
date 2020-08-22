@@ -246,7 +246,7 @@ class _BuyerAccountPageState extends State<BuyerAccountPage> {
               EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 2.44, vertical: SizeConfig.safeBlockVertical * 1.54),
               () {},
               Icons.exit_to_app,
-              Colors.red[200],
+              Color(0xFFF2F3E2),
               title: "Sign Out",
               subtitle: "Your button desc here",
               paddingIcon: EdgeInsets.fromLTRB(SizeConfig.safeBlockHorizontal * 1.21655, 1.0, SizeConfig.safeBlockHorizontal * 2.4331, 0),
