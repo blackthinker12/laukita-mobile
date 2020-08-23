@@ -226,7 +226,6 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                 'Print Delivery',
                 TextStyle(
                   fontSize: SizeConfig.safeBlockHorizontal * 3.6,
-                  fontWeight: FontWeight.bold,
                   color: Colors.white
                 ),
                 SizeConfig.safeBlockHorizontal * 2.2,
@@ -246,7 +245,6 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                 'Shipment Order',
                 TextStyle(
                   fontSize: SizeConfig.safeBlockHorizontal * 3.6,
-                  fontWeight: FontWeight.bold,
                   color: Colors.white
                 ),
                 SizeConfig.safeBlockHorizontal * 2.2,

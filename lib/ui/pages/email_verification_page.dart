@@ -115,7 +115,6 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         'Finish',
                         TextStyle(
                           fontSize: SizeConfig.safeBlockHorizontal * 4,
-                          fontWeight: FontWeight.bold,
                           color: Colors.white
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,
@@ -167,7 +166,6 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                           'Resend Code',
                           TextStyle(
                             fontSize: SizeConfig.safeBlockHorizontal * 4,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white
                           ),
                           SizeConfig.safeBlockHorizontal * 2.2,
@@ -183,7 +181,6 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                           'Change Email',
                           TextStyle(
                             fontSize: SizeConfig.safeBlockHorizontal * 4,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white
                           ),
                           SizeConfig.safeBlockHorizontal * 2.2,

@@ -155,7 +155,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             'Next',
                             TextStyle(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              fontWeight: FontWeight.bold,
                               color: Colors.white
                             ),
                             SizeConfig.safeBlockHorizontal * 2.2,
@@ -214,7 +213,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               'Google',
                               TextStyle(
                                 fontSize: SizeConfig.safeBlockHorizontal * 4,
-                                fontWeight: FontWeight.bold,
                                 color: Colors.white
                               ),
                               SizeConfig.safeBlockHorizontal * 2.2,
@@ -237,7 +235,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               'Instagram',
                               TextStyle(
                                 fontSize: SizeConfig.safeBlockHorizontal * 4,
-                                fontWeight: FontWeight.bold,
                                 color: Colors.white
                               ),
                               SizeConfig.safeBlockHorizontal * 2.2,
@@ -372,7 +369,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             'Finish',
                             TextStyle(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              fontWeight: FontWeight.bold,
                               color: Colors.white
                             ),
                             SizeConfig.safeBlockHorizontal * 2.2,

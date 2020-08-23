@@ -36,3 +36,4 @@ part 'shipment_form_page.dart';
 part 'login_page.dart';
 part 'user_profile_page/buyer_account_page.dart';
 part 'user_profile_page/referral_account_page.dart';
+part 'shopping_cart_page.dart';

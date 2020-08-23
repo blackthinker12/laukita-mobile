@@ -30,7 +30,8 @@ class MyApp extends StatelessWidget {
         '/upgrade_account': (_) => UpgradeAccountPage(),
         '/table': (_) => TableExample(),
         '/shipment_form': (_) => ShipmentFormPage(),
-        '/login': (_) => LoginPage()
+        '/login': (_) => LoginPage(),
+        '/shopping_cart': (_) => ShoppingCartPage()
       },
     );
   }

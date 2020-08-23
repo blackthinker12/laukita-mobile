@@ -229,7 +229,6 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                   'Paynow',
                   TextStyle(
                     fontSize: SizeConfig.safeBlockHorizontal * 4,
-                    fontWeight: FontWeight.bold,
                     color: Colors.white
                   ),
                   SizeConfig.safeBlockHorizontal * 2.2,

@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: SizeConfig.safeBlockHorizontal * 2.8,
                         fontWeight: FontWeight.bold
                       ),
-                      null,
+                      () => Navigator.pushNamed(context, '/shopping_cart'),
                       SizeConfig.safeBlockHorizontal * 29.3,
                       SizeConfig.safeBlockHorizontal * 29.6
                     ),

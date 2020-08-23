@@ -172,7 +172,7 @@ class _MainPageState extends State<MainPage> {
                 drawerSubmenuContainer(
                   <Widget>[
                     drawerSubmenu(
-                      () => Navigator.pushNamed(context, '/email_verification'),
+                      () => Navigator.pushNamed(context, '/login'),
                       'Registration'
                     ),
                     SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
@@ -249,7 +249,6 @@ class _MainPageState extends State<MainPage> {
                         'Sign out',
                         TextStyle(
                           fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold,
                           color: redMenuTextColor
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,

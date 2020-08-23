@@ -58,7 +58,8 @@ InputDecoration appBarInputDecoration(
     contentPadding: EdgeInsets.only(bottom: 18, left: 4),
     hintText: 'Find Something...',
     hintStyle: TextStyle(
-      fontSize: fontSize
+      fontSize: fontSize,
+      color: Colors.black87
     ),
     hintMaxLines: 2,
     suffixIcon: IconButton(

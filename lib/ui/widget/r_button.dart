@@ -300,7 +300,12 @@ Widget reverseUnderlineIconButton(
   IconData icon,
   Function onTap,
   double fontSize,
-  double iconSize
+  double iconSize,
+  {
+    Color fontColor = Colors.black87,
+    Color iconColor = Colors.black87,
+    FontWeight weight = FontWeight.w700
+  }
 ) {
   return InkWell(
     onTap: onTap,
@@ -309,18 +314,40 @@ Widget reverseUnderlineIconButton(
         Icon(
           icon,
           size: iconSize,
+          color: iconColor
         ),
         SizedBox(width: 2,),
         Text(
           buttonName,
           style: TextStyle(
             decoration: TextDecoration.underline,
-            fontWeight: FontWeight.w700,
-            color: Colors.black87,
+            fontWeight: weight,
+            color: fontColor,
             fontSize: fontSize
           ),
         ),
       ],
+    ),
+  );
+}
+
+Widget underlineButton(
+  Function onTap,
+  String title,
+  Color color,
+  double fontSize,
+  TextAlign textAlign
+) {
+  return InkWell(
+    onTap: onTap,
+    child: Text(
+      title,
+      style: TextStyle(
+        color: color,
+        decoration: TextDecoration.underline,
+        fontSize: fontSize,
+      ),
+      textAlign: textAlign,
     ),
   );
 }

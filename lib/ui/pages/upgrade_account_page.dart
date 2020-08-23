@@ -62,7 +62,6 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
           'Connect to your Instagram',
           TextStyle(
             fontSize: SizeConfig.safeBlockHorizontal * 4,
-            fontWeight: FontWeight.bold,
             color: Colors.white
           ),
           SizeConfig.safeBlockHorizontal * 2.2,
@@ -80,7 +79,6 @@ class _UpgradeAccountPageState extends State<UpgradeAccountPage> {
           'Finish',
           TextStyle(
             fontSize: SizeConfig.safeBlockHorizontal * 4,
-            fontWeight: FontWeight.bold,
             color: Colors.white
           ),
           SizeConfig.safeBlockHorizontal * 2.2,

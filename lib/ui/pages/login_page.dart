@@ -108,7 +108,6 @@ class _LoginPageState extends State<LoginPage> {
                         'Login',
                         TextStyle(
                           fontSize: SizeConfig.safeBlockHorizontal * 4,
-                          fontWeight: FontWeight.bold,
                           color: Colors.white
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,

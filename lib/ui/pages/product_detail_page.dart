@@ -699,7 +699,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 'Add to cart',
                 TextStyle(
                   fontSize: SizeConfig.safeBlockHorizontal * 3.6,
-                  fontWeight: FontWeight.bold,
                   color: Colors.white
                 ),
                 SizeConfig.safeBlockHorizontal * 2.2,
