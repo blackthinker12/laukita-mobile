@@ -21,6 +21,7 @@ class _NearByPageState extends State<NearByPage> {
   @override
   void initState() {
     super.initState();
+    //print('render ulang');
     _fabHeight = _initFabHeight;
     mapController = MapController();
      _events = new StreamController<List<Poi>>();
@@ -338,16 +339,20 @@ class _NearByPageState extends State<NearByPage> {
             Positioned(
               top: 35.0,
               left: 20,
-              child: FloatingActionButton(
-                elevation: 0.0,
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.black,
+              child: Container(
+                width: SizeConfig.safeBlockHorizontal * 8.5,
+                height: SizeConfig.safeBlockVertical * 5.3,
+                child: FloatingActionButton(
+                  elevation: 0.0,
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                  ),
+                  backgroundColor: Colors.white,
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  }
                 ),
-                backgroundColor: Colors.white,
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                }
               ),
             ),
 

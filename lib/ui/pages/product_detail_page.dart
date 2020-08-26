@@ -172,7 +172,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       currentTitle,
                                       true,
                                       currentImage,
-                                      SizeConfig.safeBlockHorizontal * 8.51581
+                                      SizeConfig.safeBlockHorizontal * 4.86618,
+                                      SizeConfig.safeBlockHorizontal * 5.5
                                     );
                                   },
                                   child: Container(
@@ -197,7 +198,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                                 });
                                               },
                                               child: Icon(
-                                                isFavorited ? Icons.bookmark : Icons.bookmark_border,
+                                                !isFavorited ? Icons.bookmark : Icons.bookmark_border,
                                                 color: Theme.of(context).primaryColor,
                                               ),
                                             ),
@@ -214,7 +215,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                                   currentTitle,
                                                   true,
                                                   currentImage,
-                                                  SizeConfig.safeBlockHorizontal * 8.51581
+                                                  SizeConfig.safeBlockHorizontal * 4.86618,
+                                                  SizeConfig.safeBlockHorizontal * 5.5
                                                 );
                                               },
                                               child: Icon(
@@ -228,15 +230,15 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                     ),
                                   ),
                                 ),
-                                SizedBox(height: SizeConfig.safeBlockVertical * 6.15,),
+                                SizedBox(height: SizeConfig.safeBlockVertical * 5.849,),
                               ],
                             ),
                             Positioned(
                               bottom: 0,
                               child: Container(
                                 width: MediaQuery.of(context).size.width-80,
-                                height: SizeConfig.safeBlockVertical * 6.46,
-                                padding: EdgeInsets.only(left: 15.0),
+                                height: SizeConfig.safeBlockVertical * 5.8,
+                                padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 3.64963503649635),
                                 decoration: BoxDecoration(
                                   color: containerTitleProductDetail
                                 ),
@@ -254,7 +256,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontStyle: FontStyle.italic,
-                                            fontSize: SizeConfig.safeBlockHorizontal * 2.919
+                                            fontSize: SizeConfig.safeBlockHorizontal * 2.4330900243309
                                          )
                                         ),
                                       ],
@@ -302,11 +304,11 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                               ),
                             ),
                             Positioned(
-                              bottom: 24,
+                              bottom: 21,
                               child: Container(
                                 width: MediaQuery.of(context).size.width/2,
                                 height: SizeConfig.safeBlockVertical * 4.15,
-                                padding: EdgeInsets.only(left: 15.0),
+                                padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 3.649635),
                                 decoration: BoxDecoration(
                                   color: Color(0xFFC17D1C).withOpacity(0.8)
                                 ),
@@ -319,7 +321,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
-                                        fontSize: SizeConfig.safeBlockHorizontal * 3.89
+                                        fontSize: SizeConfig.safeBlockHorizontal * 4.37956204379562
                                      )
                                     ),
                                   ],
@@ -331,7 +333,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         Expanded(
                           child: Container(
                             width: SizeConfig.safeBlockHorizontal * 19.4,
-                            height: SizeConfig.safeBlockVertical * 28.7,
+                            height: SizeConfig.safeBlockVertical * 28.6,
                             child: ListView(
                               physics: BouncingScrollPhysics(),
                               scrollDirection: Axis.vertical,
@@ -395,22 +397,23 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                       ]
                     ),
                     ExpandableNotifier(
+                      initialExpanded: true,
                       child: Padding(
-                        padding: EdgeInsets.all(10),
+                        padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 2.44, vertical: SizeConfig.safeBlockVertical * 1.54),
                         child: Card(
                           clipBehavior: Clip.antiAlias,
                           child: Column(
                             children: <Widget>[
                               ScrollOnExpand(
                                 scrollOnExpand: true,
-                                scrollOnCollapse: true,
+                                scrollOnCollapse: false,
                                 child: ExpandablePanel(
                                   theme: ExpandableThemeData(
                                     headerAlignment: ExpandablePanelHeaderAlignment.center,
                                     tapBodyToCollapse: false,
                                   ),
                                   header: Container(
-                                    padding: EdgeInsets.all(10),
+                                    padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 2.44, vertical: SizeConfig.safeBlockVertical * 1.54),
                                     child: Text(
                                       "Product Information",
                                       style: TextStyle(
@@ -423,7 +426,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       Padding(
-                                        padding: EdgeInsets.only(bottom: 10),
+                                        padding: EdgeInsets.only(bottom: SizeConfig.safeBlockHorizontal * 2.44),
                                         child: Text(
                                           loremIpsum,
                                           softWrap: true,
@@ -464,7 +467,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                     tapBodyToCollapse: false,
                                   ),
                                   header: Container(
-                                    padding: EdgeInsets.all(10),
+                                    padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 2.44, vertical: SizeConfig.safeBlockVertical * 1.54),
                                     child: Text(
                                       "Reviews",
                                       style: TextStyle(
@@ -492,7 +495,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                           crossAxisAlignment: CrossAxisAlignment.start,
                                           children: <Widget>[
                                             RatingBar(
-                                              itemSize: 15,
+                                              itemSize: 14,
                                               initialRating: reviews[i].rating,
                                               minRating: 1,
                                               direction: Axis.horizontal,
@@ -537,7 +540,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                   ),
                                   builder: (_, collapsed, expanded) {
                                     return Padding(
-                                      padding: EdgeInsets.only(left: 10, right: 10, bottom: 10),
+                                      padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 2.44, right: SizeConfig.safeBlockHorizontal * 2.44, bottom: SizeConfig.safeBlockVertical * 1.54),
                                       child: Expandable(
                                         collapsed: collapsed,
                                         expanded: expanded,
@@ -564,50 +567,24 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               Padding(
                 padding: EdgeInsets.symmetric(
                   horizontal: SizeConfig.safeBlockHorizontal * 2.4,
-                  vertical: SizeConfig.safeBlockVertical * 2.16
+                  vertical: SizeConfig.safeBlockVertical * 2.1
                 ),
                 child: Container(
-                  width: SizeConfig.safeBlockHorizontal * 17.03,
+                  width: SizeConfig.safeBlockHorizontal * 11,
                   decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.circular(5.0),
-                    border: Border.all(
-                      color: Colors.black,
-                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   ),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      Container(
-                        width: SizeConfig.safeBlockHorizontal * 2.4,
-                        margin: EdgeInsets.only(right: 4),
-                        child: GestureDetector(
-                          child: Icon(
-                            Icons.remove,
-                            size: 10,
-                          ),
-                          onTap: int.parse(quantityController.text) > 1 ? () {
-                            int currentValue = int.parse(quantityController.text);
-                            setState(() {
-                              currentValue--;
-                              quantityController.text = (currentValue)
-                                  .toString(); // incrementing value
-                            });
-                          } : null,
-                        ),
-                      ),
-                      Container(
-                        width: SizeConfig.safeBlockHorizontal * 6.56,
+                      Expanded(
+                        flex: 1,
                         child: Center(
                           child: TextFormField(
-                            style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 2.4),
+                            style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.2),
                             textAlign: TextAlign.center,
                             decoration: InputDecoration(
-                              contentPadding: EdgeInsets.all(5.0),
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
+                              border: InputBorder.none
                             ),
                             controller: quantityController,
                             keyboardType: TextInputType.numberWithOptions(
@@ -620,23 +597,45 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                           ),
                         ),
                       ),
-                      Container(
-                        margin: EdgeInsets.only(left: 4),
-                        child: GestureDetector(
-                          child: Icon(
-                            Icons.add,
-                            size: 10,
+                      
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Expanded(
+                            child: InkWell(
+                              child: Icon(
+                                Icons.arrow_drop_up,
+                                size: 12.0,
+                              ),
+                              onTap: () {
+                                int currentValue = int.parse(quantityController.text);
+                                setState(() {
+                                  currentValue++;
+                                  quantityController.text = (currentValue)
+                                      .toString(); // incrementing value
+                                });
+                              },
+                            ),
                           ),
-                          onTap: () {
-                            int currentValue = int.parse(quantityController.text);
-                            setState(() {
-                              currentValue++;
-                              quantityController.text = (currentValue)
-                                  .toString(); // incrementing value
-                            });
-                          },
-                        ),
-                      ),
+                          Expanded(
+                            child: InkWell(
+                              child: Icon(
+                                Icons.arrow_drop_down,
+                                size: 12.0,
+                              ),
+                              onTap: int.parse(quantityController.text) > 1 ? () {
+                                int currentValue = int.parse(quantityController.text);
+                                setState(() {
+                                  currentValue--;
+                                  quantityController.text = (currentValue)
+                                      .toString(); // incrementing value
+                                });
+                              } : null,
+                            ),
+                          ),
+                        ]
+                      )
                     ]
                   )
                 )

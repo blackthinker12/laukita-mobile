@@ -75,6 +75,9 @@ ThemeData appTheme() {
     //   color: Colors.grey[100],
     //   thickness: 1,
     // ),
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(),
+    ),
   );
 }
 

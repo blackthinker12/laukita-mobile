@@ -80,6 +80,7 @@ Widget productCard(
             SizedBox(height: space,),
             Text(
               title,
+              softWrap: false,
               style: TextStyle(
                 fontSize: fontSize,
               ),

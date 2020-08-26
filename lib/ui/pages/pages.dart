@@ -18,6 +18,8 @@ import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 import 'package:Laukita/shared/shared.dart';
 import 'package:Laukita/ui/widget/widgets.dart';
+import 'package:Laukita/models/models.dart';
+import 'package:Laukita/data/dummy_data.dart';
 
 part 'main_page.dart';
 part 'home_page.dart';
@@ -37,3 +39,7 @@ part 'login_page.dart';
 part 'user_profile_page/buyer_account_page.dart';
 part 'user_profile_page/referral_account_page.dart';
 part 'shopping_cart_page.dart';
+part 'transactions_page.dart';
+part 'transaction_page/transaction_complaints_page.dart';
+part 'transaction_page/transaction_orders_page.dart';
+part 'transaction_page/transaction_supply_page.dart';

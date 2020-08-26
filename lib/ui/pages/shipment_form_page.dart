@@ -256,7 +256,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                 ),
               ),
             ],
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.end,
             color: containerRedColorInt,
             padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 3.4)
           ),

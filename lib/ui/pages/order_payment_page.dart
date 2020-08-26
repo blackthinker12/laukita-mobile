@@ -226,7 +226,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                     borderRadius: BorderRadius.circular(6.0),
                   ),
                   SizeConfig.safeBlockHorizontal * 1.21,
-                  'Paynow',
+                  'Pay now',
                   TextStyle(
                     fontSize: SizeConfig.safeBlockHorizontal * 4,
                     color: Colors.white

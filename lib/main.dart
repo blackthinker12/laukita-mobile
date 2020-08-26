@@ -31,7 +31,8 @@ class MyApp extends StatelessWidget {
         '/table': (_) => TableExample(),
         '/shipment_form': (_) => ShipmentFormPage(),
         '/login': (_) => LoginPage(),
-        '/shopping_cart': (_) => ShoppingCartPage()
+        '/shopping_cart': (_) => ShoppingCartPage(),
+        '/transactions_page': (_) => TransactionsPage()
       },
     );
   }

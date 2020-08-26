@@ -1,22 +1,5 @@
 part of 'pages.dart';
 
-class Product {
-  final String name;
-  final int quantity;
-  final String unit;
-  final int price;
-  final String imageUrl;
-  bool selected;
-  Product({
-    @required this.name,
-    @required this.quantity,
-    @required this.unit,
-    @required this.price,
-    @required this.imageUrl,
-    this.selected = false,
-  });
-}
-
 class ShoppingCartPage extends StatefulWidget {
   @override
   _ShoppingCartPageState createState() => _ShoppingCartPageState();
@@ -428,7 +411,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                 decoration: InputDecoration(
                                   isDense: true,
                                   contentPadding: EdgeInsets.all(6.5),
-                                  border: OutlineInputBorder(),
                                   hintText: "Place your coupon code..",
                                   hintStyle: TextStyle(
                                     fontSize: SizeConfig.safeBlockHorizontal * 3.65
