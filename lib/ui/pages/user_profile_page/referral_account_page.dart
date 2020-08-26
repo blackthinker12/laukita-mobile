@@ -201,7 +201,7 @@ class _ReferralAccountPageState extends State<ReferralAccountPage> {
                         Padding(
                           padding: EdgeInsets.only(right: SizeConfig.safeBlockHorizontal * 2.9),
                           child: Text(
-                            "Rp. 300.000",
+                            "300.000",
                             style: TextStyle(
                               color: redButtonColor,
                               fontStyle: FontStyle.italic,

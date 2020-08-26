@@ -1,6 +1,6 @@
 part of 'pages.dart';
 
-enum ShipmentType { gosend, paxel }
+enum ShipmentType { gosend, paxel, others }
 
 class ShipmentFormPage extends StatefulWidget {
   ShipmentFormPage({Key key}) : super(key: key);
@@ -35,10 +35,12 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
               return (item.value == wordPair);
             }) ==
             -1) {
-          items.add(DropdownMenuItem(
-            child: Text(wordPair),
-            value: wordPair,
-          ));
+          items.add(
+            DropdownMenuItem(
+              child: Text(wordPair),
+              value: wordPair,
+            )
+          );
         }
         wordPair = "";
       }
@@ -50,7 +52,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shipment Form'),
+        title: Text('Delivery Form'),
       ),
       body: Column(
         children: [
@@ -64,150 +66,357 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
               ),
               scrollDirection: Axis.vertical,
               children: [
-                Text(
-                  'Select Order'
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.note,
+                      size: 16
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 12.0),
+                      child: Text(
+                        'Select Order',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        )
+                      ),
+                    ),
+                  ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 16.0),
+                  padding: const EdgeInsets.only(left: 28.0, top: 8.0),
                   child: SearchableDropdown.single(
                     items: items,
                     value: selectedValue,
                     hint: "Select one",
+                    iconSize: 18,
                     searchHint: null,
                     onChanged: (value) {
                       setState(() {
+                        print(value);
                         selectedValue = value;
                       });
                     },
-                    dialogBox:  false,
+                    dialogBox: true,
                     isExpanded: true,
-                    menuConstraints: BoxConstraints.tight(Size.fromHeight(350)),
                   ),
                 ),
+                Divider(height: 1),
                 SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
-                Text(
-                  "Courier",
-                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Radio(
-                      value: ShipmentType.gosend,
-                      groupValue: _selected,
-                      onChanged: (value) {
-                        setState(() {
-                          _selected = value;
-                        });
-                      },
+                    Icon(
+                      Icons.local_shipping,
+                      size: 16
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 16.0),
+                      padding: EdgeInsets.only(left: 12.0),
                       child: Text(
-                        'Gosend',
+                        'Courier',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        )
                       ),
-                    )
+                    ),
                   ],
                 ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0,),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Radio(
+                        value: ShipmentType.gosend,
+                        groupValue: _selected,
+                        onChanged: (value) {
+                          setState(() {
+                            _selected = value;
+                          });
+                        },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 16.0),
+                        child: Text(
+                          'Gosend',
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Radio(
+                        value: ShipmentType.paxel,
+                        groupValue: _selected,
+                        onChanged: (value) {
+                          setState(() {
+                            _selected = value;
+                          });
+                        },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 16.0),
+                        child: Text(
+                          'Paxel',
+                        ),
+                      ),
+                    ]
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Radio(
+                        value: ShipmentType.others,
+                        groupValue: _selected,
+                        onChanged: (value) {
+                          setState(() {
+                            _selected = value;
+                          });
+                        },
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 16.0),
+                        child: Text(
+                          'Others',
+                        ),
+                      ),
+                    ]
+                  ),
+                ),
+                Divider(height: 1),
+                SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   crossAxisAlignment: CrossAxisAlignment.center,
+                //   children: [
+                //     Icon(
+                //       Icons.monetization_on,
+                //       size: 16
+                //     ),
+                //     Padding(
+                //       padding: EdgeInsets.only(left: 12.0),
+                //       child: Text(
+                //         'Delivery Cost',
+                //         style: TextStyle(
+                //           fontWeight: FontWeight.bold
+                //         )
+                //       ),
+                //     ),
+                //   ],
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 28.0, top: 10.0),
+                //   child: Text('Rp. 10.000', style: TextStyle(color: redButtonColor)),
+                // ),
+                // SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Radio(
-                      value: ShipmentType.paxel,
-                      groupValue: _selected,
-                      onChanged: (value) {
-                        setState(() {
-                          _selected = value;
-                        });
-                      },
+                    Icon(
+                      Icons.home,
+                      size: 16
                     ),
                     Padding(
-                      padding: EdgeInsets.only(top: 16.0),
+                      padding: EdgeInsets.only(left: 12.0),
                       child: Text(
-                        'Paxel',
+                        'Delivery Address',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        )
                       ),
-                    ),
-                  ]
-                ),
-                Divider(height: SizeConfig.safeBlockVertical * 0.615,),
-                SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
-                Text(
-                  "Delivery Address",
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 16.0),
-                  child: Text(loremIpsum),
-                ),
-                SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
-                Text(
-                  "Contact",
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0, left: 16.0),
-                  child: Text('099848848904949'),
-                ),
-                SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
-                Text(
-                  "Order Details",
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Card(
-                      color: whiteContainer,
-                      margin: EdgeInsets.only(left: 16.0, top: 10.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(
-                          color: Colors.grey,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Product'),
-                            SizedBox(height: SizeConfig.safeBlockVertical * 10,),
-                          ],
-                        ),
-                      )
-                    ),
-                    Card(
-                      color: whiteContainer,
-                      margin: EdgeInsets.only(left: 16.0, top: 10.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                        side: BorderSide(
-                          color: Colors.grey,
-                          width: 1.0,
-                        ),
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('Qty'),
-                            SizedBox(height: SizeConfig.safeBlockVertical * 10,),
-                          ],
-                        ),
-                      )
                     ),
                   ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(left: 28.0, top: 10.0),
+                  child: Text('Kamboja Townhouse NO. 8R, Jl Kamboja Pejaten Barat II Jakarta Selatan'),
+                ),
+                SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.contact_phone,
+                      size: 16
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 12.0),
+                      child: Text(
+                        'Contact',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        )
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0, left: 28.0),
+                  child: Text('0899848811'),
+                ),
+                SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.note,
+                      size: 16
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 12.0),
+                      child: Text(
+                        'Order Details',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold
+                        )
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 10.0, left: 28.0),
+                  child: Table(
+                    border: TableBorder.all(
+                        color: Colors.black26, width: 1, style: BorderStyle.solid),
+                    children: [
+                      TableRow(
+                        children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text('No'),
+                              )
+                            )
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text('Product'),
+                              )
+                            ),
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text('Qty'),
+                              )
+                            )
+                          )
+                        ]
+                      ),
+                      TableRow(
+                        children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text('1'),
+                              )
+                            )
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Text('Ayam Cabe Ijo')
+                            ),
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Text('2')
+                            )
+                          ),
+                        ]
+                      ),
+                      TableRow(
+                        children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text('2'),
+                              )
+                            )
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Text('Ayam Rica')
+                            ),
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Text('1')
+                            )
+                          ),
+                        ]
+                      ),
+                      TableRow(
+                        children: [
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Padding(
+                                padding: const EdgeInsets.all(4.0),
+                                child: Text('3'),
+                              )
+                            )
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Text('Cakalang Woku')
+                            ),
+                          ),
+                          TableCell(
+                            verticalAlignment: TableCellVerticalAlignment.middle,
+                            child: Center(
+                              child: Text('1')
+                            )
+                          ),
+                        ]
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(height: SizeConfig.safeBlockVertical * 2.461,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text('From: xxxxxxxxx'),
-                    Text('Rp 100.000,-')
+                    Text('From: Jl. H. Dhimun II Depok'),
+                    Text(
+                      'Rp 100.000,-',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: redButtonColor
+                      )
+                    )
                   ],
                 ),
               ],
@@ -223,7 +432,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 SizeConfig.safeBlockHorizontal * 1.21,
-                'Print Delivery',
+                'Print Label',
                 TextStyle(
                   fontSize: SizeConfig.safeBlockHorizontal * 3.6,
                   color: Colors.white
@@ -242,7 +451,7 @@ class _ShipmentFormPageState extends State<ShipmentFormPage> {
                   borderRadius: BorderRadius.circular(6.0),
                 ),
                 SizeConfig.safeBlockHorizontal * 1.21,
-                'Shipment Order',
+                'Delivery Order',
                 TextStyle(
                   fontSize: SizeConfig.safeBlockHorizontal * 3.6,
                   color: Colors.white

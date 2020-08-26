@@ -104,7 +104,7 @@ class _MainPageState extends State<MainPage> {
       ),
       body: callPage(bottomNavBarIndex),
       drawer: SizedBox(
-        width: MediaQuery.of(context).size.width/2,
+        width: MediaQuery.of(context).size.width/1.8,
         child: Drawer(
           child: Container(
             width: double.infinity,
@@ -159,7 +159,7 @@ class _MainPageState extends State<MainPage> {
                   DashSeparator(color: Colors.white, width: SizeConfig.safeBlockHorizontal * 0.48,),
                   SizedBox(height: SizeConfig.safeBlockVertical * 2.3,),
                   drawerMainMenu(
-                    SizeConfig.safeBlockVertical * 4,
+                    SizeConfig.safeBlockVertical * 4.15,
                     'Products',
                     null
                   ),
@@ -168,11 +168,12 @@ class _MainPageState extends State<MainPage> {
                       drawerSubmenu(
                         null,
                         'Catalog'
-                      )
+                      ),
+                      SizedBox(height: SizeConfig.safeBlockVertical,),
                     ]
                   ),
                   drawerMainMenu(
-                    SizeConfig.safeBlockVertical * 4,
+                    SizeConfig.safeBlockVertical * 4.15,
                     'Referral',
                     //() => Navigator.pushNamed(context, 'referral')
                     null
@@ -183,37 +184,37 @@ class _MainPageState extends State<MainPage> {
                         () => Navigator.pushNamed(context, '/login'),
                         'Registration'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         null,
                         'Dashboard'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/order_payment'),
                         'Demo Order Payment Page'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/distribution_portal'),
                         'Demo Distribution Portal'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/upgrade_account'),
                         'Demo Upgrade Account'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/shipment_form'),
                         'Demo Shipment Form Page'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/table'),
                         'Demo Table Page'
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical,),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/transactions_page'),
                         'Demo Transactions Page'

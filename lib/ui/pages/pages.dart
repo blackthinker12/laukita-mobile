@@ -33,7 +33,6 @@ part 'distribution_portal_page.dart';
 part 'registration_page.dart';
 part 'email_verification_page.dart';
 part 'upgrade_account_page.dart';
-part 'table.dart';
 part 'shipment_form_page.dart';
 part 'login_page.dart';
 part 'user_profile_page/buyer_account_page.dart';

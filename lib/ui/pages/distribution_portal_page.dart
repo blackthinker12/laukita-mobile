@@ -102,7 +102,7 @@ class _DistributionPortalPageState extends State<DistributionPortalPage> {
                                   Padding(
                                     padding: EdgeInsets.only(left: 1.2),
                                     child: Text(
-                                      "Rp. 14.200",
+                                      "14.200",
                                       style: TextStyle(
                                         color: redButtonColor,
                                         fontSize: SizeConfig.safeBlockHorizontal * 2.9

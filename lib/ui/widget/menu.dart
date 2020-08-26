@@ -27,7 +27,7 @@ Widget drawerMainMenu(
               titleMenu,
               style: TextStyle(
                 color: Colors.white,
-                fontSize: SizeConfig.safeBlockHorizontal * 3,
+                fontSize: SizeConfig.safeBlockHorizontal * 3.4,
                 fontWeight: FontWeight.bold
               )  
             ),
@@ -38,7 +38,7 @@ Widget drawerMainMenu(
           child: Icon(
             Icons.arrow_forward,
             color: Colors.white,
-            size: SizeConfig.safeBlockHorizontal * 3
+            size: SizeConfig.safeBlockHorizontal * 3.5
           ),
         ),
       ],
@@ -69,7 +69,7 @@ Widget drawerSubmenu(
       submenuTitle,
       style: TextStyle(
         color: Colors.white,
-        fontSize: SizeConfig.safeBlockHorizontal * 2.676399,
+        fontSize: SizeConfig.safeBlockHorizontal * 3,
       ),
     ),
   );
