@@ -14,7 +14,7 @@ class _TransactionComplaintsPageState extends State<TransactionComplaintsPage> {
     });
   }
 
-  List<Complaint> _complaintData = dummyComplaint;
+  List<TransactionComplaintModel> _complaintData = dummyComplaint;
 
   final _categoryData = [
     {"title": "All", "value": 0, "id": 1},

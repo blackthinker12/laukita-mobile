@@ -98,3 +98,41 @@ Color convertComplaintStatusColor(int status) {
       return Colors.black87;
   }
 }
+
+String convertSupplyStatusString(int status) {
+  switch (status) {
+    case 1:
+      return "Requested";
+      break;
+    case 2:
+      return "On-Process";
+      break;
+    case 3:
+      return "On-Delivery";
+      break;
+    case 4:
+      return "Closed";
+      break;
+    default:
+      return "Undefined";
+  }
+}
+
+Color convertSupplyStatusColor(int status) {
+  switch (status) {
+    case 1:
+      return primaryColor;
+      break;
+    case 2:
+      return primaryColorLight;
+      break;
+    case 3:
+      return Colors.black87;
+      break;
+    case 4:
+      return greenButtonColor;
+      break;
+    default:
+      return Colors.black87;
+  }
+}

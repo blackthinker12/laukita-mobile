@@ -6,7 +6,7 @@ class TransactionComplaintCard extends StatelessWidget {
     @required this.complaint,
   }) : super(key: key);
 
-  final Complaint complaint;
+  final TransactionComplaintModel complaint;
 
   @override
   Widget build(BuildContext context) {

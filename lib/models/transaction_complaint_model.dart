@@ -1,6 +1,6 @@
 part of 'models.dart';
 
-class Complaint {
+class TransactionComplaintModel {
   final String customerName;
   final int status;
   final String complaintCode;
@@ -8,7 +8,7 @@ class Complaint {
   final Product product;
   final String message;
   final List<String> images;
-  Complaint({
+  TransactionComplaintModel({
     @required this.customerName,
     @required this.status,
     @required this.complaintCode,

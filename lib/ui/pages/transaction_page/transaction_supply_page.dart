@@ -14,7 +14,7 @@ class _TransactionSupplyPageState extends State<TransactionSupplyPage> {
     });
   }
 
-  List<Complaint> _complaintData = dummyComplaint;
+  List<TransactionSupplyModel> _supplyData = dummySupply;
 
   final _categoryData = [
     {"title": "All", "value": 0, "id": 1},
@@ -56,15 +56,15 @@ class _TransactionSupplyPageState extends State<TransactionSupplyPage> {
             height: SizeConfig.safeBlockVertical * 1.54,
           ),
           searchProductCard(),
-          // Expanded(
-          //   child: ListView.builder(
-          //     itemCount: _complaintData.length,
-          //     itemBuilder: (context, i) {
-          //       final complaint = _complaintData[i];
-          //       return TransactionComplaintCard(complaint: complaint);
-          //     }
-          //   ),
-          // ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: _supplyData.length,
+              itemBuilder: (context, i) {
+                final supply = _supplyData[i];
+                return TransactionSupplyCard(supply: supply);
+              }
+            ),
+          ),
         ]
       )
     );

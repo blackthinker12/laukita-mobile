@@ -28,7 +28,6 @@ class MyApp extends StatelessWidget {
         '/registration': (_) => RegistrationPage(isLoginWithSocialMedia: false),
         '/email_verification': (_) => EmailVerificationPage(),
         '/upgrade_account': (_) => UpgradeAccountPage(),
-        '/table': (_) => TableExample(),
         '/shipment_form': (_) => ShipmentFormPage(),
         '/login': (_) => LoginPage(),
         '/shopping_cart': (_) => ShoppingCartPage(),

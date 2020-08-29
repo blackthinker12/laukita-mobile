@@ -6,7 +6,7 @@ class TransactionOrdersCard extends StatelessWidget {
     @required this.transaction,
   }) : super(key: key);
 
-  final Transaction transaction;
+  final TransactionOrderModel transaction;
 
   @override
   Widget build(BuildContext context) {

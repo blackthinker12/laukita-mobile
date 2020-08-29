@@ -14,7 +14,7 @@ class _TransactionOrdersPageState extends State<TransactionOrdersPage> {
     });
   }
 
-  List<Transaction> _transactionData = dummyTransaction;
+  List<TransactionOrderModel> _transactionData = dummyTransaction;
 
   final _categoryData = [
     {"title": "All", "value": 0, "id": 1},

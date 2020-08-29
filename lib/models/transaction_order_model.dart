@@ -1,6 +1,6 @@
 part of 'models.dart';
 
-class Transaction {
+class TransactionOrderModel {
   final String customerName;
   final int status;
   final String transactionCode;
@@ -8,7 +8,7 @@ class Transaction {
   final int totalTransaction;
   final List<Product> product;
   final String shippingNumber;
-  Transaction({
+  TransactionOrderModel({
     @required this.customerName,
     @required this.status,
     @required this.transactionCode,

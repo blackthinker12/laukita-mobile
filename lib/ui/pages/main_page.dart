@@ -207,7 +207,7 @@ class _MainPageState extends State<MainPage> {
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
                         () => Navigator.pushNamed(context, '/shipment_form'),
-                        'Demo Shipment Form Page'
+                        'Demo Delivery Form Page'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
