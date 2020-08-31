@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:Laukita/bloc/page_bloc/page_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -7,6 +8,7 @@ import 'package:expandable/expandable.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -15,6 +17,7 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
+import 'package:get/get.dart';
 
 import 'package:Laukita/shared/shared.dart';
 import 'package:Laukita/ui/widget/widgets.dart';
@@ -42,3 +45,4 @@ part 'transactions_page.dart';
 part 'transaction_page/transaction_complaints_page.dart';
 part 'transaction_page/transaction_orders_page.dart';
 part 'transaction_page/transaction_supply_page.dart';
+part 'splash_screen.dart';

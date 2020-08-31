@@ -26,7 +26,7 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  callPage(int bottomNavBarIndex) {
+  buildBody(int bottomNavBarIndex) {
     switch (bottomNavBarIndex) {
       case 0: return HomePage();
       case 1: return NearByPage();
@@ -102,7 +102,7 @@ class _MainPageState extends State<MainPage> {
           },
         ),
       ),
-      body: callPage(bottomNavBarIndex),
+      body: buildBody(bottomNavBarIndex),
       drawer: SizedBox(
         width: MediaQuery.of(context).size.width/1.8,
         child: Drawer(

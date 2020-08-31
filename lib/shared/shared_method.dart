@@ -136,3 +136,14 @@ Color convertSupplyStatusColor(int status) {
       return Colors.black87;
   }
 }
+
+Future<Token> getToken() async {
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  String checkUsername = prefs.getString('username');
+  String checkPassword = prefs.getString('password');
+  String token = prefs.getString('token');
+  int expires = prefs.getInt('expires');
+
+  Token tokenUser = Token(username: checkUsername, password: checkPassword, token: token, expires: expires);
+  return tokenUser;
+}
