@@ -26,18 +26,45 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget _laukitaSplashScreen() {
     return Scaffold(
       body: Container(
+        width: double.infinity,
+        height: double.infinity,
         color: Colors.white,
+        // decoration: BoxDecoration(
+        //   gradient: LinearGradient(
+        //     begin: Alignment.topCenter,
+        //     end: Alignment.bottomCenter,
+        //     stops: [0.1, 0.4, 0.7, 0.9],
+        //     colors: [
+        //       Color(0xFFE74261),
+        //       Color(0xFFff778e),
+        //       Color(0xFFffa9be),
+        //       Color(0xFFffdbf0),
+        //     ],
+        //   ),
+        // ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height / 6,
-              width: MediaQuery.of(context).size.width,
-              child: Image.asset(
-                "assets/images/laukita.png",
-                alignment: Alignment.center,
-              ),
+            SizedBox(
+              height: SizeConfig.safeBlockVertical * 23.0769230
+            ),
+            Image.asset(
+              "assets/images/laukita512.png",
+              alignment: Alignment.center,
+              width: SizeConfig.safeBlockHorizontal * 50,
+            ),
+            SizedBox(
+              height: SizeConfig.safeBlockVertical * 38.461538461
+            ),
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Text(
+                'PT LAUKITA BERSAMA INDONESIA',
+                style: TextStyle(
+                  fontSize: SizeConfig.safeBlockHorizontal * 2.9197
+                )
+              )
             ),
           ],
         ),
@@ -47,13 +74,15 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     var _duration = Duration(seconds: 5);
     Timer(_duration, () => context.bloc<PageBloc>().add(GoToMainPage()));
 
     return BlocListener<PageBloc, PageState>(
       listener: (_, pageState) {
         if (pageState is OnMainPage) {
-          Navigator.of(context).pushNamed('/main');
+          Navigator.of(context).pushNamed('/onboarding');
         }
       },
       child: _laukitaSplashScreen(),

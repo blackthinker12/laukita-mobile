@@ -38,7 +38,8 @@ dependencies:
   flutter_bloc: 5.0.0
   equatable: 1.1.1
   shared_preferences: 0.5.10
-  get: ^3.6.2
+  flutter_svg: 0.18.0
+  introduction_screen: ^1.0.9
 
 dev_dependencies:
   flutter_test:
@@ -74,6 +75,13 @@ flutter:
   - assets/images/laukita.png
   - assets/images/google.png
   - assets/images/instagram.png
+  - assets/images/blm_laptop.svg
+  - assets/images/blm_protests.svg
+  - assets/images/blm_signs.svg
+  - assets/images/man_and_girl.svg
+  - assets/images/laukita512.png
+  - assets/images/a.jpg
+  - assets/images/c.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

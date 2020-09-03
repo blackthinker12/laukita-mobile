@@ -6,3 +6,4 @@ part 'transaction_order_model.dart';
 part 'transaction_complaint_model.dart';
 part 'transaction_supply_model.dart';
 part 'token_model.dart';
+part 'onboarding_model.dart';

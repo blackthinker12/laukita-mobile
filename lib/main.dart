@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         routes: {
+          '/onboarding': (_) => OnBoardingPage(),
           '/main': (_) => MainPage(),
           '/product_detail': (_) => ProductDetailPage(),
           '/scan': (_) => ScannerPage(),
