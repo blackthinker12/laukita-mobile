@@ -6,20 +6,18 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  String username;
-  String password;
+  bool isInstalledValue;
 
   @override
   void initState() {
     super.initState();
-    _getToken();
+    _checkTheFirstTime();
   }
 
-  void _getToken() async {
-    Token token = await getToken();
+  void _checkTheFirstTime() async {
+    bool value = await isInstalled();
     setState(() {
-      username = token?.username;
-      password = token?.password;
+      isInstalledValue = value;
     });
   }
 
@@ -77,12 +75,21 @@ class _SplashScreenState extends State<SplashScreen> {
     SizeConfig().init(context);
 
     var _duration = Duration(seconds: 5);
-    Timer(_duration, () => context.bloc<PageBloc>().add(GoToMainPage()));
+    Timer(_duration, () {
+      if (isInstalledValue == null) {
+        context.bloc<PageBloc>().add(GoToOnBoardingPage());
+      } else {
+        context.bloc<PageBloc>().add(GoToMainPage());
+      }
+    });
 
     return BlocListener<PageBloc, PageState>(
       listener: (_, pageState) {
         if (pageState is OnMainPage) {
-          Navigator.of(context).pushNamed('/onboarding');
+          Navigator.of(context).pushReplacementNamed('/main');
+        }
+        else if (pageState is OnBoardingPageState) {
+          Navigator.of(context).pushReplacementNamed('/onboarding');
         }
       },
       child: _laukitaSplashScreen(),

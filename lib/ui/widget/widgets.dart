@@ -22,3 +22,4 @@ part 'custom_tag.dart';
 part 'transaction_complaint_card.dart';
 part 'shadow_image.dart';
 part 'transaction_supply_card.dart';
+part 'modal_dialog.dart';

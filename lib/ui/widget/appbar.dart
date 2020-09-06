@@ -55,11 +55,11 @@ InputDecoration appBarInputDecoration(
   ) {
   return InputDecoration(
     border: InputBorder.none,
-    contentPadding: EdgeInsets.only(bottom: 18, left: 4),
+    contentPadding: EdgeInsets.only(left: 4, top: 4),
     hintText: 'Find Something...',
     hintStyle: TextStyle(
       fontSize: fontSize,
-      color: Colors.black87
+      color: Colors.black87,
     ),
     hintMaxLines: 2,
     suffixIcon: IconButton(

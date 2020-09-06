@@ -137,13 +137,16 @@ Color convertSupplyStatusColor(int status) {
   }
 }
 
-Future<Token> getToken() async {
+Future<bool> isInstalled() async {
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  String checkUsername = prefs.getString('username');
-  String checkPassword = prefs.getString('password');
-  String token = prefs.getString('token');
-  int expires = prefs.getInt('expires');
+  bool result = prefs.getBool('installed');
+  return result;
+}
 
-  Token tokenUser = Token(username: checkUsername, password: checkPassword, token: token, expires: expires);
-  return tokenUser;
+Future<bool> isDisconnected() async {
+  var result = await Connectivity().checkConnectivity();
+  if (result == ConnectivityResult.none) {
+    return true;
+  }
+  return false;
 }

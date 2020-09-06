@@ -7,7 +7,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -16,7 +16,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -25,7 +25,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/5/19/77668127/77668127_586f7088-602b-4614-95b5-cad67a5bd93d_1080_1080",
         selected: true,
       ),
-      // Product(
+      // ProductDetailModel(
       //   name: "Ayam Cabe Ijo Lagi",
       //   quantity: 1,
       //   unit: "Sachet",
@@ -44,7 +44,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -53,7 +53,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -72,7 +72,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -81,7 +81,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -100,7 +100,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -109,7 +109,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -128,7 +128,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -137,7 +137,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -156,7 +156,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -165,7 +165,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -184,7 +184,7 @@ List<TransactionOrderModel> dummyTransaction = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -193,7 +193,7 @@ List<TransactionOrderModel> dummyTransaction = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -213,7 +213,7 @@ List<TransactionComplaintModel> dummyComplaint = [
     customerName: "Aldian Putra",
     status: 1,
     complaintCode: "CC123131",
-    product: Product(
+    product: ProductDetailModel(
       name: "Ayam Cabe Ijo",
       quantity: 2,
       unit: "Sachet",
@@ -233,7 +233,7 @@ List<TransactionComplaintModel> dummyComplaint = [
     customerName: "Aldian Putra 2",
     status: 2,
     complaintCode: "CC123132",
-    product: Product(
+    product: ProductDetailModel(
       name: "Ayam Cabe Ijo",
       quantity: 2,
       unit: "Sachet",
@@ -255,7 +255,7 @@ List<TransactionComplaintModel> dummyComplaint = [
     customerName: "Aldian Putra 3",
     status: 3,
     complaintCode: "CC123133",
-    product: Product(
+    product: ProductDetailModel(
       name: "Ayam Cabe Ijo",
       quantity: 2,
       unit: "Sachet",
@@ -275,7 +275,7 @@ List<TransactionComplaintModel> dummyComplaint = [
     customerName: "Aldian Putra 4",
     status: 4,
     complaintCode: "CC123134",
-    product: Product(
+    product: ProductDetailModel(
       name: "Ayam Cabe Ijo",
       quantity: 2,
       unit: "Sachet",
@@ -295,7 +295,7 @@ List<TransactionComplaintModel> dummyComplaint = [
     customerName: "Aldian Putra 4",
     status: 4,
     complaintCode: "CC123134",
-    product: Product(
+    product: ProductDetailModel(
       name: "Ayam Cabe Ijo",
       quantity: 2,
       unit: "Sachet",
@@ -320,7 +320,7 @@ List<TransactionSupplyModel> dummySupply = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -329,7 +329,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -338,7 +338,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/5/19/77668127/77668127_586f7088-602b-4614-95b5-cad67a5bd93d_1080_1080",
         selected: true,
       ),
-      // Product(
+      // ProductDetailModel(
       //   name: "Ayam Cabe Ijo Lagi",
       //   quantity: 1,
       //   unit: "Sachet",
@@ -357,7 +357,7 @@ List<TransactionSupplyModel> dummySupply = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -366,7 +366,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -385,7 +385,7 @@ List<TransactionSupplyModel> dummySupply = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -394,7 +394,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -413,7 +413,7 @@ List<TransactionSupplyModel> dummySupply = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -422,7 +422,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -441,7 +441,7 @@ List<TransactionSupplyModel> dummySupply = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -450,7 +450,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",
@@ -469,7 +469,7 @@ List<TransactionSupplyModel> dummySupply = [
     transactionCode: "TX012312312",
     totalTransaction: 3400000,
     product: [
-      Product(
+      ProductDetailModel(
         name: "Ayam Cabe Ijo",
         quantity: 2,
         unit: "Sachet",
@@ -478,7 +478,7 @@ List<TransactionSupplyModel> dummySupply = [
             "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
         selected: false,
       ),
-      Product(
+      ProductDetailModel(
         name: "Opor Ayam Kuah Pedas",
         quantity: 3,
         unit: "Tray",

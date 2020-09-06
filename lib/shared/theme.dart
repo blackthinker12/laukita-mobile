@@ -93,6 +93,8 @@ class SizeConfig {
   static double _safeAreaVertical;
   static double safeBlockHorizontal;
   static double safeBlockVertical;
+  static double _safeBlockHorizontal;
+  static double _safeBlockVertical;
   
   void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -105,9 +107,39 @@ class SizeConfig {
       _mediaQueryData.padding.right;
     _safeAreaVertical = _mediaQueryData.padding.top +
       _mediaQueryData.padding.bottom;
-    safeBlockHorizontal = (screenWidth -
+    _safeBlockHorizontal = (screenWidth -
       _safeAreaHorizontal) / 100;
-    safeBlockVertical = (screenHeight -
+    _safeBlockVertical = (screenHeight -
       _safeAreaVertical) / 100;
+
+    // 7.3 inchi
+    if (_safeBlockHorizontal > 5.5 && _safeBlockHorizontal < 6.0 && _safeBlockVertical > 7.0 && _safeBlockVertical < 7.9) {
+      safeBlockHorizontal = _safeBlockHorizontal-1;
+      safeBlockVertical = _safeBlockVertical-0.5;
+    } 
+    // 8 inchi
+    else if (_safeBlockHorizontal > 7.5 && _safeBlockHorizontal < 8.5 && _safeBlockVertical > 8.0 && _safeBlockVertical < 9.0) {
+      safeBlockHorizontal = _safeBlockHorizontal-2.5;
+      safeBlockVertical = _safeBlockVertical-1;
+    }
+    // 8.86 inchi
+    else if (_safeBlockHorizontal > 7.5 && _safeBlockHorizontal < 8.5 && _safeBlockVertical > 9.0 && _safeBlockVertical < 9.9) {
+      safeBlockHorizontal = _safeBlockHorizontal-2.5;
+      safeBlockVertical = _safeBlockVertical-2;
+    }
+    // 9.9 inchi
+    else if (_safeBlockHorizontal > 8.8 && _safeBlockVertical > 11.0) {
+      safeBlockHorizontal = _safeBlockHorizontal-3;
+      safeBlockVertical = _safeBlockVertical-4;
+    }
+    // 10 inchi
+    else if (_safeBlockHorizontal > 7.9 && _safeBlockHorizontal < 8.7 && _safeBlockVertical > 11.0) {
+      safeBlockHorizontal = _safeBlockHorizontal-2.8;
+      safeBlockVertical = _safeBlockVertical-4.5;
+    }
+    else {
+      safeBlockHorizontal = _safeBlockHorizontal;
+      safeBlockVertical = _safeBlockVertical;
+    }
   }
 }

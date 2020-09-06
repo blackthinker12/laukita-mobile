@@ -6,8 +6,8 @@ class ShoppingCartPage extends StatefulWidget {
 }
 
 class _ShoppingCartPageState extends State<ShoppingCartPage> {
-  List<Product> _products = [
-    Product(
+  List<ProductDetailModel> _products = [
+    ProductDetailModel(
       name: "Ayam Cabe Ijo",
       quantity: 2,
       unit: "Sachet(s)",
@@ -16,7 +16,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
           "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
       selected: false,
     ),
-    Product(
+    ProductDetailModel(
       name: "Opor Ayam Kuah Pedas",
       quantity: 3,
       unit: "Tray(s)",
@@ -42,7 +42,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
         'Shopping Cart',
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               Icons.settings,
               size: SizeConfig.safeBlockHorizontal * 5.352798,
@@ -74,7 +74,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                 color: Colors.white
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             );
           },

@@ -16,6 +16,9 @@ class PageBloc extends Bloc<PageEvent, PageState> {
   ) async* {
     if (event is GoToMainPage) {
       yield OnMainPage();
+    }
+    else if (event is GoToOnBoardingPage) {
+      yield OnBoardingPageState();
     } 
   }
 }

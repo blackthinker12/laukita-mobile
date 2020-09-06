@@ -16,7 +16,6 @@ class _MainPageState extends State<MainPage> {
   @override
   void initState() {
     super.initState();
-
     bottomNavBarIndex = widget.bottomNavBarIndex;
   }
 
@@ -44,7 +43,7 @@ class _MainPageState extends State<MainPage> {
     return Scaffold(
       appBar: bottomNavBarIndex == 1 ? null : appBarWithSearch(
         SizeConfig.safeBlockVertical * 5.3,
-        Expanded(
+        Container(
           child: TextField(
             controller: searchController,
             keyboardType: TextInputType.text,
@@ -57,7 +56,7 @@ class _MainPageState extends State<MainPage> {
         ),
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               RizalIcons.scan,
               size: SizeConfig.safeBlockHorizontal * 5.8394,
@@ -129,7 +128,7 @@ class _MainPageState extends State<MainPage> {
                           right: 5,
                           child: InkWell(
                             onTap: () {
-                              Navigator.pop(context);
+                              Navigator.of(context).pop();
                             },
                             child: Icon(
                               Icons.menu,
@@ -181,7 +180,7 @@ class _MainPageState extends State<MainPage> {
                   drawerSubmenuContainer(
                     <Widget>[
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/login'),
+                        () => Navigator.of(context).pushNamed('/login'),
                         'Registration'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
@@ -191,32 +190,32 @@ class _MainPageState extends State<MainPage> {
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/order_payment'),
+                        () => Navigator.of(context).pushNamed('/order_payment'),
                         'Demo Order Payment Page'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/distribution_portal'),
+                        () => Navigator.of(context).pushNamed('/distribution_portal'),
                         'Demo Distribution Portal'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/upgrade_account'),
+                        () => Navigator.of(context).pushNamed('/upgrade_account'),
                         'Demo Upgrade Account'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/shipment_form'),
+                        () => Navigator.of(context).pushNamed('/shipment_form'),
                         'Demo Delivery Form Page'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/table'),
+                        () => Navigator.of(context).pushNamed('/table'),
                         'Demo Table Page'
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 1.5,),
                       drawerSubmenu(
-                        () => Navigator.pushNamed(context, '/transactions_page'),
+                        () => Navigator.of(context).pushNamed('/transactions_page'),
                         'Demo Transactions Page'
                       ),
                     ]

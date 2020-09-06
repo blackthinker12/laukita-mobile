@@ -15,7 +15,7 @@ class _DistributionPortalPageState extends State<DistributionPortalPage> {
         'Distribution Portal',
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               Icons.settings,
               size: SizeConfig.safeBlockHorizontal * 5.352798,
@@ -47,7 +47,7 @@ class _DistributionPortalPageState extends State<DistributionPortalPage> {
                 color: Colors.white
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             );
           },

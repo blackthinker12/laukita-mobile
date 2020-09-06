@@ -1,17 +1,25 @@
+import 'package:Laukita/repositories/repositories.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'package:Laukita/ui/pages/pages.dart';
 import 'package:Laukita/bloc/blocs.dart';
 import 'package:Laukita/shared/shared.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  HydratedBloc.storage = await HydratedStorage.build();
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
@@ -20,6 +28,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => PageBloc()),
+        BlocProvider(create: (_) => TokenBloc(TokenRepository())),
       ],
       child: MaterialApp(
         title: 'Laukita',

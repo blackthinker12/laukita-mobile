@@ -9,3 +9,8 @@ class GoToMainPage extends PageEvent {
   @override
   List<Object> get props => [];
 }
+
+class GoToOnBoardingPage extends PageEvent {
+  @override
+  List<Object> get props => [];
+}

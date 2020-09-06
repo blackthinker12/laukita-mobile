@@ -70,7 +70,7 @@ class _ScannerPageState extends State<ScannerPage> {
         ),
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               RizalIcons.scan,
               size: SizeConfig.safeBlockHorizontal * 5.8394,
@@ -106,7 +106,7 @@ class _ScannerPageState extends State<ScannerPage> {
                 color: Colors.white
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             );
           },

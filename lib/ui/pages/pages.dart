@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:Laukita/bloc/page_bloc/page_bloc.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -15,6 +14,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:latlong/latlong.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -24,6 +24,7 @@ import 'package:Laukita/shared/shared.dart';
 import 'package:Laukita/ui/widget/widgets.dart';
 import 'package:Laukita/models/models.dart';
 import 'package:Laukita/data/dummy_data.dart';
+import 'package:Laukita/bloc/blocs.dart';
 
 part 'main_page.dart';
 part 'home_page.dart';

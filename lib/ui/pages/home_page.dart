@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-
+    
     return Scaffold(
       body: Column(
         children: <Widget>[
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                         fontSize: SizeConfig.safeBlockHorizontal * 2.8,
                         fontWeight: FontWeight.bold
                       ),
-                      () => Navigator.pushNamed(context, '/shopping_cart'),
+                      () => Navigator.of(context).pushNamed('/shopping_cart'),
                       SizeConfig.safeBlockHorizontal * 29.3,
                       SizeConfig.safeBlockHorizontal * 29.6
                     ),
@@ -167,7 +167,7 @@ class _HomePageState extends State<HomePage> {
                     cardColorInt,
                     <Widget> [
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -176,7 +176,7 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/3.jpg'
                       ),
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -185,7 +185,7 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/1.jpg'
                       ),
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -194,7 +194,7 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/2.jpg'
                       ),
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -214,7 +214,7 @@ class _HomePageState extends State<HomePage> {
                     cardColorInt,
                     <Widget> [
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -223,7 +223,7 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/4.jpg'
                       ),
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -232,7 +232,7 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/3.jpg'
                       ),
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,
@@ -241,7 +241,7 @@ class _HomePageState extends State<HomePage> {
                         'assets/images/1.jpg'
                       ),
                       productCard(
-                        () => Navigator.pushNamed(context, '/product_detail'),
+                        () => Navigator.of(context).pushNamed('/product_detail'),
                         SizeConfig.safeBlockHorizontal * 22.6273,
                         SizeConfig.safeBlockVertical * 0.151,
                         SizeConfig.safeBlockHorizontal * 2.8,

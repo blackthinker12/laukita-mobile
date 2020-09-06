@@ -8,8 +8,11 @@ class OnBoardingPage extends StatefulWidget {
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
 
-  void _onIntroEnd(context) {
-    Navigator.pushReplacementNamed(context, '/main');
+  void _onIntroEnd(context) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('installed', true);
+    Navigator.of(context).pushReplacementNamed('/main');
+    
   }
 
   Widget _buildImage(String assetName, bool isSvg, bool width) {
@@ -32,8 +35,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       skipFlex: 0,
       nextFlex: 0,
       skip: const Text('Skip'),
-      next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      next: const Text('Next'),
+      done: const Text('Finish', style: TextStyle(fontWeight: FontWeight.w600)),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),

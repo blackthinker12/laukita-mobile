@@ -34,7 +34,7 @@ class Modals {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                          Navigator.of(context).pop();
                         },
                         child: Icon(
                           Icons.close,
@@ -122,7 +122,7 @@ class Modals {
                     children: [
                       GestureDetector(
                         onTap: () {
-                          Navigator.pop(context);
+                          Navigator.of(context).pop();
                         },
                         child: Icon(
                           Icons.close,

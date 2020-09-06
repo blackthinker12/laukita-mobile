@@ -1,31 +1,55 @@
 part of 'models.dart';
 
-class Token extends Equatable {
-  final String token;
-  final int expires;
-  final String username;
-  final String password;
+TokenModel tokenModelFromJson(String str) => TokenModel.fromJson(json.decode(str));
+String tokenModelToJson(TokenModel data) => json.encode(data.toJson());
 
-  Token({this.token, this.expires, this.username, this.password});
+class TokenModel extends Equatable {
+  TokenModel({
+    this.code,
+    this.message,
+    this.result,
+  });
 
-  factory Token.convert(Map<String, dynamic> data) {
-    if (data['token'] != null) {
-      return Token(
-        token: data['token'],
-        expires: data['expires'],
-      );
-    }
-    return Token();
-  }
+  final int code;
+  final String message;
+  final ResultTokenModel result;
 
-  Token copyWith({String token, int expires, String password}) =>
-    Token(
-      token: token ?? this.token,
-      expires: expires ?? this.expires,
-      username: this.username,
-      password: password ?? this.password
-    );
+  factory TokenModel.fromJson(Map<String, dynamic> json) => TokenModel(
+    code: json["code"],
+    message: json["message"],
+    result: ResultTokenModel.fromJson(json["result"]),
+  );
+
+  Map<String, dynamic> toJson() => {
+    "code": code,
+    "message": message,
+    "result": result.toJson(),
+  };
 
   @override
-  List<Object> get props => [token, expires, username, password];
+  List<Object> get props => [code, message, result];
+}
+
+class ResultTokenModel {
+  ResultTokenModel({
+    this.token,
+    this.userId,
+    this.userName,
+  });
+
+  String token;
+  int userId;
+  String userName;
+
+  factory ResultTokenModel.fromJson(Map<dynamic, dynamic> json) => ResultTokenModel(
+    token: json["token"],
+    userId: json["user_id"],
+    userName: json["user_name"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "token": token,
+    "user_id": userId,
+    "user_name": userName,
+  };
 }

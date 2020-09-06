@@ -29,7 +29,7 @@ class _TransactionsPageState extends State<TransactionsPage> with SingleTickerPr
         'Transactions',
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               Icons.settings,
               size: SizeConfig.safeBlockHorizontal * 5.352798,
@@ -61,7 +61,7 @@ class _TransactionsPageState extends State<TransactionsPage> with SingleTickerPr
                 color: Colors.white
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             );
           },

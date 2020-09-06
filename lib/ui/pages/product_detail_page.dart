@@ -108,7 +108,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
         ),
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               RizalIcons.scan,
               size: SizeConfig.safeBlockHorizontal * 5.8394,
@@ -145,7 +145,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                 color: Colors.white
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             );
           },
@@ -177,7 +177,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                     );
                                   },
                                   child: Container(
-                                    width: MediaQuery.of(context).size.width-80,
+                                    width: (MediaQuery.of(context).size.width/100)*60,
                                     height: SizeConfig.safeBlockVertical * 22.424,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
@@ -236,7 +236,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             Positioned(
                               bottom: 0,
                               child: Container(
-                                width: MediaQuery.of(context).size.width-80,
+                                width: (MediaQuery.of(context).size.width/100)*80,
                                 height: SizeConfig.safeBlockVertical * 5.8,
                                 padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 3.64963503649635),
                                 decoration: BoxDecoration(

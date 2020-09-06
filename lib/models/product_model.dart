@@ -1,18 +1,11 @@
 part of 'models.dart';
 
-class Product {
-  final String name;
-  final int quantity;
-  final String unit;
+class ProductModel extends Equatable {
+  final String title;
   final int price;
-  final String imageUrl;
-  bool selected;
-  Product({
-    @required this.name,
-    @required this.quantity,
-    @required this.unit,
-    @required this.price,
-    @required this.imageUrl,
-    this.selected = false,
-  });
+
+  ProductModel({this.title, this.price});
+
+  @override
+  List<Object> get props => [title, price];
 }

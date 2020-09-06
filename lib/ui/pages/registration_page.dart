@@ -256,7 +256,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             margin: EdgeInsets.only(top: 8.0),
                             child: FlatButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                Navigator.of(context).pop();
                               },
                               child: Padding(
                                 padding: EdgeInsets.zero,

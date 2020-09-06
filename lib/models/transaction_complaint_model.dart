@@ -5,9 +5,10 @@ class TransactionComplaintModel {
   final int status;
   final String complaintCode;
   final String date;
-  final Product product;
+  final ProductDetailModel product;
   final String message;
   final List<String> images;
+
   TransactionComplaintModel({
     @required this.customerName,
     @required this.status,

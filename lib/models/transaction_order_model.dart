@@ -6,8 +6,9 @@ class TransactionOrderModel {
   final String transactionCode;
   final String date;
   final int totalTransaction;
-  final List<Product> product;
+  final List<ProductDetailModel> product;
   final String shippingNumber;
+
   TransactionOrderModel({
     @required this.customerName,
     @required this.status,

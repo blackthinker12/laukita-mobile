@@ -14,3 +14,8 @@ class OnMainPage extends PageState {
   @override
   List<Object> get props => [];
 }
+
+class OnBoardingPageState extends PageState {
+  @override
+  List<Object> get props => [];
+}
