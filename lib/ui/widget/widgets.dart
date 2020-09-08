@@ -3,6 +3,7 @@ import 'package:Laukita/shared/shared.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:dotted_border/dotted_border.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 part 'appbar.dart';
 part 'modal_show_image.dart';
@@ -23,3 +24,4 @@ part 'transaction_complaint_card.dart';
 part 'shadow_image.dart';
 part 'transaction_supply_card.dart';
 part 'modal_dialog.dart';
+part 'loading.dart';

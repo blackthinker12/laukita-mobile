@@ -11,8 +11,12 @@ class OnInitialPage extends PageState {
 }
 
 class OnMainPage extends PageState {
+  final ScreenArgumentsModel argumentsValue;
+
+  OnMainPage({this.argumentsValue});
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [argumentsValue];
 }
 
 class OnBoardingPageState extends PageState {

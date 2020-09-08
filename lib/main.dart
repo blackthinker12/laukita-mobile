@@ -28,7 +28,8 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => PageBloc()),
-        BlocProvider(create: (_) => TokenBloc(TokenRepository())),
+        BlocProvider(create: (_) => TokenBloc(TokenRepository())..add(GetToken())),
+        BlocProvider(create: (_) => ProductBloc(ProductRepository())),
       ],
       child: MaterialApp(
         title: 'Laukita',
@@ -36,9 +37,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
         routes: {
-          '/onboarding': (_) => OnBoardingPage(),
-          '/main': (_) => MainPage(),
-          '/product_detail': (_) => ProductDetailPage(),
+          OnBoardingPage.routeName: (context) => OnBoardingPage(),
+          MainPage.routeName: (context) => MainPage(),
+          ProductDetailPage.routeName: (context) => ProductDetailPage(),
           '/scan': (_) => ScannerPage(),
           '/order_payment': (_) => OrderPaymentPage(),
           '/distribution_portal': (_) => DistributionPortalPage(),

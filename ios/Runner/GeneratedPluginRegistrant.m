@@ -4,18 +4,6 @@
 
 #import "GeneratedPluginRegistrant.h"
 
-#if __has_include(<app_settings/AppSettingsPlugin.h>)
-#import <app_settings/AppSettingsPlugin.h>
-#else
-@import app_settings;
-#endif
-
-#if __has_include(<connectivity/FLTConnectivityPlugin.h>)
-#import <connectivity/FLTConnectivityPlugin.h>
-#else
-@import connectivity;
-#endif
-
 #if __has_include(<flutter_barcode_scanner/SwiftFlutterBarcodeScannerPlugin.h>)
 #import <flutter_barcode_scanner/SwiftFlutterBarcodeScannerPlugin.h>
 #else
@@ -49,8 +37,6 @@
 @implementation GeneratedPluginRegistrant
 
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
-  [AppSettingsPlugin registerWithRegistrar:[registry registrarForPlugin:@"AppSettingsPlugin"]];
-  [FLTConnectivityPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTConnectivityPlugin"]];
   [SwiftFlutterBarcodeScannerPlugin registerWithRegistrar:[registry registrarForPlugin:@"SwiftFlutterBarcodeScannerPlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
   [SearchableDropdownPlugin registerWithRegistrar:[registry registrarForPlugin:@"SearchableDropdownPlugin"]];

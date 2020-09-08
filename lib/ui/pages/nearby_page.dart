@@ -37,9 +37,7 @@ class _NearByPageState extends State<NearByPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SpinKitFadingCircle(
-              color: Colors.white,
-            ),
+            buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009),
             Padding(
               padding: EdgeInsets.only(left: 5.0),
               child: Text(

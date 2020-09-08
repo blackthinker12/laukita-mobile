@@ -36,3 +36,49 @@ Widget rectangleActions(
     ),
   );
 }
+
+Widget noInternetConnection(
+  {
+    String text = 'No Internet Connection',
+    bool fontSizeDefault = true,
+    double fontSize,
+    bool buttonSizeDefault = true,
+    double buttonSize,
+    Function action
+  }
+) {
+  return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
+    crossAxisAlignment: CrossAxisAlignment.center,
+    children: [
+      Text(
+        text,
+        style: TextStyle(
+          fontWeight: FontWeight.bold,
+          fontSize: fontSizeDefault ? SizeConfig.safeBlockHorizontal * 2.9197 : fontSize
+        )
+      ),
+      SizedBox(height: 4),
+      rPreferredSizeButton(
+        BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(6.0),
+          border: Border.all(
+            color: redButtonColor,
+          ),
+        ),
+        0,
+        'Try Again',
+        TextStyle(
+          fontSize: fontSizeDefault ? SizeConfig.safeBlockHorizontal * 2.9197 : fontSize,
+          color: redButtonColor
+        ),
+        0,
+        action,
+        paddingButton: EdgeInsets.all(4.0),
+        widthButton: buttonSizeDefault ? SizeConfig.safeBlockHorizontal * 20 : buttonSize,
+        marginButton: EdgeInsets.zero,
+      ),
+    ]
+  );
+}

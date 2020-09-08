@@ -142,11 +142,3 @@ Future<bool> isInstalled() async {
   bool result = prefs.getBool('installed');
   return result;
 }
-
-Future<bool> isDisconnected() async {
-  var result = await Connectivity().checkConnectivity();
-  if (result == ConnectivityResult.none) {
-    return true;
-  }
-  return false;
-}

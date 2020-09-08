@@ -17,19 +17,34 @@ class TokenBloc extends HydratedBloc<TokenEvent, TokenState> {
   Stream<TokenState> mapEventToState(
     TokenEvent event,
   ) async* {
-    yield TokenLoading();
-
     if (event is GenerateToken) {
-      yield* _generateTokenAdmin(event.email, event.password);
+      yield* _generateToken(event.email, event.password);
+    }
+    else if (event is GetToken) {
+      yield* _getToken();
     }
   }
   
-  Stream<TokenState> _generateTokenAdmin(String email, String password, {int role}) async*{
+  Stream<TokenState> _generateToken(String email, String password, {int role}) async*{
     try {
       TokenModel token = await tokenRepositories.generateToken(email, password);
       yield TokenLoaded(token);
     } catch (e) {
       yield TokenError(e.toString());
+    }
+  }
+
+  Stream<TokenState> _getToken() async*{
+    if (state is TokenLoaded) {
+      try {
+        TokenModel token = (state as TokenLoaded).token;
+        yield TokenLoaded(token);
+      } catch (e) {
+        yield TokenError(e.toString());
+      }
+    }
+    else {
+      yield TokenLoading();
     }
   }
 
@@ -39,7 +54,6 @@ class TokenBloc extends HydratedBloc<TokenEvent, TokenState> {
       final token = TokenModel.fromJson(json);
       return TokenLoaded(token);
     } catch (_) {
-      print('pantes aja susah');
       return null;
     }
   }
@@ -49,7 +63,6 @@ class TokenBloc extends HydratedBloc<TokenEvent, TokenState> {
     if (state is TokenLoaded) {
       return state.token.toJson();
     } else {
-      print('pengen tidur nyenyak');
       return null;
     }
   }

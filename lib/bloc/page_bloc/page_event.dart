@@ -6,8 +6,12 @@ abstract class PageEvent extends Equatable {
 }
 
 class GoToMainPage extends PageEvent {
+  final ScreenArgumentsModel argumentsValue;
+
+  GoToMainPage({this.argumentsValue});
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [argumentsValue];
 }
 
 class GoToOnBoardingPage extends PageEvent {

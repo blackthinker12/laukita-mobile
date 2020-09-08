@@ -14,3 +14,8 @@ class GenerateToken extends TokenEvent {
   @override
   List<Object> get props => [email, password, role];
 }
+
+class GetToken extends TokenEvent {
+  @override
+  List<Object> get props => [];
+}

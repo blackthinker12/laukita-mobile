@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 
-import 'package:Laukita/models/models.dart';
-
 part 'user_event.dart';
 part 'user_state.dart';
 

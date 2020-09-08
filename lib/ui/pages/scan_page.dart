@@ -56,6 +56,16 @@ class _ScannerPageState extends State<ScannerPage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
+    double topMarginHintText;
+    if (MediaQuery.of(context).size.width > 700) {
+      topMarginHintText = 4.0;
+    }
+    else {
+      topMarginHintText = 0;
+    }
+
     return Scaffold(
       appBar: appBarWithSearch(
         SizeConfig.safeBlockVertical * 5.3,
@@ -65,7 +75,8 @@ class _ScannerPageState extends State<ScannerPage> {
           decoration: appBarInputDecoration(
             SizeConfig.safeBlockHorizontal * 3.3,
             null,
-            SizeConfig.safeBlockHorizontal * 4.86618
+            SizeConfig.safeBlockHorizontal * 4.86618,
+            topMarginHintText
           )
         ),
         <Widget>[

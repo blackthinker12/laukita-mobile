@@ -22,6 +22,8 @@ class Type {
 }
 
 class ProductDetailPage extends StatefulWidget {
+  static const routeName = '/product_detail';
+
   ProductDetailPage({Key key}) : super(key: key);
 
   @override
@@ -35,8 +37,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   TextEditingController quantityController = TextEditingController();
   String currentImage;
   String currentTitle;
-  String loremIpsum =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
   final List<Reviews> reviews = [
     Reviews('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 3.5, 'Rizal Hermawan'),
@@ -51,7 +51,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   void initState() {
     currentImage = "assets/images/ayam_cabe_ijo.jpg";
-    currentTitle = "Ayam Cabe Ijo";
     quantityController.text='1';
     _dropdownTypeItems = buildDropdownTypeItems(_dataType);
     _selectedType = _dropdownTypeItems[0].value;
@@ -86,12 +85,28 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    
+    final ScreenArgumentsModel args = ModalRoute.of(context).settings.arguments;
+    currentTitle =args.product.pdName;
+
     double paddingBottomAction;
     if (MediaQuery.of(context).size.width <= 375) {
       paddingBottomAction = 1;
     } else {
       paddingBottomAction = SizeConfig.safeBlockHorizontal * 3.2;
+    }
+
+    double mainContainerImageProduct;
+    double titleYellowContainer;
+    double topMarginHintText;
+    if (MediaQuery.of(context).size.width > 700) {
+      mainContainerImageProduct = (MediaQuery.of(context).size.width/100)*60;
+      titleYellowContainer = (MediaQuery.of(context).size.width/100)*38;
+      topMarginHintText = 4.0;
+    }
+    else {
+      mainContainerImageProduct = (MediaQuery.of(context).size.width/100)*80;
+      titleYellowContainer = (MediaQuery.of(context).size.width/100)*55;
+      topMarginHintText = 0;
     }
 
     return Scaffold(
@@ -103,7 +118,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           decoration: appBarInputDecoration(
             SizeConfig.safeBlockHorizontal * 3.3,
             null,
-            SizeConfig.safeBlockHorizontal * 4.86618
+            SizeConfig.safeBlockHorizontal * 4.86618,
+            topMarginHintText
           )
         ),
         <Widget>[
@@ -177,7 +193,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                     );
                                   },
                                   child: Container(
-                                    width: (MediaQuery.of(context).size.width/100)*60,
+                                    width: mainContainerImageProduct,
                                     height: SizeConfig.safeBlockVertical * 22.424,
                                     decoration: BoxDecoration(
                                       image: DecorationImage(
@@ -236,7 +252,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             Positioned(
                               bottom: 0,
                               child: Container(
-                                width: (MediaQuery.of(context).size.width/100)*80,
+                                width: mainContainerImageProduct,
                                 height: SizeConfig.safeBlockVertical * 5.8,
                                 padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 3.64963503649635),
                                 decoration: BoxDecoration(
@@ -306,7 +322,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                             Positioned(
                               bottom: 21,
                               child: Container(
-                                width: MediaQuery.of(context).size.width/2,
+                                width: titleYellowContainer,
                                 height: SizeConfig.safeBlockVertical * 4.15,
                                 padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 3.649635),
                                 decoration: BoxDecoration(
@@ -318,11 +334,13 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                   children: <Widget>[
                                     Text(
                                       currentTitle,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.clip,
                                       style: TextStyle(
                                         color: Colors.white,
                                         fontWeight: FontWeight.bold,
                                         fontSize: SizeConfig.safeBlockHorizontal * 4.37956204379562
-                                     )
+                                     ),
                                     ),
                                   ],
                                 ),
@@ -341,7 +359,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                 imageScrollable(
                                   () => setState(() {
                                     currentImage = "assets/images/ayam_kecombrang.jpg";
-                                    currentTitle = "Ayam Kecombrang";
                                   }),
                                   SizeConfig.safeBlockHorizontal * 19.46,
                                   SizeConfig.safeBlockVertical * 6,
@@ -350,7 +367,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                 imageScrollable(
                                   () => setState(() {
                                     currentImage = "assets/images/ayam_rica.jpg";
-                                    currentTitle = "Ayam Rica";
                                   }),
                                   SizeConfig.safeBlockHorizontal * 19.46,
                                   SizeConfig.safeBlockVertical * 6,
@@ -359,7 +375,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                 imageScrollable(
                                   () => setState(() {
                                     currentImage = "assets/images/ayam_cabe_ijo.jpg";
-                                    currentTitle = "Ayam Cabe Ijo";
                                   }),
                                   SizeConfig.safeBlockHorizontal * 19.46,
                                   SizeConfig.safeBlockVertical * 6,
@@ -368,7 +383,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                 imageScrollable(
                                   () => setState(() {
                                     currentImage = "assets/images/cakalang_woku.jpg";
-                                    currentTitle = "Cakalang Woku";
                                   }),
                                   SizeConfig.safeBlockHorizontal * 19.46,
                                   SizeConfig.safeBlockVertical * 6,
@@ -377,7 +391,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                 imageScrollable(
                                   () => setState(() {
                                     currentImage = "assets/images/opor_ayam.jpg";
-                                    currentTitle = "Opor Ayam";
                                   }),
                                   SizeConfig.safeBlockHorizontal * 19.46,
                                   SizeConfig.safeBlockVertical * 6,
@@ -428,7 +441,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                                       Padding(
                                         padding: EdgeInsets.only(bottom: SizeConfig.safeBlockHorizontal * 2.44),
                                         child: Text(
-                                          loremIpsum,
+                                          args.product.pdDescription.toString(),
                                           softWrap: true,
                                           overflow: TextOverflow.fade,
                                         )),

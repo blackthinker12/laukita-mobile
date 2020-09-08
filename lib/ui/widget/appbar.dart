@@ -51,11 +51,12 @@ AppBar appBar(
 InputDecoration appBarInputDecoration(
   double fontSize,
   Function searchAction,
-  double iconSize
+  double iconSize,
+  double topMarginHintText,
   ) {
   return InputDecoration(
     border: InputBorder.none,
-    contentPadding: EdgeInsets.only(left: 4, top: 4),
+    contentPadding: EdgeInsets.only(left: 4, top: topMarginHintText),
     hintText: 'Find Something...',
     hintStyle: TextStyle(
       fontSize: fontSize,

@@ -10,3 +10,4 @@ part 'transaction_supply_model.dart';
 part 'token_model.dart';
 part 'onboarding_model.dart';
 part 'product_model.dart';
+part 'screen_arguments_model.dart';

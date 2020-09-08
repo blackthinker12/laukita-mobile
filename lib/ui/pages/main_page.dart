@@ -1,6 +1,8 @@
 part of 'pages.dart';
 
 class MainPage extends StatefulWidget {
+  static const routeName = '/main';
+
   final int bottomNavBarIndex;
   final int drawerIndex;
   MainPage({this.bottomNavBarIndex = 0, this.drawerIndex = 0});
@@ -25,9 +27,9 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  buildBody(int bottomNavBarIndex) {
+  buildBody(int bottomNavBarIndex, ScreenArgumentsModel args) {
     switch (bottomNavBarIndex) {
-      case 0: return HomePage();
+      case 0: return HomePage(args: args);
       case 1: return NearByPage();
       case 4: return UserProfilePage();
 
@@ -39,6 +41,15 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    final ScreenArgumentsModel args = ModalRoute.of(context).settings.arguments;
+
+    double topMarginHintText;
+    if (MediaQuery.of(context).size.width > 700) {
+      topMarginHintText = 4.0;
+    }
+    else {
+      topMarginHintText = 0;
+    }
 
     return Scaffold(
       appBar: bottomNavBarIndex == 1 ? null : appBarWithSearch(
@@ -50,7 +61,8 @@ class _MainPageState extends State<MainPage> {
             decoration: appBarInputDecoration(
               SizeConfig.safeBlockHorizontal * 3.3,
               null,
-              SizeConfig.safeBlockHorizontal * 4.86618
+              SizeConfig.safeBlockHorizontal * 4.86618,
+              topMarginHintText
             )
           ),
         ),
@@ -101,7 +113,7 @@ class _MainPageState extends State<MainPage> {
           },
         ),
       ),
-      body: buildBody(bottomNavBarIndex),
+      body: buildBody(bottomNavBarIndex, args),
       drawer: SizedBox(
         width: MediaQuery.of(context).size.width/1.8,
         child: Drawer(

@@ -41,9 +41,8 @@ dependencies:
   flutter_svg: 0.18.0
   introduction_screen: 1.0.9
   http: 0.12.2
-  connectivity: 0.4.9+2
-  app_settings: 4.0.1+1
   hydrated_bloc: 5.0.1
+  flushbar: 1.9.1
 
 dev_dependencies:
   flutter_test:
@@ -74,7 +73,7 @@ flutter:
   - assets/images/1.jpg
   - assets/images/2.jpg
   - assets/images/3.jpg
-  - assets/images/4.jpg
+  - assets/images/0.jpg
   - assets/images/user_pic.png
   - assets/images/laukita.png
   - assets/images/google.png
