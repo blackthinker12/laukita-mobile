@@ -1,6 +1,8 @@
 part of 'pages.dart';
 
 class ShoppingCartPage extends StatefulWidget {
+  static const routeName = '/shopping_cart';
+
   @override
   _ShoppingCartPageState createState() => _ShoppingCartPageState();
 }

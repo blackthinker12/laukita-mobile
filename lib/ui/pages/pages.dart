@@ -21,7 +21,7 @@ import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
 
 import 'package:Laukita/shared/shared.dart';
-import 'package:Laukita/ui/widget/widgets.dart';
+import 'package:Laukita/ui/widgets/widgets.dart';
 import 'package:Laukita/models/models.dart';
 import 'package:Laukita/data/dummy_data.dart';
 import 'package:Laukita/bloc/blocs.dart';

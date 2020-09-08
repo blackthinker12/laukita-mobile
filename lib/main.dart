@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => PageBloc()),
         BlocProvider(create: (_) => TokenBloc(TokenRepository())..add(GetToken())),
         BlocProvider(create: (_) => ProductBloc(ProductRepository())),
+        BlocProvider(create: (_) => CartBloc(CartRepository()))
       ],
       child: MaterialApp(
         title: 'Laukita',
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           OnBoardingPage.routeName: (context) => OnBoardingPage(),
           MainPage.routeName: (context) => MainPage(),
           ProductDetailPage.routeName: (context) => ProductDetailPage(),
+          ShoppingCartPage.routeName: (context) => ShoppingCartPage(),
           '/scan': (_) => ScannerPage(),
           '/order_payment': (_) => OrderPaymentPage(),
           '/distribution_portal': (_) => DistributionPortalPage(),
@@ -48,7 +50,6 @@ class MyApp extends StatelessWidget {
           '/upgrade_account': (_) => UpgradeAccountPage(),
           '/shipment_form': (_) => ShipmentFormPage(),
           '/login': (_) => LoginPage(),
-          '/shopping_cart': (_) => ShoppingCartPage(),
           '/transactions_page': (_) => TransactionsPage()
         },
       ),

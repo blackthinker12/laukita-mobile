@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                           fontSize: SizeConfig.safeBlockHorizontal * 2.8,
                           fontWeight: FontWeight.bold
                         ),
-                        () => Navigator.of(context).pushNamed('/shopping_cart'),
+                        () => Navigator.of(context).pushNamed(ShoppingCartPage.routeName),
                         SizeConfig.safeBlockHorizontal * 29.3,
                         SizeConfig.safeBlockHorizontal * 29.6
                       ),
@@ -205,18 +205,25 @@ class _HomePageState extends State<HomePage> {
                           return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
                         } else if (state is ProductLoaded) {
                           //List<DataProductModel> products = state.product.result.data.sublist(0, 10);
-                          List<DataProductModel> products = state.product.result.data;
-                          return cardList(
-                            SizeConfig.safeBlockVertical * 23,
-                            cardColorInt,
-                            listView: _buildProductCard(
-                              context,
-                              products,
-                              products.length
-                            )
-                          );
+                          if (state.product.code == 200) {
+                            List<DataProductModel> products = state.product.result.data;
+                            return cardList(
+                              SizeConfig.safeBlockVertical * 23,
+                              cardColorInt,
+                              listView: _buildProductCard(
+                                context,
+                                products,
+                                products.length
+                              )
+                            );
+                          }
+                          else {
+                            return noInternetConnection(
+                              text: "Couldn't fetch products",
+                              action: _getProducts()
+                            );
+                          }
                         } else if (state is ProductError) {
-                          print(state.message);
                           return noInternetConnection(
                             text: "Couldn't fetch products",
                             action: _getProducts()
@@ -248,7 +255,6 @@ class _HomePageState extends State<HomePage> {
                             )
                           );
                         } else if (state is ProductError) {
-                          print(state.message);
                           return noInternetConnection(
                             text: "Couldn't fetch products",
                             action: _getProducts()

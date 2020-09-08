@@ -62,6 +62,7 @@ class DataProductModel {
     this.pdUnit,
     this.pdPackage,
     this.pdDescription,
+    this.isBookmark = false
   });
 
   int pdId;
@@ -78,6 +79,7 @@ class DataProductModel {
   String pdUnit;
   String pdPackage;
   String pdDescription;
+  bool isBookmark;
 
   factory DataProductModel.fromJson(Map<String, dynamic> json) => DataProductModel(
     pdId: json["pd_id"],
@@ -94,6 +96,7 @@ class DataProductModel {
     pdUnit: json["pd_unit"],
     pdPackage: json["pd_package"],
     pdDescription: json["pd_description"],
+    isBookmark: json["isBookmark"] ?? false
   );
 
   Map<String, dynamic> toJson() => {
@@ -111,5 +114,6 @@ class DataProductModel {
     "pd_unit": pdUnit,
     "pd_package": pdPackage,
     "pd_description": pdDescription,
+    "isBookmark": isBookmark
   };
 }
