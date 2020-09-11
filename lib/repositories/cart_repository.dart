@@ -33,7 +33,7 @@ class CartRepository implements CartRepositories {
   int getTotalPrice() {
     int totalPrice = 0;
     for (var i = 0; i < cartData.cart.length; i++) {
-      totalPrice += cartData.cart[i].price;
+      totalPrice += cartData.cart[i].subtotal;
     }
     return totalPrice;
   }

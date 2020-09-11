@@ -720,6 +720,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   size: SizeConfig.safeBlockHorizontal * 4.8,
                   color: Colors.white,
                 ),
+                action: () {
+                  context.bloc<CartBloc>().add(AddToCart(
+                    product: args.product,
+                    quantity: int.parse(quantityController.text)
+                  ));
+                }
               ),
             ],
             mainAxisAlignment: MainAxisAlignment.spaceBetween,

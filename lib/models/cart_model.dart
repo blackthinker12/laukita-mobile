@@ -4,7 +4,7 @@ class CartModel extends Equatable {
   final DataProductModel product;
   final ProductQuantity productQuantity;
 
-  int get price => productQuantity.quantity * product.pdPrice;
+  int get subtotal => productQuantity.quantity * product.pdPrice;
 
   CartModel({
     @required this.product,
@@ -36,11 +36,13 @@ class ProductQuantity {
 
 class DataCartModel extends Equatable {
   final List<CartModel> cart;
+  final int totalPrice;
 
   DataCartModel({
-    this.cart
+    this.cart,
+    this.totalPrice
   });
 
   @override
-  List<Object> get props => [cart];
+  List<Object> get props => [cart, totalPrice];
 }

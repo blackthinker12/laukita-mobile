@@ -15,8 +15,13 @@ class CartQuantityChanged extends CartEvent {
 }
 
 class AddToCart extends CartEvent {
+  final DataProductModel product;
+  final int quantity;
+
+  AddToCart({this.product, this.quantity});
+
   @override
-  List<Object> get props => [];
+  List<Object> get props => [product, quantity];
 }
 
 class RemoveFromCart extends CartEvent {

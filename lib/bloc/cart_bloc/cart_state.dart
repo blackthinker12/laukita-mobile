@@ -32,3 +32,12 @@ class CartLoaded extends CartState {
   @override
   List<Object> get props => [totalPrice, cartProducts, calculatedPrice];
 }
+
+class CartError extends CartState {
+  final String message;
+  
+  CartError(this.message);
+
+  @override
+  List<Object> get props => [message];
+}

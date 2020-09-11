@@ -19,17 +19,17 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
     CartEvent event,
   ) async* {
     if (event is AddToCart) {
-      yield* _addToCart();
+      yield* _addToCart(event.product, event.quantity);
     } else if (event is RemoveFromCart) {
       yield* _removeFromCart(event.item);
     }
   }
 
-  Stream<CartState> _addToCart() {
+  Stream<CartState> _addToCart(DataProductModel product, int quantity) async*{
     try {
-      
+      await cartRepositories.addProductToCart(product, quantity);
     } catch (e) {
-
+      yield CartError(e.toString());
     }
   }
 
