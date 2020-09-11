@@ -99,16 +99,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           'Step 1',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 14
+                            fontSize: SizeConfig.safeBlockHorizontal * 3.40633
                           ),
                         ),
-                        SizedBox(height: 9,),
+                        SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                         Divider(height: 1,),
                         Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -128,10 +125,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           height: SizeConfig.safeBlockVertical * 2.461,
                         ),
                         Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -154,14 +148,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           alignment: Alignment.centerRight,
                           child: rPreferredSizeButton(
                             BoxDecoration(
-                              color: Color(0xFF9E0505),
+                              color: redButtonColor,
                               borderRadius: BorderRadius.circular(6.0),
                             ),
                             SizeConfig.safeBlockHorizontal * 1.21,
                             'Next',
                             TextStyle(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              fontWeight: FontWeight.bold,
                               color: Colors.white
                             ),
                             SizeConfig.safeBlockHorizontal * 2.2,
@@ -175,7 +168,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             },
                             iconButton: Icon(
                               Icons.arrow_forward,
-                              size: 15,
+                              size: SizeConfig.safeBlockHorizontal * 3.6496,
                               color: Colors.white,
                             ),
                             widthButton: SizeConfig.safeBlockHorizontal * 20,
@@ -188,7 +181,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 margin: const EdgeInsets.only(left: 10.0, right: 20.0, top: 5.0, bottom: 10.0),
                                 child: Divider(
                                   color: Colors.black,
-                                  height: 36,
+                                  height: SizeConfig.safeBlockVertical * 5.53,
                                 )
                               ),
                             ),
@@ -201,7 +194,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                 margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 5.0, bottom: 10.0),
                                 child: Divider(
                                   color: Colors.black,
-                                  height: 36,
+                                  height: SizeConfig.safeBlockVertical * 5.53,
                                 )
                               ),
                             ),
@@ -213,14 +206,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           children: [
                             rPreferredSizeButton(
                               BoxDecoration(
-                                color: Color(0xFF13A7DB),
+                                color: blueButtonColor,
                                 borderRadius: BorderRadius.circular(6.0),
                               ),
                               SizeConfig.safeBlockHorizontal * 1.21,
                               'Google',
                               TextStyle(
                                 fontSize: SizeConfig.safeBlockHorizontal * 4,
-                                fontWeight: FontWeight.bold,
                                 color: Colors.white
                               ),
                               SizeConfig.safeBlockHorizontal * 2.2,
@@ -236,14 +228,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             ),
                             rPreferredSizeButton(
                               BoxDecoration(
-                                color: Color(0xFFCC1A7A),
+                                color: purpleButtonColor,
                                 borderRadius: BorderRadius.circular(6.0),
                               ),
                               SizeConfig.safeBlockHorizontal * 1.21,
                               'Instagram',
                               TextStyle(
                                 fontSize: SizeConfig.safeBlockHorizontal * 4,
-                                fontWeight: FontWeight.bold,
                                 color: Colors.white
                               ),
                               SizeConfig.safeBlockHorizontal * 2.2,
@@ -265,7 +256,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             margin: EdgeInsets.only(top: 8.0),
                             child: FlatButton(
                               onPressed: () {
-                                Navigator.pop(context);
+                                Navigator.of(context).pop();
                               },
                               child: Padding(
                                 padding: EdgeInsets.zero,
@@ -303,19 +294,16 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           'Step 2',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 14
+                            fontSize: SizeConfig.safeBlockHorizontal * 3.40633
                           ),
                         ),
-                        SizedBox(height: 9,),
+                        SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                         Divider(height: 1,),
                         !isLoginWithSocialMedia ? SizedBox(
                           height: SizeConfig.safeBlockVertical * 2.461,
                         ) : SizedBox(),
                         Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -331,10 +319,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           ),
                         ),
                         !isLoginWithSocialMedia ? Theme(
-                          data: ThemeData(
-                            primaryColor: Color(0xFFff973f),
-                            primaryColorDark: Color(0xFFF05828),
-                          ),
+                          data: textBoxTheme(),
                           child: TextFormField(
                             validator: (value) {
                               if (value.isEmpty) {
@@ -377,14 +362,13 @@ class _RegistrationPageState extends State<RegistrationPage> {
                           alignment: Alignment.centerRight,
                           child: rPreferredSizeButton(
                             BoxDecoration(
-                              color: Color(0xFF9E0505),
+                              color: redButtonColor,
                               borderRadius: BorderRadius.circular(6.0),
                             ),
                             SizeConfig.safeBlockHorizontal * 1.21,
                             'Finish',
                             TextStyle(
                               fontSize: SizeConfig.safeBlockHorizontal * 4,
-                              fontWeight: FontWeight.bold,
                               color: Colors.white
                             ),
                             SizeConfig.safeBlockHorizontal * 2.2,
@@ -395,7 +379,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             },
                             iconButton: Icon(
                               Icons.done,
-                              size: 15,
+                              size: SizeConfig.safeBlockHorizontal * 3.6496,
                               color: Colors.white,
                             ),
                             widthButton: SizeConfig.safeBlockHorizontal * 20,

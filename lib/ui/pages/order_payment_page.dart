@@ -29,16 +29,16 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                   'Payment Method',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16
+                    fontSize: SizeConfig.safeBlockHorizontal * 3.893
                   ),
                 ),
-                SizedBox(height: 9,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                 Divider(height: 1,),
                 CheckboxListTile(
                   contentPadding: EdgeInsets.all(0.0),
                   title: Text(
                     'Use my point rewards [14.300]',
-                    style: TextStyle(fontSize: 13),
+                    style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.40633),
                   ),
                   controlAffinity: ListTileControlAffinity.leading,
                   value: _checked,
@@ -52,9 +52,9 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6.0),
-                    color: Color(0xffFBFBEF),
+                    color: yellowContainer
                   ),
-                  height: 170,
+                  height: SizeConfig.safeBlockVertical * 26.15,
                   child: Column(
                     children: [
                       RadioListTile(
@@ -84,17 +84,17 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                     ],
                   ),
                 ),
-                SizedBox(height: 11,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.69,),
                 Text(
                   'Overview',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 16
+                    fontSize: SizeConfig.safeBlockHorizontal * 3.893
                   ),
                 ),
-                SizedBox(height: 9,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                 Divider(height: 1,),
-                SizedBox(height: 9,),
+                SizedBox(height: SizeConfig.safeBlockVertical * 1.38,),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -214,7 +214,7 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                         style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 18
+                          fontSize: SizeConfig.safeBlockHorizontal * 4.38
                         ),
                       ),
                     ),
@@ -222,21 +222,20 @@ class _OrderPaymentPageState extends State<OrderPaymentPage> {
                 ),
                 rButton(
                   BoxDecoration(
-                    color: Color(0xFF9E0505),
+                    color: redButtonColor,
                     borderRadius: BorderRadius.circular(6.0),
                   ),
                   SizeConfig.safeBlockHorizontal * 1.21,
-                  'Paynow',
+                  'Pay now',
                   TextStyle(
                     fontSize: SizeConfig.safeBlockHorizontal * 4,
-                    fontWeight: FontWeight.bold,
                     color: Colors.white
                   ),
                   SizeConfig.safeBlockHorizontal * 2.2,
                   marginButton: EdgeInsets.only(right: 11),
                   iconButton: Icon(
                     Icons.add_shopping_cart,
-                    size: 15,
+                    size: SizeConfig.safeBlockHorizontal * 3.6496,
                     color: Colors.white,
                   )
                 )

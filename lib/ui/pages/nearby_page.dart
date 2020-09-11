@@ -21,6 +21,7 @@ class _NearByPageState extends State<NearByPage> {
   @override
   void initState() {
     super.initState();
+    //print('render ulang');
     _fabHeight = _initFabHeight;
     mapController = MapController();
      _events = new StreamController<List<Poi>>();
@@ -36,9 +37,7 @@ class _NearByPageState extends State<NearByPage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SpinKitFadingCircle(
-              color: Colors.white,
-            ),
+            buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009),
             Padding(
               padding: EdgeInsets.only(left: 5.0),
               child: Text(
@@ -149,7 +148,7 @@ class _NearByPageState extends State<NearByPage> {
                         child: Icon(
                           Icons.error_outline,
                           color: Colors.red,
-                          size: SizeConfig.safeBlockVertical * 9.75,
+                          size: SizeConfig.safeBlockHorizontal * 4.87,
                         ),
                       )
                     ),
@@ -295,7 +294,7 @@ class _NearByPageState extends State<NearByPage> {
                         trailing: Icon(
                           Icons.directions,
                           color: Colors.blueAccent,
-                          size: 30.0,
+                          size: SizeConfig.safeBlockHorizontal * 7.2992,
                         ),
                         contentPadding: EdgeInsets.all(3.0),
                       ),
@@ -338,16 +337,20 @@ class _NearByPageState extends State<NearByPage> {
             Positioned(
               top: 35.0,
               left: 20,
-              child: FloatingActionButton(
-                elevation: 0.0,
-                child: Icon(
-                  Icons.menu,
-                  color: Colors.black,
+              child: Container(
+                width: SizeConfig.safeBlockHorizontal * 8.5,
+                height: SizeConfig.safeBlockVertical * 5.3,
+                child: FloatingActionButton(
+                  elevation: 0.0,
+                  child: Icon(
+                    Icons.menu,
+                    color: Colors.black,
+                  ),
+                  backgroundColor: Colors.white,
+                  onPressed: () {
+                    Scaffold.of(context).openDrawer();
+                  }
                 ),
-                backgroundColor: Colors.white,
-                onPressed: () {
-                  Scaffold.of(context).openDrawer();
-                }
               ),
             ),
 

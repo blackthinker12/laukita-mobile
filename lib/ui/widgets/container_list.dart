@@ -14,7 +14,7 @@ Widget containerList(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         Padding(
-          padding: EdgeInsets.only(left: 16.0, right: 16.0, bottom: 10.0),
+          padding: EdgeInsets.only(left: SizeConfig.safeBlockHorizontal * 3.892944, right: SizeConfig.safeBlockHorizontal * 3.892944, bottom: 10.0),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -42,19 +42,17 @@ Widget containerList(
 Widget cardList(
   double height,
   int color,
-  List<Widget> children,
+  {
+    ListView listView
+  }
 ) {
   return Container(
     height: height,
     color: Color(color),
     padding: EdgeInsets.only(top: 5.0, bottom: 10.0),
     child: Padding(
-      padding: EdgeInsets.only(top: 5.0, left: 16.0, right: 16.0),
-      child: ListView(
-        physics: BouncingScrollPhysics(),
-        scrollDirection: Axis.horizontal,
-        children: children
-      )
+      padding: EdgeInsets.only(top: 5.0, left: SizeConfig.safeBlockHorizontal * 3.892944, right: SizeConfig.safeBlockHorizontal * 3.892944),
+      child: listView
     )
   );
 }
@@ -64,7 +62,6 @@ Widget productCard(
   double maxWidth,
   double space,
   double fontSize,
-  double space2,
   String title,
   String imageUrl
 ) {
@@ -73,18 +70,20 @@ Widget productCard(
     child: Card(
       child: Container(
         margin: EdgeInsets.all(10),
-        constraints: BoxConstraints(maxWidth: maxWidth),
+        constraints: BoxConstraints(maxWidth: maxWidth, maxHeight: double.infinity),
         child: Column(
           children: <Widget>[
             Image.asset(imageUrl),
             SizedBox(height: space,),
             Text(
               title,
+              overflow: TextOverflow.visible,
+              maxLines: 3,
+              textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: fontSize,
               ),
             ),
-            SizedBox(height: space2),
           ],
         ),
       ),

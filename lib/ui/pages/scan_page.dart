@@ -56,6 +56,16 @@ class _ScannerPageState extends State<ScannerPage> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
+    double topMarginHintText;
+    if (MediaQuery.of(context).size.width > 700) {
+      topMarginHintText = 4.0;
+    }
+    else {
+      topMarginHintText = 0;
+    }
+
     return Scaffold(
       appBar: appBarWithSearch(
         SizeConfig.safeBlockVertical * 5.3,
@@ -64,29 +74,31 @@ class _ScannerPageState extends State<ScannerPage> {
           keyboardType: TextInputType.text,
           decoration: appBarInputDecoration(
             SizeConfig.safeBlockHorizontal * 3.3,
-            null
+            null,
+            SizeConfig.safeBlockHorizontal * 4.86618,
+            topMarginHintText
           )
         ),
         <Widget>[
           rIconButton(
-            () => Navigator.pushNamed(context, '/scan'),
+            () => Navigator.of(context).pushNamed('/scan'),
             Icon(
               RizalIcons.scan,
-              size: 24,
+              size: SizeConfig.safeBlockHorizontal * 5.8394,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.settings,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
             null,
             Icon(
               Icons.email,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           ),
           rIconButton(
@@ -94,7 +106,7 @@ class _ScannerPageState extends State<ScannerPage> {
             Icon(
               RizalIcons.notification,
               color: Colors.white,
-              size: 20,
+              size: SizeConfig.safeBlockHorizontal * 4.86618,
             )
           )
         ],Builder(
@@ -105,14 +117,13 @@ class _ScannerPageState extends State<ScannerPage> {
                 color: Colors.white
               ),
               onPressed: () {
-                Navigator.pop(context);
+                Navigator.of(context).pop();
               },
             );
           },
         ),
       ),
       body: Center(
-        //child: Text('scanner versi ios masih error'),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,

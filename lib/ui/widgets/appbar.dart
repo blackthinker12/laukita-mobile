@@ -12,7 +12,7 @@ AppBar appBarWithSearch(
       margin: const EdgeInsets.only(right: 2.0),
       alignment: Alignment.centerLeft,
       decoration: BoxDecoration(
-        color: Color(0xFFFAFAFA),
+        color: whiteContainer,
         borderRadius: BorderRadius.circular(3.0),
       ),
       height: heightTextBox,
@@ -50,21 +50,24 @@ AppBar appBar(
 
 InputDecoration appBarInputDecoration(
   double fontSize,
-  Function searchAction
+  Function searchAction,
+  double iconSize,
+  double topMarginHintText,
   ) {
   return InputDecoration(
     border: InputBorder.none,
-    contentPadding: EdgeInsets.only(bottom: 18, left: 4),
+    contentPadding: EdgeInsets.only(left: 4, top: topMarginHintText),
     hintText: 'Find Something...',
     hintStyle: TextStyle(
-      fontSize: fontSize
+      fontSize: fontSize,
+      color: Colors.black87,
     ),
     hintMaxLines: 2,
     suffixIcon: IconButton(
       icon: Icon(
         Icons.search,
         color: Colors.black,
-        size: 20.0,
+        size: iconSize,
       ),
       onPressed: searchAction,
     )

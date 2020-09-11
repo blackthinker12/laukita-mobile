@@ -77,8 +77,8 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         activeColor: Colors.green,
                         shape: PinCodeFieldShape.box,
                         borderRadius: BorderRadius.circular(5),
-                        fieldHeight: 50,
-                        fieldWidth: 40,
+                        fieldHeight: SizeConfig.safeBlockVertical * 7.69,
+                        fieldWidth: SizeConfig.safeBlockHorizontal * 9.73,
                         activeFillColor: Colors.white,
                       ),
                       animationDuration: Duration(milliseconds: 300),
@@ -108,21 +108,20 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       alignment: Alignment.centerRight,
                       child: rPreferredSizeButton(
                         BoxDecoration(
-                          color: redColor,
+                          color: redButtonColor,
                           borderRadius: BorderRadius.circular(6.0),
                         ),
                         SizeConfig.safeBlockHorizontal * 1.21,
                         'Finish',
                         TextStyle(
                           fontSize: SizeConfig.safeBlockHorizontal * 4,
-                          fontWeight: FontWeight.bold,
                           color: Colors.white
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,
                         null,
                         iconButton: Icon(
                           Icons.done,
-                          size: 15,
+                          size: SizeConfig.safeBlockHorizontal * 3.6496,
                           color: Colors.white,
                         ),
                         widthButton: SizeConfig.safeBlockHorizontal * 20,
@@ -135,7 +134,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                             margin: const EdgeInsets.only(left: 10.0, right: 20.0, top: 5.0, bottom: 10.0),
                             child: Divider(
                               color: Colors.black,
-                              height: 36,
+                              height: SizeConfig.safeBlockVertical * 5.53,
                             )
                           ),
                         ),
@@ -148,7 +147,7 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                             margin: const EdgeInsets.only(left: 20.0, right: 10.0, top: 5.0, bottom: 10.0),
                             child: Divider(
                               color: Colors.black,
-                              height: 36,
+                              height: SizeConfig.safeBlockVertical * 5.53,
                             )
                           ),
                         ),
@@ -160,14 +159,13 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                       children: [
                         rPreferredSizeButton(
                           BoxDecoration(
-                            color: greenColor,
+                            color: greenButtonColor,
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           SizeConfig.safeBlockHorizontal * 1.21,
                           'Resend Code',
                           TextStyle(
                             fontSize: SizeConfig.safeBlockHorizontal * 4,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white
                           ),
                           SizeConfig.safeBlockHorizontal * 2.2,
@@ -176,14 +174,13 @@ class _EmailVerificationPageState extends State<EmailVerificationPage> {
                         ),
                         rPreferredSizeButton(
                           BoxDecoration(
-                            color: greenColor,
+                            color: greenButtonColor,
                             borderRadius: BorderRadius.circular(6.0),
                           ),
                           SizeConfig.safeBlockHorizontal * 1.21,
                           'Change Email',
                           TextStyle(
                             fontSize: SizeConfig.safeBlockHorizontal * 4,
-                            fontWeight: FontWeight.bold,
                             color: Colors.white
                           ),
                           SizeConfig.safeBlockHorizontal * 2.2,
