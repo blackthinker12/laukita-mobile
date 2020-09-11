@@ -88,13 +88,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     final ScreenArgumentsModel args = ModalRoute.of(context).settings.arguments;
     currentTitle =args.product.pdName;
 
-    double paddingBottomAction;
-    if (MediaQuery.of(context).size.width <= 375) {
-      paddingBottomAction = 1;
-    } else {
-      paddingBottomAction = SizeConfig.safeBlockHorizontal * 3.2;
-    }
-
+    double paddingBottomAction = SizeConfig.safeBlockHorizontal * 3.2;
+    
     double mainContainerImageProduct;
     double titleYellowContainer;
     double topMarginHintText;
