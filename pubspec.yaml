@@ -39,7 +39,10 @@ dependencies:
   equatable: 1.1.1
   shared_preferences: 0.5.10
   flutter_svg: 0.18.0
-  introduction_screen: 1.0.9
+  introduction_screen:
+    git:
+      url: https://github.com/rizalhrm/introduction_screen
+      ref: master
   http: 0.12.2
   hydrated_bloc: 5.0.1
   flushbar: 1.9.1

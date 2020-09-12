@@ -292,9 +292,11 @@ packages:
   introduction_screen:
     dependency: "direct main"
     description:
-      name: introduction_screen
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: e1d43309d6d475f7390fc8aee697be7e20e6c330
+      url: "https://github.com/rizalhrm/introduction_screen"
+    source: git
     version: "1.0.9"
   latlong:
     dependency: transitive

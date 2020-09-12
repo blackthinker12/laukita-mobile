@@ -42,7 +42,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             context.bloc<PageBloc>().add(GoToMainPage(argumentsValue: argumentsValue));
           }
           else {
-            print('bbbb');
             _generateToken();
           }
         }
@@ -72,6 +71,12 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           skipFlex: 0,
           nextFlex: 0,
           skip: Text(
+            'Skip',
+            style: TextStyle(
+              fontSize: SizeConfig.safeBlockHorizontal * 3.40632
+            )
+          ),
+          previous: Text(
             'Previous',
             style: TextStyle(
               fontSize: SizeConfig.safeBlockHorizontal * 3.40632
@@ -110,8 +115,8 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       body: item.description,
       image: _buildImage(item.imageUrl, item.isSVG, item.is350),
       decoration: PageDecoration(
-        titleTextStyle: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 5.352798, fontWeight: FontWeight.w700),
-        bodyTextStyle: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.892944),
+        titleTextStyle: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.892944, fontWeight: FontWeight.w700),
+        bodyTextStyle: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3),
         descriptionPadding: EdgeInsets.fromLTRB(
           SizeConfig.safeBlockHorizontal * 3.892944,
           0.0,
@@ -120,6 +125,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
         ),
         pageColor: Colors.white,
         imagePadding: EdgeInsets.zero,
+        containerContentPadding: EdgeInsets.only(bottom: 0)
       )
     );
   }
