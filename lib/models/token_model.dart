@@ -1,8 +1,5 @@
 part of 'models.dart';
 
-TokenModel tokenModelFromJson(String str) => TokenModel.fromJson(json.decode(str));
-String tokenModelToJson(TokenModel data) => json.encode(data.toJson());
-
 class TokenModel extends Equatable {
   TokenModel({
     this.code,
@@ -25,6 +22,9 @@ class TokenModel extends Equatable {
     "message": message,
     "result": result.toJson(),
   };
+
+  static TokenModel tokenModelFromJson(String str) => TokenModel.fromJson(json.decode(str));
+  static String tokenModelToJson(TokenModel data) => json.encode(data.toJson());
 
   @override
   List<Object> get props => [code, message, result];

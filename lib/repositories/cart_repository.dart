@@ -1,41 +1,42 @@
 part of 'repositories.dart';
 
 abstract class CartRepositories {
-  Future addProductToCart(DataProductModel product, int quantity);
-  Future changeQuantity(CartModel item, int newQuantity);
-  int getTotalPrice();
+  DataCartModel addProductToCart(DataCartModel cartData, DataProductModel product, int quantity);
+  DataCartModel changeQuantity(DataCartModel cartData, CartModel item, int newQuantity);
+  DataCartModel getTotalPrice(DataCartModel cartData);
   //Future getCalculatedPrice();
 }
 
 class CartRepository implements CartRepositories {
-  static DataCartModel cartData = DataCartModel();
-
   @override
-  Future addProductToCart(DataProductModel product, int quantity) async {
+  DataCartModel addProductToCart(DataCartModel cartData, DataProductModel product, int quantity) {
     cartData.cart.add(
       CartModel(
         product: product,
         productQuantity: ProductQuantity(quantity), 
       )
     );
+    return cartData;
   }
 
   @override
-  Future changeQuantity(CartModel item, int newQuantity) async {
+  DataCartModel changeQuantity(DataCartModel cartData, CartModel item, int newQuantity) {
     for(int i = 0; i < cartData.cart.length; i++){
       if (cartData.cart[i] == item ) {
         cartData.cart[i].productQuantity.changeQuantity(newQuantity);
       }
     }
+    return cartData;
   }
 
   @override
-  int getTotalPrice() {
+  DataCartModel getTotalPrice(DataCartModel cartData) {
     int totalPrice = 0;
     for (var i = 0; i < cartData.cart.length; i++) {
       totalPrice += cartData.cart[i].subtotal;
     }
-    return totalPrice;
+    cartData.totalPrice = totalPrice;
+    return cartData;
   }
 
   // @override

@@ -10,27 +10,19 @@ class CartInitial extends CartState {
 }
 
 class CartLoaded extends CartState {
-  final List<CartModel> cartProducts;
-  final int totalPrice;
-  final double calculatedPrice;
+  final DataCartModel cartProducts;
 
-  CartLoaded(
-    {this.totalPrice,
-    this.calculatedPrice,
-    @required this.cartProducts});
-
-  CartLoaded copyWith(
-      {List<CartModel> cartProducts,
-      int totalPrice,
-      double calculatedPrice}) {
-    return CartLoaded(
-        cartProducts: cartProducts ?? this.cartProducts,
-        totalPrice: totalPrice ?? this.totalPrice,
-        calculatedPrice: calculatedPrice ?? this.calculatedPrice);
-  }
+  CartLoaded(this.cartProducts);
 
   @override
-  List<Object> get props => [totalPrice, cartProducts, calculatedPrice];
+  List<Object> get props => [cartProducts];
+}
+
+class CartLoading extends CartState {
+  const CartLoading();
+
+  @override
+  List<Object> get props => [];
 }
 
 class CartError extends CartState {

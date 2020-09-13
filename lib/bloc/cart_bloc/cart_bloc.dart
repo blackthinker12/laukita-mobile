@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
-import 'package:flutter/widgets.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'package:Laukita/repositories/repositories.dart';
@@ -18,42 +17,87 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
   Stream<CartState> mapEventToState(
     CartEvent event,
   ) async* {
-    if (event is AddToCart) {
+    if (event is GetCartData) {
+      yield* _getCartData();
+    } else if (event is AddToCart) {
       yield* _addToCart(event.product, event.quantity);
     } else if (event is RemoveFromCart) {
       yield* _removeFromCart(event.item);
     }
   }
 
-  Stream<CartState> _addToCart(DataProductModel product, int quantity) async*{
-    try {
-      await cartRepositories.addProductToCart(product, quantity);
-    } catch (e) {
-      yield CartError(e.toString());
+  Stream<CartState> _getCartData() async*{
+    if (state is CartLoaded) {
+      try {
+        DataCartModel cartProduct = (state as CartLoaded).cartProducts;
+        yield CartLoaded(cartProduct);
+      } catch (e) {
+        yield CartError(e.toString());
+      }
+    }
+    else {
+      yield CartLoading();
     }
   }
 
-  Stream<CartState> _removeFromCart(CartModel item) {
+  Stream<CartState> _addToCart(DataProductModel product, int quantity) async*{
+    if (state is CartLoaded) {
+      DataCartModel cartProducts;
+      try {
+        DataCartModel cartProduct = (state as CartLoaded).cartProducts;
+        var check = cartProduct.cart.where((productData) => productData.product.pdId == product.pdId);
+        if (check.length > 0) {
+          CartModel selectedCart = cartProduct.cart.firstWhere((productData) => productData.product.pdId == product.pdId);
+          int newQuantity = quantity + selectedCart.productQuantity.quantity;
+          cartProducts = cartRepositories.changeQuantity(cartProduct, selectedCart, newQuantity);
+          print(cartProducts.toJson());
+        } else {
+          cartProducts = cartRepositories.addProductToCart(cartProduct, product, quantity);
+          print(cartProducts.toJson());
+        }
+        yield CartLoaded(cartProducts);
+      } catch (e) {
+        yield CartError(e.toString());
+      }
+    }
+    else {
+      try {
+        DataCartModel cartProduct = DataCartModel(
+          cart: []
+        );
+        DataCartModel cartProducts = cartRepositories.addProductToCart(cartProduct, product, quantity);
+        yield CartLoaded(cartProducts);
+      } catch (e) {
+        yield CartError(e.toString());
+      }
+    }
+  }
+
+  Stream<CartState> _removeFromCart(CartModel item) async*{
     try {
       
     } catch (e) {
-
+      yield CartError(e.toString());
     }
   }
 
   @override
   CartState fromJson(Map<String, dynamic> json) {
     try {
-      final cart = CartModel.fromJson(json);
-      return null;
-      // return CartLoaded();
-    } catch (_) {
+      final carts = DataCartModel.fromJson(json);
+      return CartLoaded(carts);
+    } catch (e) {
+      print(e.toString());
       return null;
     }
   }
   
   @override
   Map<String, dynamic> toJson(CartState state) {
-
+    if (state is CartLoaded) {
+      return state.cartProducts.toJson();
+    } else {
+      return null;
+    }
   }
 }

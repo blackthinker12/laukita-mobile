@@ -14,7 +14,7 @@ class TokenRepository implements TokenRepositories {
       "password": password
     });
     
-    TokenModel token = tokenModelFromJson(response.body);
+    TokenModel token = TokenModel.tokenModelFromJson(response.body);
     return token;
   }
 }
