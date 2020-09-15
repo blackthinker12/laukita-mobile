@@ -25,7 +25,7 @@ class DataCartModel {
   static String encodeCartDatas(List<CartModel> cartDatas) => json.encode(
     cartDatas
         .map<Map<String, dynamic>>((cartData) => CartModel.toMap(cartData))
-        .toList(),
+        .toList()
   );
 
   static List<CartModel> decodeCartDatas(String cartStr) =>

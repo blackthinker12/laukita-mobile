@@ -11,11 +11,21 @@ class TokenModel extends Equatable {
   final String message;
   final ResultTokenModel result;
 
-  factory TokenModel.fromJson(Map<String, dynamic> json) => TokenModel(
-    code: json["code"],
-    message: json["message"],
-    result: ResultTokenModel.fromJson(json["result"]),
-  );
+  factory TokenModel.fromJson(Map<String, dynamic> json) {
+    if (json["code"] == 200) {
+      return TokenModel(
+        code: json["code"],
+        message: json["message"],
+        result: ResultTokenModel.fromJson(json["result"]),
+      );
+    }
+    else {
+      return TokenModel(
+        code: json["code"],
+        message: json["message"]
+      );
+    }
+  }
 
   Map<String, dynamic> toJson() => {
     "code": code,

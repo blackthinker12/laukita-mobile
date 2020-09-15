@@ -11,6 +11,7 @@ class ProductRepository implements ProductRepositories {
 
     var response = await http.get(url);
     ProductModel product = productModelFromJson(response.body);
+    
     return product;
   }
 }

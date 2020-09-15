@@ -14,11 +14,20 @@ class ProductModel extends Equatable {
   final int code;
   final ResultProductModel result;
 
-  factory ProductModel.fromJson(Map<String, dynamic> json) => ProductModel(
-    message: json["message"],
-    code: json["code"],
-    result: ResultProductModel.fromJson(json["result"]),
-  );
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    if (json["code"] == 200) {
+      return ProductModel(
+        message: json["message"],
+        code: json["code"],
+        result: ResultProductModel.fromJson(json["result"]),
+      );
+    } else {
+      return ProductModel(
+        message: json["message"],
+        code: json["code"]
+      );
+    }
+  }
 
   Map<String, dynamic> toJson() => {
     "message": message,

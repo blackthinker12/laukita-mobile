@@ -17,6 +17,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  bool isInvalidToken;
   String tokenValue;
   int _currentSlider = 0;
   final CarouselController _imageSliderController = CarouselController();
@@ -217,6 +218,10 @@ class _HomePageState extends State<HomePage> {
                               )
                             );
                           }
+                          else if (state.product.message == 'invalid_token') {
+                            _generateToken();
+                            return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                          }
                           else {
                             return noInternetConnection(
                               text: "Couldn't fetch products",
@@ -243,17 +248,28 @@ class _HomePageState extends State<HomePage> {
                         if (state is ProductInitial) {
                           return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
                         } else if (state is ProductLoaded) {
-                          //List<DataProductModel> products = state.product.result.data.sublist(0, 10);
-                          List<DataProductModel> products = state.product.result.data;
-                          return cardList(
-                            SizeConfig.safeBlockVertical * 23,
-                            cardColorInt,
-                            listView: _buildProductCard(
-                              context,
-                              products,
-                              products.length
-                            )
-                          );
+                          if (state.product.code == 200) {
+                            List<DataProductModel> products = state.product.result.data;
+                            return cardList(
+                              SizeConfig.safeBlockVertical * 23,
+                              cardColorInt,
+                              listView: _buildProductCard(
+                                context,
+                                products,
+                                products.length
+                              )
+                            );
+                          }
+                          else if (state.product.message == 'invalid_token') {
+                            _generateToken();
+                            return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                          }
+                          else {
+                            return noInternetConnection(
+                              text: "Couldn't fetch products",
+                              action: _getProducts()
+                            );
+                          }
                         } else if (state is ProductError) {
                           return noInternetConnection(
                             text: "Couldn't fetch products",

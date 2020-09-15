@@ -51,11 +51,12 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
           int newQuantity = quantity + selectedCart.productQuantity.quantity;
           cartProducts = cartRepositories.changeQuantity(cartProduct, selectedCart, newQuantity);
           print(cartProducts.toJson());
+          yield CartLoaded(cartProducts);
         } else {
           cartProducts = cartRepositories.addProductToCart(cartProduct, product, quantity);
           print(cartProducts.toJson());
+          yield CartLoaded(cartProducts);
         }
-        yield CartLoaded(cartProducts);
       } catch (e) {
         yield CartError(e.toString());
       }
@@ -87,7 +88,6 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
       final carts = DataCartModel.fromJson(json);
       return CartLoaded(carts);
     } catch (e) {
-      print(e.toString());
       return null;
     }
   }
@@ -95,8 +95,11 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
   @override
   Map<String, dynamic> toJson(CartState state) {
     if (state is CartLoaded) {
+      print('to json CACHE');
+      print(state.cartProducts.toJson());
       return state.cartProducts.toJson();
     } else {
+       print('to json CACHE ERRRORORORORO');
       return null;
     }
   }
