@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 import 'package:Laukita/repositories/repositories.dart';
 import 'package:Laukita/models/models.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
@@ -42,21 +42,20 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
 
   Stream<CartState> _addToCart(DataProductModel product, int quantity) async*{
     if (state is CartLoaded) {
-      DataCartModel cartProducts;
       try {
-        DataCartModel cartProduct = (state as CartLoaded).cartProducts;
-        var check = cartProduct.cart.where((productData) => productData.product.pdId == product.pdId);
+        DataCartModel cartProducts;
+        var copyState = this.state as CartLoaded;
+        DataCartModel cartState = copyState.cartProducts;
+        var check = cartState.cart.where((productData) => productData.product.pdId == product.pdId);
         if (check.length > 0) {
-          CartModel selectedCart = cartProduct.cart.firstWhere((productData) => productData.product.pdId == product.pdId);
+          CartModel selectedCart = cartState.cart.firstWhere((productData) => productData.product.pdId == product.pdId);
           int newQuantity = quantity + selectedCart.productQuantity.quantity;
-          cartProducts = cartRepositories.changeQuantity(cartProduct, selectedCart, newQuantity);
-          print(cartProducts.toJson());
-          yield CartLoaded(cartProducts);
+          cartProducts = cartRepositories.changeQuantity(cartState, selectedCart, newQuantity);
         } else {
-          cartProducts = cartRepositories.addProductToCart(cartProduct, product, quantity);
-          print(cartProducts.toJson());
-          yield CartLoaded(cartProducts);
+          cartProducts = cartRepositories.addProductToCart(cartState, product, quantity);
         }
+        print(copyState.copyWith(cartProducts).cartProducts.toJson());
+        yield copyState.copyWith(cartProducts);
       } catch (e) {
         yield CartError(e.toString());
       }
@@ -87,7 +86,7 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
     try {
       final carts = DataCartModel.fromJson(json);
       return CartLoaded(carts);
-    } catch (e) {
+    } catch (_) {
       return null;
     }
   }
@@ -95,11 +94,8 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
   @override
   Map<String, dynamic> toJson(CartState state) {
     if (state is CartLoaded) {
-      print('to json CACHE');
-      print(state.cartProducts.toJson());
       return state.cartProducts.toJson();
     } else {
-       print('to json CACHE ERRRORORORORO');
       return null;
     }
   }

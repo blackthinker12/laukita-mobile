@@ -175,7 +175,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             print(state.cartProducts.toJson());
           }
           else if(state is CartLoading) {
-            print("state.loaidng");
+            print("state.loading");
           }
           else if(state is CartError) {
             print(state.message);

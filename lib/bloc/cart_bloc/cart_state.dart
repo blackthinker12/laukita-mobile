@@ -14,6 +14,8 @@ class CartLoaded extends CartState {
 
   CartLoaded(this.cartProducts);
 
+  CartLoaded copyWith(DataCartModel cartProducts) => CartLoaded(cartProducts);
+
   @override
   List<Object> get props => [cartProducts];
 }

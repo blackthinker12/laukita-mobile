@@ -10,9 +10,8 @@ class DataCartModel {
   });
 
   factory DataCartModel.fromJson(Map<String, dynamic> json) {
-    List<CartModel> cartResult = decodeCartDatas(json["cart"]);
     return DataCartModel(
-      cart: cartResult,
+      cart: decodeCartDatas(json["cart"]),
       totalPrice: json["totalPrice"],
     );
   }
@@ -22,10 +21,10 @@ class DataCartModel {
     "totalPrice": totalPrice
   };
 
-  static String encodeCartDatas(List<CartModel> cartDatas) => json.encode(
+  static encodeCartDatas(List<CartModel> cartDatas) => json.encode(
     cartDatas
-        .map<Map<String, dynamic>>((cartData) => CartModel.toMap(cartData))
-        .toList()
+      .map<Map<String, dynamic>>((cartData) => CartModel.toMap(cartData))
+      .toList()
   );
 
   static List<CartModel> decodeCartDatas(String cartStr) =>
