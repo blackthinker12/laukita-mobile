@@ -4,12 +4,12 @@ import 'package:equatable/equatable.dart';
 
 import 'package:Laukita/repositories/repositories.dart';
 import 'package:Laukita/models/models.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'cart_event.dart';
 part 'cart_state.dart';
 
-class CartBloc extends HydratedBloc<CartEvent, CartState> {
+class CartBloc extends Bloc<CartEvent, CartState> {
   final CartRepositories cartRepositories;
   CartBloc(this.cartRepositories) : super(CartInitial());
 
@@ -78,25 +78,6 @@ class CartBloc extends HydratedBloc<CartEvent, CartState> {
       
     } catch (e) {
       yield CartError(e.toString());
-    }
-  }
-
-  @override
-  CartState fromJson(Map<String, dynamic> json) {
-    try {
-      final carts = DataCartModel.fromJson(json);
-      return CartLoaded(carts);
-    } catch (_) {
-      return null;
-    }
-  }
-  
-  @override
-  Map<String, dynamic> toJson(CartState state) {
-    if (state is CartLoaded) {
-      return state.cartProducts.toJson();
-    } else {
-      return null;
     }
   }
 }

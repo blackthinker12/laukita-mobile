@@ -37,7 +37,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   TextEditingController quantityController = TextEditingController();
   String currentImage;
   String currentTitle;
-  int cartLength = 0;
 
   final List<Reviews> reviews = [
     Reviews('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 3.5, 'Rizal Hermawan'),
@@ -78,7 +77,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
     return items;
   }
 
-  onChangeDropdownTypeItem(Type selectedType) {
+  _onChangeDropdownTypeItem(Type selectedType) {
     setState(() {
       _selectedType = selectedType;
     });
@@ -133,7 +132,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               RizalIcons.basket,
               size: SizeConfig.safeBlockHorizontal * 4.86618,
             ),
-            cartLength,
+            0,
             context
           ),
           rIconButton(
@@ -169,9 +168,9 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
       body: BlocListener<CartBloc, CartState>(
         listener: (_, state) {
           if(state is CartLoaded) {
-            setState(() {
-              cartLength = state.cartProducts.cart.length;
-            });
+            // setState(() {
+            //   cartLength = state.cartProducts.cart.length;
+            // });
             print(state.cartProducts.toJson());
           }
           else if(state is CartLoading) {
@@ -688,7 +687,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                         isExpanded: true,
                         value: _selectedType,
                         items: _dropdownTypeItems,
-                        onChanged: onChangeDropdownTypeItem,
+                        onChanged: _onChangeDropdownTypeItem,
                       ),
                     )
                   ),

@@ -9,6 +9,8 @@ class OnBoardingPage extends StatefulWidget {
 
 class _OnBoardingPageState extends State<OnBoardingPage> {
   final introKey = GlobalKey<IntroductionScreenState>();
+  InstallationInfoRepositories installInfo = InstallationInfoRepository();
+
   Widget _buildImage(String assetName, bool isSvg, bool width) {
     return Align(
       child: isSvg ? SvgPicture.asset(assetName, width: width ? SizeConfig.safeBlockHorizontal * 85.15815 : SizeConfig.safeBlockHorizontal * 80) : Image.asset(assetName, width: width ? SizeConfig.safeBlockHorizontal * 85.15815 : SizeConfig.safeBlockHorizontal * 78),
@@ -22,11 +24,6 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
     ));
   }
 
-  _setBoolInstalled() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('installed', true);
-  }
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -38,7 +35,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
             ScreenArgumentsModel argumentsValue = ScreenArgumentsModel(
               token: state.token
             );
-            _setBoolInstalled();
+            installInfo.save(InstallationInformationModel(true));
             context.bloc<PageBloc>().add(GoToMainPage(argumentsValue: argumentsValue));
           }
           else {

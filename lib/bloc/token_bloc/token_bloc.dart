@@ -1,15 +1,15 @@
 import 'dart:async';
 
 import 'package:equatable/equatable.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:Laukita/models/models.dart';
 import 'package:Laukita/repositories/repositories.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
 
 part 'token_event.dart';
 part 'token_state.dart';
 
-class TokenBloc extends HydratedBloc<TokenEvent, TokenState> {
+class TokenBloc extends Bloc<TokenEvent, TokenState> {
   final TokenRepositories tokenRepositories;
   TokenBloc(this.tokenRepositories) : super(TokenInitial());
 
@@ -28,6 +28,11 @@ class TokenBloc extends HydratedBloc<TokenEvent, TokenState> {
   Stream<TokenState> _generateToken(String email, String password, {int role}) async*{
     try {
       TokenModel token = await tokenRepositories.generateToken(email, password);
+      if (state is TokenLoading) {
+        tokenRepositories.saveToken('add', token);
+      } else {
+        tokenRepositories.saveToken('put', token);
+      }
       yield TokenLoaded(token);
     } catch (e) {
       yield TokenError(e.toString());
@@ -35,35 +40,16 @@ class TokenBloc extends HydratedBloc<TokenEvent, TokenState> {
   }
 
   Stream<TokenState> _getToken() async*{
-    if (state is TokenLoaded) {
-      try {
-        TokenModel token = (state as TokenLoaded).token;
-        yield TokenLoaded(token);
-      } catch (e) {
-        yield TokenError(e.toString());
-      }
-    }
-    else {
-      yield TokenLoading();
-    }
-  }
-
-  @override
-  TokenState fromJson(Map<String, dynamic> json) {
     try {
-      final token = TokenModel.fromJson(json);
-      return TokenLoaded(token);
-    } catch (_) {
-      return null;
-    }
-  }
-  
-  @override
-  Map<String, dynamic> toJson(TokenState state) {
-    if (state is TokenLoaded) {
-      return state.token.toJson();
-    } else {
-      return null;
+      int count = tokenRepositories.count();
+      if (count > 0) {
+        TokenModel token = tokenRepositories.getToken();
+        yield TokenLoaded(token);
+      } else {
+        yield TokenLoading();
+      }
+    } catch (e) {
+      yield TokenError(e.toString());
     }
   }
 }

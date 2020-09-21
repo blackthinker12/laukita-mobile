@@ -1,7 +1,16 @@
-part of 'models.dart';
+import 'dart:convert';
+import 'package:flutter/widgets.dart';
+import 'package:hive/hive.dart';
 
+import 'package:Laukita/models/models.dart';
+
+part 'cart_model.g.dart';
+
+@HiveType(typeId: 2)
 class DataCartModel {
+  @HiveField(0)
   List<CartModel> cart;
+  @HiveField(1)
   int totalPrice;
 
   DataCartModel({
@@ -33,8 +42,11 @@ class DataCartModel {
         .toList();
 }
 
+@HiveType(typeId: 3)
 class CartModel {
+  @HiveField(0)
   DataProductModel product;
+  @HiveField(1)
   ProductQuantity productQuantity;
 
   int get subtotal => productQuantity.quantity * product.pdPrice;
@@ -64,7 +76,9 @@ class CartModel {
   };
 }
 
+@HiveType(typeId: 4)
 class ProductQuantity {
+  @HiveField(0)
   int quantity;
 
   ProductQuantity(this.quantity);

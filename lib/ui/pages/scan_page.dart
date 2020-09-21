@@ -16,7 +16,7 @@ class _ScannerPageState extends State<ScannerPage> {
     super.initState();
   }
 
-  startBarcodeScanStream() async {
+  _startBarcodeScanStream() async {
     FlutterBarcodeScanner.getBarcodeStreamReceiver(
       "#ff6666", "Cancel", true, ScanMode.BARCODE)
     .listen((barcode) => print(barcode));
@@ -135,7 +135,7 @@ class _ScannerPageState extends State<ScannerPage> {
                 onPressed: () => scanQR(),
                 child: Text("Start QR scan")),
             RaisedButton(
-                onPressed: () => startBarcodeScanStream(),
+                onPressed: () => _startBarcodeScanStream(),
                 child: Text("Start barcode scan stream")),
             Text('Scan result : $_scanBarcode\n',
                 style: TextStyle(fontSize: 20))

@@ -6,7 +6,8 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  bool isInstalledValue;
+  int isInstalledCount = 0;
+  InstallationInfoRepositories installInfo = InstallationInfoRepository();
 
   @override
   void initState() {
@@ -15,16 +16,16 @@ class _SplashScreenState extends State<SplashScreen> {
     _moveScreen();
   }
 
-  void _checkTheFirstTime() async {
-    var value = await isInstalled();
+  void _checkTheFirstTime() {
+    int count = installInfo.count();
     setState(() {
-      isInstalledValue = value ?? false;
+      isInstalledCount = count;
     });
   }
 
   void _moveScreen() {
     Future.delayed(const Duration(seconds: 5), () {
-      if (isInstalledValue) {
+      if (isInstalledCount > 0) {
         context.bloc<PageBloc>().add(GoToMainPage());
       } else {
         context.bloc<PageBloc>().add(GoToOnBoardingPage());

@@ -1,4 +1,6 @@
-part of 'models.dart';
+import 'dart:convert';
+
+import 'package:equatable/equatable.dart';
 
 ProductModel productModelFromJson(String str) => ProductModel.fromJson(json.decode(str));
 String productModelToJson(ProductModel data) => json.encode(data.toJson());

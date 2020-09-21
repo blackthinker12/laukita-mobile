@@ -136,9 +136,3 @@ Color convertSupplyStatusColor(int status) {
       return Colors.black87;
   }
 }
-
-Future<bool> isInstalled() async {
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  bool result = prefs.getBool('installed');
-  return result;
-}

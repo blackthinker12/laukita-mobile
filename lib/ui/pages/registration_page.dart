@@ -35,7 +35,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
     dateOfBirth = DateTime.parse(INIT_DATE);
   }
 
-   void _showDateTimePicker() {
+  void _showDateTimePicker() {
     DatePicker.showDatePicker(
       context,
       onMonthChangeStartWithFirstDate: true,

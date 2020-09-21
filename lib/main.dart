@@ -1,17 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart' as pathProvider;
 
 import 'package:Laukita/ui/pages/pages.dart';
 import 'package:Laukita/bloc/blocs.dart';
 import 'package:Laukita/shared/shared.dart';
 import 'package:Laukita/repositories/repositories.dart';
+import 'models/models.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  HydratedBloc.storage = await HydratedStorage.build();
-
+  var appDocumentDirectory = await pathProvider.getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
+  Hive.registerAdapter(TokenModelAdapter());
+  Hive.registerAdapter(ResultTokenModelAdapter());
+  Hive.registerAdapter(InstallationInformationModelAdapter());
+  await Hive.openBox("token");
+  await Hive.openBox("installation");
   runApp(MyApp());
 }
 
@@ -30,7 +37,6 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => PageBloc()),
         BlocProvider(create: (_) => TokenBloc(TokenRepository())..add(GetToken())),
         BlocProvider(create: (_) => ProductBloc(ProductRepository())),
-        BlocProvider(create: (_) => CartBloc(CartRepository()))
       ],
       child: MaterialApp(
         title: 'Laukita',

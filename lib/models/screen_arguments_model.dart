@@ -1,4 +1,4 @@
-part of 'models.dart';
+import 'package:Laukita/models/models.dart';
 
 class ScreenArgumentsModel {
   final TokenModel token;

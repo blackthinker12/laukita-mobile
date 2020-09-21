@@ -1,15 +1,22 @@
-part of 'models.dart';
+import 'dart:convert';
+import 'package:hive/hive.dart';
 
-class TokenModel extends Equatable {
+part 'token_model.g.dart';
+
+@HiveType(typeId: 0)
+class TokenModel {
   TokenModel({
     this.code,
     this.message,
     this.result,
   });
 
-  final int code;
-  final String message;
-  final ResultTokenModel result;
+  @HiveField(0)
+  int code;
+  @HiveField(1)
+  String message;
+  @HiveField(2)
+  ResultTokenModel result;
 
   factory TokenModel.fromJson(Map<String, dynamic> json) {
     if (json["code"] == 200) {
@@ -35,11 +42,9 @@ class TokenModel extends Equatable {
 
   static TokenModel tokenModelFromJson(String str) => TokenModel.fromJson(json.decode(str));
   static String tokenModelToJson(TokenModel data) => json.encode(data.toJson());
-
-  @override
-  List<Object> get props => [code, message, result];
 }
 
+@HiveType(typeId: 1)
 class ResultTokenModel {
   ResultTokenModel({
     this.token,
@@ -47,8 +52,11 @@ class ResultTokenModel {
     this.userName,
   });
 
+  @HiveField(0)
   String token;
+  @HiveField(1)
   int userId;
+  @HiveField(2)
   String userName;
 
   factory ResultTokenModel.fromJson(Map<dynamic, dynamic> json) => ResultTokenModel(

@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
               setState(() {
                 tokenValue = state.token.result?.token;
               });
+              print(tokenValue);
               _getProducts(); 
             }
             else {
@@ -64,6 +65,7 @@ class _HomePageState extends State<HomePage> {
             } 
           }
           else if(state is TokenLoading) {
+            print('token loading');
             _generateToken();
           }
         },

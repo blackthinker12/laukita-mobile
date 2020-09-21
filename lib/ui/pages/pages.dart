@@ -14,7 +14,6 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:latlong/latlong.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
@@ -25,6 +24,7 @@ import 'package:Laukita/ui/widgets/widgets.dart';
 import 'package:Laukita/models/models.dart';
 import 'package:Laukita/data/dummy_data.dart';
 import 'package:Laukita/bloc/blocs.dart';
+import 'package:Laukita/repositories/repositories.dart';
 
 part 'main_page.dart';
 part 'home_page.dart';

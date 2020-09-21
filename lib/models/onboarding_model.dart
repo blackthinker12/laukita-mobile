@@ -1,4 +1,6 @@
-part of 'models.dart';
+import 'package:hive/hive.dart';
+
+part 'onboarding_model.g.dart';
 
 class OnBoardingModel {
   String imageUrl;
@@ -41,4 +43,12 @@ List<OnBoardingModel> getOnBoardingItems(){
       true
     ),
   ];
+}
+
+@HiveType(typeId: 5)
+class InstallationInformationModel {
+  @HiveField(0)
+  bool isInstalled;
+
+  InstallationInformationModel(this.isInstalled);
 }

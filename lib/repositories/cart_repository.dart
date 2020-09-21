@@ -8,6 +8,8 @@ abstract class CartRepositories {
 }
 
 class CartRepository implements CartRepositories {
+  var cartBox = Hive.box("cart");
+
   @override
   DataCartModel addProductToCart(DataCartModel cartData, DataProductModel product, int quantity) {
     cartData.cart.add(

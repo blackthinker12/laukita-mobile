@@ -1,4 +1,4 @@
-part of 'models.dart';
+import 'package:flutter/widgets.dart';
 
 class ProductDetailModel {
   final String name;

@@ -1,4 +1,5 @@
-part of 'models.dart';
+import 'package:flutter/widgets.dart';
+import 'package:Laukita/models/models.dart';
 
 class TransactionOrderModel {
   final String customerName;
