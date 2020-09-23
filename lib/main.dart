@@ -16,9 +16,12 @@ void main() async {
   Hive.init(appDocumentDirectory.path);
   Hive.registerAdapter(TokenModelAdapter());
   Hive.registerAdapter(ResultTokenModelAdapter());
+  Hive.registerAdapter(DataProductModelAdapter());
+  Hive.registerAdapter(CartModelAdapter());
   Hive.registerAdapter(InstallationInformationModelAdapter());
   await Hive.openBox("token");
   await Hive.openBox("installation");
+  await Hive.openBox("cart");
   runApp(MyApp());
 }
 

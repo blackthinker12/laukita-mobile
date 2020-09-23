@@ -1,6 +1,9 @@
 import 'dart:convert';
 
 import 'package:equatable/equatable.dart';
+import 'package:hive/hive.dart';
+
+part 'product_model.g.dart';
 
 ProductModel productModelFromJson(String str) => ProductModel.fromJson(json.decode(str));
 String productModelToJson(ProductModel data) => json.encode(data.toJson());
@@ -57,6 +60,7 @@ class ResultProductModel {
   };
 }
 
+@HiveType(typeId: 6)
 class DataProductModel {
   DataProductModel({
     this.pdId,
@@ -76,9 +80,13 @@ class DataProductModel {
     this.isBookmark = false
   });
 
+  @HiveField(0)
   int pdId;
+  @HiveField(1)
   int pdCtId;
+  @HiveField(2)
   String pdName;
+  @HiveField(3)
   int pdPrice;
   // DateTime pdCreatedOn;
   // int pdCreatedBy;
@@ -86,10 +94,15 @@ class DataProductModel {
   // dynamic pdUpdatedBy;
   // dynamic pdDeletedOn;
   // dynamic pdDeletedBy;
+  @HiveField(4)
   String pdWeight;
+  @HiveField(5)
   String pdUnit;
+  @HiveField(6)
   String pdPackage;
+  @HiveField(7)
   String pdDescription;
+  @HiveField(8)
   bool isBookmark;
 
   factory DataProductModel.fromJson(Map<String, dynamic> json) => DataProductModel(

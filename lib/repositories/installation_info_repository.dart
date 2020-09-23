@@ -10,10 +10,6 @@ class InstallationInfoRepository implements InstallationInfoRepositories {
 
   @override
   int count() {
-    print("isInstalledBox.length");
-    print(isInstalledBox.length);
-    print(isInstalledBox);
-    
     int count = isInstalledBox.length;
     return count;
   }
