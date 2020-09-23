@@ -38,6 +38,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   String currentImage;
   String currentTitle;
   CartRepositories cartRepoSitory = CartRepository();
+  var cartBox = Hive.box("cart");
 
   final List<Reviews> reviews = [
     Reviews('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 3.5, 'Rizal Hermawan'),
@@ -126,14 +127,19 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
               size: SizeConfig.safeBlockHorizontal * 5.8394,
             )
           ),
-          rIconButtonWithBadges(
-            null,
-            Icon(
-              RizalIcons.basket,
-              size: SizeConfig.safeBlockHorizontal * 4.86618,
-            ),
-            0,
-            context
+          ValueListenableBuilder(
+            valueListenable: cartBox.listenable(),
+            builder: (context, box, widget) {
+              return rIconButtonWithBadges(
+                null,
+                Icon(
+                  RizalIcons.basket,
+                  size: SizeConfig.safeBlockHorizontal * 4.86618,
+                ),
+                box.length,
+                context
+              );
+            }
           ),
           rIconButton(
             null,
