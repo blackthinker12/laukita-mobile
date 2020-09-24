@@ -47,6 +47,7 @@ dependencies:
   hive: ^1.4.4
   hive_flutter: ^0.3.1
   path_provider: ^1.6.16
+  badges: ^1.1.1
 
 dev_dependencies:
   flutter_test:

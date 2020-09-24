@@ -37,8 +37,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
   TextEditingController quantityController = TextEditingController();
   String currentImage;
   String currentTitle;
-  CartRepositories cartRepoSitory = CartRepository();
-  var cartBox = Hive.box("cart");
+  CartRepositories cartRepository = CartRepository();
+  Box cartBox = Hive.box("cart");
 
   final List<Reviews> reviews = [
     Reviews('Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 3.5, 'Rizal Hermawan'),
@@ -130,14 +130,26 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
           ValueListenableBuilder(
             valueListenable: cartBox.listenable(),
             builder: (context, box, widget) {
-              return rIconButtonWithBadges(
-                null,
-                Icon(
-                  RizalIcons.basket,
-                  size: SizeConfig.safeBlockHorizontal * 4.86618,
+              return Badge(
+                badgeColor: Theme.of(context).accentColor,
+                position: BadgePosition.topRight(right: 0),
+                animationDuration: Duration(milliseconds: 300),
+                animationType: BadgeAnimationType.scale,
+                badgeContent: Text(
+                  box.length.toString(),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: SizeConfig.safeBlockHorizontal * 2.44,
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
-                box.length,
-                context
+                child: rIconButton(
+                  null,
+                  Icon(
+                    RizalIcons.basket,
+                    size: SizeConfig.safeBlockHorizontal * 4.86618,
+                  )
+                ),
               );
             }
           ),
@@ -690,12 +702,24 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      "Rp. 110.000",
+                      currenyFormat(
+                        cartRepository.getSubtotalPrice(
+                          args.product.pdPrice,
+                          int.parse(quantityController.text)
+                        )
+                      ),
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: SizeConfig.safeBlockHorizontal * 3.89
                       ),
                     ),
+                    // Text(
+                    //   "Rp. 110.000",
+                    //   style: TextStyle(
+                    //     color: Colors.white,
+                    //     fontSize: SizeConfig.safeBlockHorizontal * 3.89
+                    //   ),
+                    // ),
                     Text(
                       "Hands on: Agent #09",
                       style: TextStyle(
@@ -725,7 +749,8 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   color: Colors.white,
                 ),
                 action: () {
-                  cartRepoSitory.addProductToCart(
+                  cartRepository.addProductToCart(
+                    cartBox,
                     args.product,
                     int.parse(quantityController.text)
                   );
@@ -734,7 +759,6 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     margin: EdgeInsets.only(bottom: SizeConfig.safeBlockVertical * 7.5 + 14),
                     duration: Duration(milliseconds: 2500),
                     flushbarPosition: FlushbarPosition.BOTTOM,
-                    flushbarStyle: FlushbarStyle.GROUNDED,
                     backgroundColor: blackToasts.withOpacity(0.5),
                     maxWidth: SizeConfig.safeBlockHorizontal * 48.61111955,
                     messageText: Text("Added to shopping cart",

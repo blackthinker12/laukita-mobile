@@ -1,24 +1,22 @@
 part of 'repositories.dart';
 
 abstract class CartRepositories {
-  int count();
-  void addProductToCart(DataProductModel product, int quantity);
-  // var changeQuantity(var cartData, CartModel item, int newQuantity);
-  // var getTotalPrice(var cartData);
+  int count(Box cartBox);
+  void addProductToCart(Box cartBox, DataProductModel product, int quantity);
+  int getTotalPrice(Box cartBox);
+  int getSubtotalPrice(int productPrice, int quantity);
   //Future getCalculatedPrice();
 }
 
 class CartRepository implements CartRepositories {
-  var cartBox = Hive.box("cart");
-
   @override
-  int count() {
+  int count(Box cartBox) {
     int count = cartBox.length;
     return count;
   }
 
   @override
-  void addProductToCart(DataProductModel product, int quantity) {
+  void addProductToCart(Box cartBox, DataProductModel product, int quantity) {
     try {
       if (cartBox.isNotEmpty) {
         Map<dynamic, dynamic> raw = cartBox.toMap();
@@ -59,28 +57,20 @@ class CartRepository implements CartRepositories {
     }
   }
 
-  // @override
-  // var changeQuantity(var cartData, CartModel item, int newQuantity) {
-  //   for(int i = 0; i < cartData.cart.length; i++){
-  //     if (cartData.cart[i] == item ) {
-  //       cartData.cart[i].productQuantity.changeQuantity(newQuantity);
-  //     }
-  //   }
-  //   return cartData;
-  // }
+  @override
+  int getTotalPrice(Box cartBox) {
+    int totalPrice = 0;
+    Map<dynamic, dynamic> raw = cartBox.toMap();
+    List cartData = raw.values.toList();
+    for (var i = 0; i < cartData.length; i++) {
+      totalPrice += cartData[i].subtotal;
+    }
+    return totalPrice;
+  }
 
-  // @override
-  // var getTotalPrice(var cartData) {
-  //   int totalPrice = 0;
-  //   for (var i = 0; i < cartData.cart.length; i++) {
-  //     totalPrice += cartData.cart[i].subtotal;
-  //   }
-  //   cartData.totalPrice = totalPrice;
-  //   return cartData;
-  // }
-
-  // @override
-  // Future getCalculatedPrice() {
-
-  // }
+  @override
+  int getSubtotalPrice(int productPrice, int quantity) {
+    int subtotalPrice = productPrice * quantity;
+    return subtotalPrice;
+  }
 }
