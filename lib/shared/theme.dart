@@ -10,6 +10,7 @@ const Color blueButtonColor = Color(0xFF13A7DB);
 const Color containerTitleProductDetail = Color(0xFF900A09);
 const Color whiteContainer = Color(0xFFFAFAFA);
 const Color purpleButtonColor = Color(0xFFCC1A7A);
+const Color blackToasts = Color(0xFF323232);
 
 const int cardColorInt = 0xFFfafaed;
 const int containerRedColorInt = 0xFFcc0001;

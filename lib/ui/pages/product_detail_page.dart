@@ -729,6 +729,21 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                     args.product,
                     int.parse(quantityController.text)
                   );
+                  Flushbar(
+                    padding: EdgeInsets.fromLTRB(16.0+SizeConfig.safeBlockHorizontal * 2.9197, 16.0, 16.0, 16.0),
+                    margin: EdgeInsets.only(bottom: SizeConfig.safeBlockVertical * 7.5 + 14),
+                    duration: Duration(milliseconds: 2500),
+                    flushbarPosition: FlushbarPosition.BOTTOM,
+                    flushbarStyle: FlushbarStyle.GROUNDED,
+                    backgroundColor: blackToasts.withOpacity(0.5),
+                    maxWidth: SizeConfig.safeBlockHorizontal * 48.61111955,
+                    messageText: Text("Added to shopping cart",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: SizeConfig.safeBlockHorizontal * 3.40632,
+                      )
+                    ),
+                  )..show(context);
                 }
               ),
             ],
