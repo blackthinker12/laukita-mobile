@@ -9,13 +9,6 @@ class TokenInitial extends TokenState {
   List<Object> get props => [];
 }
 
-class TokenLoading extends TokenState {
-  const TokenLoading();
-
-  @override
-  List<Object> get props => [];
-}
-
 class TokenError extends TokenState {
   final String message;
 

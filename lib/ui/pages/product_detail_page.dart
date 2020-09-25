@@ -144,7 +144,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ),
                 ),
                 child: rIconButton(
-                  null,
+                  () => Navigator.of(context).pushNamed(ShoppingCartPage.routeName),
                   Icon(
                     RizalIcons.basket,
                     size: SizeConfig.safeBlockHorizontal * 4.86618,
@@ -598,75 +598,25 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   horizontal: SizeConfig.safeBlockHorizontal * 2.4,
                   vertical: SizeConfig.safeBlockVertical * 2.1
                 ),
-                child: Container(
-                  width: SizeConfig.safeBlockHorizontal * 11,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                  ),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        flex: 1,
-                        child: Center(
-                          child: TextFormField(
-                            style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.2),
-                            textAlign: TextAlign.center,
-                            decoration: InputDecoration(
-                              border: InputBorder.none
-                            ),
-                            controller: quantityController,
-                            keyboardType: TextInputType.numberWithOptions(
-                              decimal: false,
-                              signed: true,
-                            ),
-                            inputFormatters: <TextInputFormatter>[
-                              WhitelistingTextInputFormatter.digitsOnly
-                            ],
-                          ),
-                        ),
-                      ),
-                      
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Expanded(
-                            child: InkWell(
-                              child: Icon(
-                                Icons.arrow_drop_up,
-                                size: 12.0,
-                              ),
-                              onTap: () {
-                                int currentValue = int.parse(quantityController.text);
-                                setState(() {
-                                  currentValue++;
-                                  quantityController.text = (currentValue)
-                                      .toString(); // incrementing value
-                                });
-                              },
-                            ),
-                          ),
-                          Expanded(
-                            child: InkWell(
-                              child: Icon(
-                                Icons.arrow_drop_down,
-                                size: 12.0,
-                              ),
-                              onTap: int.parse(quantityController.text) > 1 ? () {
-                                int currentValue = int.parse(quantityController.text);
-                                setState(() {
-                                  currentValue--;
-                                  quantityController.text = (currentValue)
-                                      .toString(); // incrementing value
-                                });
-                              } : null,
-                            ),
-                          ),
-                        ]
-                      )
-                    ]
-                  )
+                child: inputNumber(
+                  textController: quantityController,
+                  increase: () {
+                    int currentValue = int.parse(quantityController.text);
+                    setState(() {
+                      currentValue++;
+                      quantityController.text = (currentValue)
+                          .toString(); // incrementing value
+                    });
+                  },
+                  decrease: int.parse(quantityController.text) > 1 ? () {
+                    int currentValue = int.parse(quantityController.text);
+                    setState(() {
+                      currentValue--;
+                      quantityController.text = (currentValue)
+                          .toString(); // decrementing value
+                    });
+                  } : null,
+                  borderWidth: 0
                 )
               ),
               Container(

@@ -4,11 +4,11 @@ abstract class TokenRepositories {
   Future<TokenModel> generateToken(String email, String password, {int role});
   int count();
   TokenModel getToken();
-  void saveToken(String method, TokenModel tokenValue);
+  void saveToken(TokenModel tokenValue);
 }
 
 class TokenRepository implements TokenRepositories {
-  var tokens = Hive.box("token");
+  Box tokens = Hive.box("token");
 
   @override
   Future<TokenModel> generateToken(String email, String password, {int role}) async {
@@ -36,9 +36,9 @@ class TokenRepository implements TokenRepositories {
   }
   
   @override
-  void saveToken(String method, TokenModel tokenValue) {
+  void saveToken(TokenModel tokenValue) {
     try {
-      if (method == 'put') {
+      if (tokens.isNotEmpty) {
         tokens.putAt(0, tokenValue);
       } else {
         tokens.add(tokenValue);

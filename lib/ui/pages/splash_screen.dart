@@ -8,6 +8,7 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   int isInstalledCount = 0;
   InstallationInfoRepositories installInfo = InstallationInfoRepository();
+  TokenRepositories tokenRepository = TokenRepository();
 
   @override
   void initState() {
@@ -26,7 +27,12 @@ class _SplashScreenState extends State<SplashScreen> {
   void _moveScreen() {
     Future.delayed(const Duration(seconds: 5), () {
       if (isInstalledCount > 0) {
-        context.bloc<PageBloc>().add(GoToMainPage());
+        TokenModel token = tokenRepository.getToken();
+        ScreenArgumentsModel argumentsValue = ScreenArgumentsModel(
+          token: token
+        );
+        print(token.result.token);
+        context.bloc<PageBloc>().add(GoToMainPage(argumentsValue: argumentsValue));
       } else {
         context.bloc<PageBloc>().add(GoToOnBoardingPage());
       }
@@ -55,7 +61,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: BlocListener<PageBloc, PageState>(
           listener: (_, pageState) {
             if (pageState is OnMainPage) {
-              Navigator.of(context).pushReplacementNamed(MainPage.routeName);
+              Navigator.of(context).pushReplacementNamed(
+                MainPage.routeName,
+                arguments: pageState.argumentsValue
+              );
             }
             else if (pageState is OnBoardingPageState) {
               Navigator.of(context).pushReplacementNamed(OnBoardingPage.routeName);

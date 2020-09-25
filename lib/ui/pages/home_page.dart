@@ -64,10 +64,6 @@ class _HomePageState extends State<HomePage> {
               _generateToken();
             } 
           }
-          else if(state is TokenLoading) {
-            print('token loading');
-            _generateToken();
-          }
         },
         child: Column(
           children: <Widget>[
@@ -221,6 +217,7 @@ class _HomePageState extends State<HomePage> {
                             );
                           }
                           else if (state.product.message == 'invalid_token') {
+                            print(state.product.message);
                             _generateToken();
                             return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
                           }
@@ -263,6 +260,7 @@ class _HomePageState extends State<HomePage> {
                             );
                           }
                           else if (state.product.message == 'invalid_token') {
+                            print(state.product.message);
                             _generateToken();
                             return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
                           }

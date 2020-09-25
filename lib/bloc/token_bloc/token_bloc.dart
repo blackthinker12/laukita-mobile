@@ -20,34 +20,13 @@ class TokenBloc extends Bloc<TokenEvent, TokenState> {
     if (event is GenerateToken) {
       yield* _generateToken(event.email, event.password);
     }
-    else if (event is GetToken) {
-      yield* _getToken();
-    }
   }
   
   Stream<TokenState> _generateToken(String email, String password, {int role}) async*{
     try {
       TokenModel token = await tokenRepositories.generateToken(email, password);
-      if (state is TokenLoading) {
-        tokenRepositories.saveToken('add', token);
-      } else {
-        tokenRepositories.saveToken('put', token);
-      }
+      tokenRepositories.saveToken(token);
       yield TokenLoaded(token);
-    } catch (e) {
-      yield TokenError(e.toString());
-    }
-  }
-
-  Stream<TokenState> _getToken() async*{
-    try {
-      int count = tokenRepositories.count();
-      if (count > 0) {
-        TokenModel token = tokenRepositories.getToken();
-        yield TokenLoaded(token);
-      } else {
-        yield TokenLoading();
-      }
     } catch (e) {
       yield TokenError(e.toString());
     }

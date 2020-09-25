@@ -38,7 +38,7 @@ class MyApp extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (_) => PageBloc()),
-        BlocProvider(create: (_) => TokenBloc(TokenRepository())..add(GetToken())),
+        BlocProvider(create: (_) => TokenBloc(TokenRepository())),
         BlocProvider(create: (_) => ProductBloc(ProductRepository())),
       ],
       child: MaterialApp(

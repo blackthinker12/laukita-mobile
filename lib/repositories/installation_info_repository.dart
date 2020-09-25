@@ -6,7 +6,7 @@ abstract class InstallationInfoRepositories {
 }
 
 class InstallationInfoRepository implements InstallationInfoRepositories {
-  var isInstalledBox = Hive.box("installation");
+  Box isInstalledBox = Hive.box("installation");
 
   @override
   int count() {
