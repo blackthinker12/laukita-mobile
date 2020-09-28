@@ -50,7 +50,38 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
-          Text('kosong goblok')
+          SvgPicture.asset(
+            "assets/images/emptycart.svg",
+            width: (MediaQuery.of(context).size.width/100)*50,
+            alignment: Alignment.topCenter,
+          ),
+          SizedBox(height: SizeConfig.safeBlockVertical * 3.08,),
+          Text(
+            "Your cart is empty",
+            style: TextStyle(fontWeight: FontWeight.bold, fontSize: SizeConfig.safeBlockHorizontal * 3.892944)
+          ),
+          SizedBox(height: SizeConfig.safeBlockVertical * 1.54,),
+          Text(
+            "Looks like you haven't added any products to your cart yet",
+            style: TextStyle(color: Colors.grey,fontSize: SizeConfig.safeBlockHorizontal * 2.9197)
+          ),
+          SizedBox(height: SizeConfig.safeBlockVertical * 3.08,),
+          rPreferredSizeButton(
+            BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(6.0),
+            ),
+            0,
+            'Add products to cart',
+            TextStyle(
+              fontSize: SizeConfig.safeBlockHorizontal * 3.4,
+              color: Colors.white
+            ),
+            SizeConfig.safeBlockHorizontal * 2.2,
+            () => Navigator.of(context).pop(),
+            widthButton: SizeConfig.safeBlockHorizontal * 39,
+            marginButton: EdgeInsets.zero
+          ),
         ]
       )
     );
