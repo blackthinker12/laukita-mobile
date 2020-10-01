@@ -18,15 +18,6 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
           "https://ecs7.tokopedia.net/img/cache/700/VqbcmM/2020/5/14/fc9ed1a1-21f2-4eb6-951b-d5b6938a0ded.jpg",
       selected: false,
     ),
-    ProductDetailModel(
-      name: "Opor Ayam Kuah Pedas",
-      quantity: 3,
-      unit: "Tray(s)",
-      price: 355000,
-      imageUrl:
-          "https://ecs7.tokopedia.net/img/cache/700/product-1/2020/5/19/77668127/77668127_586f7088-602b-4614-95b5-cad67a5bd93d_1080_1080",
-      selected: true,
-    ),
   ];
   String _courierSelected;
   List _listCourier = [
@@ -34,13 +25,12 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
     "JNE",
     "JNT",
   ];
-  TextEditingController quantityController = TextEditingController();
-  Box cartBox = Hive.box("cart");
 
+  Box cartBox = Hive.box("cart");
+  CartRepositories cartRepository = CartRepository();
+  
   @override
   void initState() {
-    
-    quantityController.text='1';
     super.initState();
   }
 
@@ -119,128 +109,140 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     ],
                   ),
                   Divider(),
-                  for (var product in _products)
-                    Column(
-                      children: <Widget>[
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: <Widget>[
-                            Row(
-                              children: <Widget>[
-                                SizedBox(
-                                  width: SizeConfig.safeBlockHorizontal * 2.44,
-                                ),
-                                Container(
-                                  child: Checkbox(
-                                    value: product.selected,
-                                    onChanged: (value) {
-                                      setState(() {
-                                        product.selected = value;
-                                      });
-                                    },
-                                  ),
-                                  width: SizeConfig.safeBlockHorizontal * 4.86618,
-                                  height: SizeConfig.safeBlockVertical * 3.07692,
-                                ),
-                                SizedBox(
-                                  width: SizeConfig.safeBlockHorizontal * 2.44,
-                                ),
-                                Card(
-                                  elevation: 5,
-                                  child: Container(
-                                    padding: EdgeInsets.all(3),
-                                    decoration: BoxDecoration(
-                                      border: Border.all(
-                                        width: .5,
-                                        color: Colors.grey,
+                  ValueListenableBuilder(
+                    valueListenable: cartBox.listenable(),
+                    builder: (context, box, widget) {
+                      List _cartData = cartRepository.getCarts(box);
+                      return ListView.builder(
+                        shrinkWrap: true,
+                        scrollDirection: Axis.vertical,
+                        itemCount: _cartData.length,
+                        itemBuilder: (context, index) {
+                          final cart = _cartData[index];
+                          final product = cart.product;
+                          final textController = TextEditingController(text: cart.quantity.toString());
+                          final subtotal = cart.quantity * product.pdPrice;
+                          return Column(
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Row(
+                                    children: <Widget>[
+                                      SizedBox(
+                                        width: SizeConfig.safeBlockHorizontal * 2.44,
                                       ),
-                                    ),
-                                    child: Image.network(
-                                      product.imageUrl,
-                                      width: SizeConfig.safeBlockHorizontal * 9.73236,
-                                      height: SizeConfig.safeBlockVertical * 6.153846,
-                                      fit: BoxFit.fill,
-                                    ),
+                                      Container(
+                                        child: Checkbox(
+                                          //dummy data
+                                          value: _products[0].selected,
+                                          onChanged: (value) {
+                                            // setState(() {
+                                            //   product.selected = value;
+                                            // });
+                                          },
+                                        ),
+                                        width: SizeConfig.safeBlockHorizontal * 4.86618,
+                                        height: SizeConfig.safeBlockVertical * 3.07692,
+                                      ),
+                                      SizedBox(
+                                        width: SizeConfig.safeBlockHorizontal * 2.44,
+                                      ),
+                                      Card(
+                                        elevation: 5,
+                                        child: Container(
+                                          padding: EdgeInsets.all(3),
+                                          decoration: BoxDecoration(
+                                            border: Border.all(
+                                              width: .5,
+                                              color: Colors.grey,
+                                            ),
+                                          ),
+                                          child: Image.network(
+                                            //dummy data
+                                            _products[0].imageUrl,
+                                            width: SizeConfig.safeBlockHorizontal * 9.73236,
+                                            height: SizeConfig.safeBlockVertical * 6.153846,
+                                            fit: BoxFit.fill,
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: SizeConfig.safeBlockHorizontal * 2.44,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: <Widget>[
+                                          Text(
+                                            product.pdName,
+                                            style: TextStyle(
+                                              fontSize: SizeConfig.safeBlockHorizontal * 3.40632,
+                                              color: Colors.black87,
+                                              fontWeight: FontWeight.bold
+                                            )
+                                          ),
+                                          SizedBox(
+                                            height: SizeConfig.safeBlockVertical * 0.77
+                                          ),
+                                          Text(
+                                            '${cart.quantity} ${product.pdPackage == 'sachet' ? 'Sachet(s)' : 'Tray(s)'}',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .subtitle2
+                                                .copyWith(fontSize: SizeConfig.safeBlockHorizontal * 2.44),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
                                   ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: [
+                                      Text(
+                                        currencyFormat(subtotal),
+                                        style: TextStyle(
+                                          color: redButtonColor,
+                                          fontWeight: FontWeight.w500,
+                                          fontSize: SizeConfig.safeBlockHorizontal * 3.40632
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: const EdgeInsets.only(top: 4.0),
+                                        child: inputNumber(
+                                          textController: textController,
+                                          increase: () {
+                                            int currentValue = int.parse(textController.text);
+                                            currentValue++;
+                                            cartRepository.changeQuantity(cartBox, product, index, currentValue);
+                                          },
+                                          decrease: int.parse(textController.text) > 1 ? () {
+                                            int currentValue = int.parse(textController.text);
+                                            currentValue--;
+                                            cartRepository.changeQuantity(cartBox, product, index, currentValue);
+                                          } : null,
+                                          height: SizeConfig.safeBlockHorizontal * 5.839416,
+                                          borderWidth: 1
+                                        ),
+                                      ),  
+                                    ],
+                                  )
+                                ],
+                              ),
+                              Container(
+                                margin: EdgeInsets.fromLTRB(SizeConfig.safeBlockHorizontal * 10.9489, SizeConfig.safeBlockVertical * 1.23, 0.0, SizeConfig.safeBlockVertical * 1.23),
+                                child: DashSeparator(
+                                  color: Colors.grey[300],
+                                  width: SizeConfig.safeBlockHorizontal * 0.48,
                                 ),
-                                SizedBox(
-                                  width: SizeConfig.safeBlockHorizontal * 2.44,
-                                ),
-                                Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  children: <Widget>[
-                                    Text(
-                                      product.name,
-                                      style: TextStyle(
-                                        fontSize: SizeConfig.safeBlockHorizontal * 3.40632,
-                                        color: Colors.black87,
-                                        fontWeight: FontWeight.bold
-                                      )
-                                    ),
-                                    SizedBox(
-                                      height: SizeConfig.safeBlockVertical * 0.77
-                                    ),
-                                    Text(
-                                      '${product.quantity} ${product.unit}',
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .subtitle2
-                                          .copyWith(fontSize: SizeConfig.safeBlockHorizontal * 2.44),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Text(
-                                  'Rp. ${product.price}',
-                                  style: TextStyle(
-                                    color: redButtonColor,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: SizeConfig.safeBlockHorizontal * 3.40632
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(top: 4.0),
-                                  child: inputNumber(
-                                    textController: quantityController,
-                                    increase: () {
-                                      int currentValue = int.parse(quantityController.text);
-                                      setState(() {
-                                        currentValue++;
-                                        quantityController.text = (currentValue)
-                                            .toString(); // incrementing value
-                                      });
-                                    },
-                                    decrease: int.parse(quantityController.text) > 1 ? () {
-                                      int currentValue = int.parse(quantityController.text);
-                                      setState(() {
-                                        currentValue--;
-                                        quantityController.text = (currentValue)
-                                            .toString(); // decrementing value
-                                      });
-                                    } : null,
-                                    height: SizeConfig.safeBlockHorizontal * 5.839416,
-                                    borderWidth: 1
-                                  ),
-                                ),  
-                              ],
-                            )
-                          ],
-                        ),
-                        Container(
-                          margin: EdgeInsets.fromLTRB(SizeConfig.safeBlockHorizontal * 10.9489, SizeConfig.safeBlockVertical * 1.23, 0.0, SizeConfig.safeBlockVertical * 1.23),
-                          child: DashSeparator(
-                            color: Colors.grey[300],
-                            width: SizeConfig.safeBlockHorizontal * 0.48,
-                          ),
-                        ),
-                      ],
-                    ),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
@@ -282,7 +284,7 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                           color: Colors.white
                         ),
                         SizeConfig.safeBlockHorizontal * 2.2,
-                        () {},
+                        () => Navigator.of(context).pushReplacementNamed(MainPage.routeName),
                         iconButton: Icon(
                           Icons.add_shopping_cart,
                           size: SizeConfig.safeBlockHorizontal * 3.6,
@@ -573,12 +575,18 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                     ),
                   ),
                   SizedBox(width: SizeConfig.safeBlockHorizontal * 2.44),
-                  Text(
-                    "Rp. 617.000",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: SizeConfig.safeBlockHorizontal * 3.65,
-                    ),
+                  ValueListenableBuilder(
+                    valueListenable: cartBox.listenable(),
+                    builder: (context, box, widget) {
+                      final total = cartRepository.getTotalPrice(box);
+                      return Text(
+                        currencyFormat(total),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: SizeConfig.safeBlockHorizontal * 3.65,
+                        ),
+                      );
+                    }
                   ),
                 ],
               ),

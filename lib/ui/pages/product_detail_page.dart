@@ -131,6 +131,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
             valueListenable: cartBox.listenable(),
             builder: (context, box, widget) {
               return Badge(
+                showBadge: box.length == 0 ? false : true,
                 badgeColor: Theme.of(context).accentColor,
                 position: BadgePosition.topRight(right: 0),
                 animationDuration: Duration(milliseconds: 300),
@@ -652,7 +653,7 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      currenyFormat(
+                      currencyFormat(
                         cartRepository.getSubtotalPrice(
                           args.product.pdPrice,
                           int.parse(quantityController.text)

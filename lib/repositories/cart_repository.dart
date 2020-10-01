@@ -5,6 +5,8 @@ abstract class CartRepositories {
   void addProductToCart(Box cartBox, DataProductModel product, int quantity);
   int getTotalPrice(Box cartBox);
   int getSubtotalPrice(int productPrice, int quantity);
+  List getCarts(Box cartBox);
+  void changeQuantity(Box cartBox, DataProductModel product, int index, int newQuantity);
   //Future getCalculatedPrice();
 }
 
@@ -29,9 +31,6 @@ class CartRepository implements CartRepositories {
               quantity: quantity, 
             )
           );
-          Map<dynamic, dynamic> rawa = cartBox.toMap();
-          List cartLista = rawa.values.toList();
-          cartLista.forEach((a) => print(a.toJson()));
         }
         else {
           CartModel selectedList = cartList.firstWhere((el) => el.product.pdId == product.pdId);
@@ -39,9 +38,6 @@ class CartRepository implements CartRepositories {
           int newQuantity = quantity + cartList[i].quantity;
           CartModel updatedCart = CartModel(product: product, quantity: newQuantity);
           cartBox.putAt(i, updatedCart);
-          Map<dynamic, dynamic> rawa = cartBox.toMap();
-          List cartLista = rawa.values.toList();
-          cartLista.forEach((a) => print(a.toJson()));
         }
       } else {
         cartBox.add(
@@ -72,5 +68,18 @@ class CartRepository implements CartRepositories {
   int getSubtotalPrice(int productPrice, int quantity) {
     int subtotalPrice = productPrice * quantity;
     return subtotalPrice;
+  }
+
+  @override
+  List getCarts(Box cartBox) {
+    Map<dynamic, dynamic> raw = cartBox.toMap();
+    List cartList = raw.values.toList();
+    return cartList;
+  }
+
+  @override
+  void changeQuantity(Box cartBox, DataProductModel product, int index, int newQuantity) {
+    CartModel updatedCart = CartModel(product: product, quantity: newQuantity);
+    cartBox.putAt(index, updatedCart);
   }
 }

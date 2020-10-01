@@ -137,7 +137,7 @@ Color convertSupplyStatusColor(int status) {
   }
 }
 
-String currenyFormat(int value) {
+String currencyFormat(int value) {
   final rupiahFormat = NumberFormat.currency(locale: 'id', symbol: 'Rp ', decimalDigits: 0);
   return rupiahFormat.format(value);
 }

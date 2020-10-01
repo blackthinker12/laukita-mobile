@@ -26,6 +26,7 @@ Widget inputNumber(
           flex: 1,
           child: Center(
             child: TextFormField(
+              enabled: false,
               style: TextStyle(fontSize: SizeConfig.safeBlockHorizontal * 3.2),
               textAlign: TextAlign.center,
               decoration: InputDecoration(
