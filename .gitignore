@@ -38,3 +38,9 @@ lib/generated_plugin_registrant.dart
 
 #folder
 /android/
+
+#secret
+/lib/shared/secret.dart
+
+#keystore
+laukita_apps.jks
