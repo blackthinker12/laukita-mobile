@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:path_provider/path_provider.dart' as pathProvider;
+import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'package:Laukita/ui/pages/pages.dart';
 import 'package:Laukita/bloc/blocs.dart';
@@ -12,6 +13,13 @@ import 'models/models.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  OneSignal.shared.init(
+    "be52446d-33e6-4c66-a641-95e6ff5af719",
+    iOSSettings: null
+  );
+  OneSignal.shared.setInFocusDisplayType(OSNotificationDisplayType.notification);
+
   var appDocumentDirectory = await pathProvider.getApplicationDocumentsDirectory();
   Hive.init(appDocumentDirectory.path);
   Hive.registerAdapter(TokenModelAdapter());

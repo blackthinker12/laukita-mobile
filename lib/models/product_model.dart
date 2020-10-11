@@ -77,7 +77,8 @@ class DataProductModel {
     this.pdUnit,
     this.pdPackage,
     this.pdDescription,
-    this.isBookmark = false
+    this.isBookmark = false,
+    this.isSelected = false
   });
 
   @HiveField(0)
@@ -104,6 +105,8 @@ class DataProductModel {
   String pdDescription;
   @HiveField(8)
   bool isBookmark;
+  @HiveField(9)
+  bool isSelected;
 
   factory DataProductModel.fromJson(Map<String, dynamic> json) => DataProductModel(
     pdId: json["pd_id"],
@@ -120,7 +123,8 @@ class DataProductModel {
     pdUnit: json["pd_unit"],
     pdPackage: json["pd_package"],
     pdDescription: json["pd_description"],
-    isBookmark: json["isBookmark"] ?? false
+    isBookmark: json["isBookmark"] ?? false,
+    isSelected: json["isSelected"] ?? false
   );
 
   Map<String, dynamic> toJson() => {
@@ -138,6 +142,7 @@ class DataProductModel {
     "pd_unit": pdUnit,
     "pd_package": pdPackage,
     "pd_description": pdDescription,
-    "isBookmark": isBookmark
+    "isBookmark": isBookmark,
+    "isSelected": isSelected
   };
 }

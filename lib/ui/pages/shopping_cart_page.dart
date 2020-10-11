@@ -134,12 +134,9 @@ class _ShoppingCartPageState extends State<ShoppingCartPage> {
                                       ),
                                       Container(
                                         child: Checkbox(
-                                          //dummy data
-                                          value: _products[0].selected,
+                                          value: product.isSelected,
                                           onChanged: (value) {
-                                            // setState(() {
-                                            //   product.selected = value;
-                                            // });
+                                            print(value);
                                           },
                                         ),
                                         width: SizeConfig.safeBlockHorizontal * 4.86618,

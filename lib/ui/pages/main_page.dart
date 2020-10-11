@@ -19,6 +19,14 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     bottomNavBarIndex = widget.bottomNavBarIndex;
+    OneSignal.shared.setNotificationReceivedHandler((OSNotification notification) {
+      print("title: ${notification.payload.title}");
+      print("content: ${notification.payload.body}");
+    });
+
+    OneSignal.shared.setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+      print("Tap Notification");
+    });
   }
 
   void _onItemTapped(int index) {

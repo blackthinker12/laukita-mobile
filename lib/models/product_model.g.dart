@@ -26,13 +26,14 @@ class DataProductModelAdapter extends TypeAdapter<DataProductModel> {
       pdPackage: fields[6] as String,
       pdDescription: fields[7] as String,
       isBookmark: fields[8] as bool,
+      isSelected: fields[9] as bool,
     );
   }
 
   @override
   void write(BinaryWriter writer, DataProductModel obj) {
     writer
-      ..writeByte(9)
+      ..writeByte(10)
       ..writeByte(0)
       ..write(obj.pdId)
       ..writeByte(1)
@@ -50,7 +51,9 @@ class DataProductModelAdapter extends TypeAdapter<DataProductModel> {
       ..writeByte(7)
       ..write(obj.pdDescription)
       ..writeByte(8)
-      ..write(obj.isBookmark);
+      ..write(obj.isBookmark)
+      ..writeByte(9)
+      ..write(obj.isSelected);
   }
 
   @override
