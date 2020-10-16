@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "43897716057",
+    "firebase_url": "https://laukita-7b160.firebaseio.com",
+    "project_id": "laukita-7b160",
+    "storage_bucket": "laukita-7b160.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:43897716057:android:30679c7a52c997791a2048",
+        "android_client_info": {
+          "package_name": "com.laukita.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "43897716057-ed8252tffbr2l9885b31ha2m2002q99j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.laukita.app",
+            "certificate_hash": "1dba965e69772b9cdedd250bcfb0d45578edb6a8"
+          }
+        },
+        {
+          "client_id": "43897716057-ke7tl19fliudlbl0j65em903nh95cmol.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBj7nC6bG0QympR5-sVItTlmAYcF7PFPWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "43897716057-ke7tl19fliudlbl0j65em903nh95cmol.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

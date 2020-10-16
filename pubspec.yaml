@@ -32,8 +32,8 @@ dependencies:
   sliding_up_panel: 1.0.2
   cached_network_image: 2.2.0+1
   flutter_cupertino_date_picker: 1.0.26+2
-  pin_code_fields: ^4.0.0
-  searchable_dropdown: ^1.1.3
+  pin_code_fields: 4.0.0
+  searchable_dropdown: 1.1.3
   dotted_border: 1.0.6
   flutter_bloc: 6.0.5
   equatable: 1.1.1
@@ -44,11 +44,14 @@ dependencies:
       ref: master
   http: 0.12.2
   flushbar: 1.9.1
-  hive: ^1.4.4
-  hive_flutter: ^0.3.1
-  path_provider: ^1.6.16
-  badges: ^1.1.1
-  onesignal_flutter: ^2.6.1
+  hive: 1.4.4
+  hive_flutter: 0.3.1
+  path_provider: 1.6.16
+  badges: 1.1.1
+  onesignal_flutter: 2.6.1
+  advertising_id: 1.0.0
+  device_info: 0.4.2+4
+  package_info: 0.4.0
 
 dev_dependencies:
   flutter_test:

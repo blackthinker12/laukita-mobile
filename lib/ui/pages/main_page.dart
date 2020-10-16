@@ -14,18 +14,100 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int bottomNavBarIndex;
   TextEditingController searchController = TextEditingController();
+  OnesignalRepositories onesignalRepository = OnesignalRepository();
+  String _advertisingId = '';
+  String _deviceModel = '';
+  String _deviceOS = '';
+  String _packageInfo = '';
+  static final DeviceInfoPlugin deviceInfoPlugin = DeviceInfoPlugin();
 
   @override
   void initState() {
     super.initState();
     bottomNavBarIndex = widget.bottomNavBarIndex;
-    OneSignal.shared.setNotificationReceivedHandler((OSNotification notification) {
-      print("title: ${notification.payload.title}");
-      print("content: ${notification.payload.body}");
-    });
+    //_initDeviceModelState();
+    //onesignalRepository.initPlatformState();
+    // onesignalRepository.sendNotification(
+    //   {"en": "English Message", "id": "Pesan Bahasa Indonesia"},
+    //   {"en": "English Title", "id": "Judul Bahasa Indonesia"},
+    // );
+    // OneSignal.shared.setNotificationReceivedHandler((OSNotification notification) {
+    //   print("title: ${notification.payload.title}");
+    //   print("content: ${notification.payload.body}");
+    // });
 
-    OneSignal.shared.setNotificationOpenedHandler((OSNotificationOpenedResult result) {
-      print("Tap Notification");
+    // OneSignal.shared.setNotificationOpenedHandler((OSNotificationOpenedResult result) {
+    //   print("Tap Notification");
+    // });
+    //_addDeviceOneSignal();
+    // initPlatformState();
+
+    // Future.delayed(const Duration(seconds: 3), () {
+    //   OneSignal.shared.consentGranted(true);
+    // });
+
+    // Future.delayed(const Duration(seconds: 5), () {
+    //   OneSignal.shared.setLocationShared(true);
+    // });
+  }
+
+  Future<void> _initPackageInfo() async {
+    PackageInfo packageInfo = await PackageInfo.fromPlatform();
+    String version = packageInfo.version;
+    setState(() {
+      _packageInfo = version;
+    });
+  }
+
+  _addDeviceOneSignal() {
+    onesignalRepository.addDevice(
+      onesignalKey,
+      languange: ui.window.locale.languageCode,
+      timezone: timeZoneOffsetSeconds,
+      deviceModel: _deviceModel,
+      deviceOS: _deviceOS,
+      adId: _advertisingId,
+      tags: {'user_account': 1},
+      externalUserId: 'user-account-1',
+      gameVersion: _packageInfo
+    );
+  }
+
+  Future<void> _initDeviceModelState() async {
+    String advertisingId;
+
+    try {
+      if (Platform.isAndroid) {
+        _readAndroidBuildData(await deviceInfoPlugin.androidInfo);
+      } else if (Platform.isIOS) {
+        _readIosDeviceInfo(await deviceInfoPlugin.iosInfo);
+      }
+      _initPackageInfo();
+      advertisingId = await AdvertisingId.id;
+
+      _addDeviceOneSignal();
+    } on PlatformException {
+      print('Error: Failed to get platform version.');
+      print('Failed to get platform version.');
+    }
+    
+    if (!mounted) return;
+
+    setState(() {
+      _advertisingId = advertisingId;
+    });
+  }
+
+  _readAndroidBuildData(AndroidDeviceInfo build) {
+    setState(() {
+      _deviceOS = build.version.release;
+      _deviceModel = build.model;
+    });
+  }
+
+  _readIosDeviceInfo(IosDeviceInfo data) {
+    setState(() {
+      _deviceModel = data.model;
     });
   }
 

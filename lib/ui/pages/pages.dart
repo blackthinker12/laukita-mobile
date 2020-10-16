@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'dart:io';
+import 'dart:ui' as ui;
 
 import 'package:badges/badges.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -21,6 +23,9 @@ import 'package:sliding_up_panel/sliding_up_panel.dart';
 import 'package:flutter_cupertino_date_picker/flutter_cupertino_date_picker.dart';
 import 'package:pin_code_fields/pin_code_fields.dart';
 import 'package:searchable_dropdown/searchable_dropdown.dart';
+import 'package:advertising_id/advertising_id.dart';
+import 'package:device_info/device_info.dart';
+import 'package:package_info/package_info.dart';
 import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'package:Laukita/shared/shared.dart';

@@ -141,3 +141,9 @@ String currencyFormat(int value) {
   final rupiahFormat = NumberFormat.currency(locale: 'id', symbol: 'Rp ', decimalDigits: 0);
   return rupiahFormat.format(value);
 }
+
+const _chars = '1234567890AaBbCcDdEeFfGgHhIiJjKkL1234567890lMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
+Random _rnd = Random();
+
+String getRandomString(int length) => String.fromCharCodes(Iterable.generate(
+    length, (_) => _chars.codeUnitAt(_rnd.nextInt(_chars.length))));
