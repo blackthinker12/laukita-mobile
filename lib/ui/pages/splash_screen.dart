@@ -27,12 +27,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void _moveScreen() {
     Future.delayed(const Duration(seconds: 5), () {
       if (isInstalledCount > 0) {
-        TokenModel token = tokenRepository.getToken();
-        ScreenArgumentsModel argumentsValue = ScreenArgumentsModel(
-          token: token
-        );
-        print(token.result.token);
-        context.bloc<PageBloc>().add(GoToMainPage(argumentsValue: argumentsValue));
+        context.bloc<PageBloc>().add(GoToMainPage());
       } else {
         context.bloc<PageBloc>().add(GoToOnBoardingPage());
       }
@@ -45,25 +40,11 @@ class _SplashScreenState extends State<SplashScreen> {
         width: double.infinity,
         height: double.infinity,
         color: Colors.white,
-        // decoration: BoxDecoration(
-        //   gradient: LinearGradient(
-        //     begin: Alignment.topCenter,
-        //     end: Alignment.bottomCenter,
-        //     stops: [0.1, 0.4, 0.7, 0.9],
-        //     colors: [
-        //       Color(0xFFE74261),
-        //       Color(0xFFff778e),
-        //       Color(0xFFffa9be),
-        //       Color(0xFFffdbf0),
-        //     ],
-        //   ),
-        // ),
         child: BlocListener<PageBloc, PageState>(
           listener: (_, pageState) {
             if (pageState is OnMainPage) {
               Navigator.of(context).pushReplacementNamed(
-                MainPage.routeName,
-                arguments: pageState.argumentsValue
+                MainPage.routeName
               );
             }
             else if (pageState is OnBoardingPageState) {

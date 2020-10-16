@@ -34,14 +34,16 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   bool _requireConsent = true;
+  OnesignalRepositories onesignalRepository = OnesignalRepository();
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
-    Future.delayed(const Duration(seconds: 20), () {
-      _handleSendNotification();
-    });
+    // Future.delayed(const Duration(seconds: 20), () {
+    //   _handleSendNotification();
+    //   onesignalRepository.sendNotification({"en": "English Message", "id": "Pesan Bahasa Indonesia"}, {"en": "English Title", "id": "Judul Bahasa Indonesia"},);
+    // });
   }
 
   Future<void> initPlatformState() async {
