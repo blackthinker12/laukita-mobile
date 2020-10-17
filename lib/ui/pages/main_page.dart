@@ -117,9 +117,9 @@ class _MainPageState extends State<MainPage> {
     });
   }
 
-  _buildBody(int bottomNavBarIndex, ScreenArgumentsModel args) {
+  _buildBody(int bottomNavBarIndex) {
     switch (bottomNavBarIndex) {
-      case 0: return HomePage(args: args);
+      case 0: return HomePage();
       case 1: return NearByPage();
       case 4: return UserProfilePage();
 
@@ -131,7 +131,6 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    final ScreenArgumentsModel args = ModalRoute.of(context).settings.arguments;
 
     double topMarginHintText;
     if (MediaQuery.of(context).size.width > 700) {
@@ -203,7 +202,7 @@ class _MainPageState extends State<MainPage> {
           },
         ),
       ),
-      body: _buildBody(bottomNavBarIndex, args),
+      body: _buildBody(bottomNavBarIndex),
       drawer: SizedBox(
         width: MediaQuery.of(context).size.width/1.8,
         child: Drawer(

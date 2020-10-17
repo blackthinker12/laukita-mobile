@@ -30,7 +30,6 @@ class _RegistrationPageState extends State<RegistrationPage> {
     isLoginWithSocialMedia = widget.isLoginWithSocialMedia;
     _visibleEmailForm = true;
     _visibleUsernameForm = false;
-    // ignore: unnecessary_statements
     dateController.text == '';
     dateOfBirth = DateTime.parse(INIT_DATE);
   }
