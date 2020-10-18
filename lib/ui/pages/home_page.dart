@@ -30,19 +30,13 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           tokenValue = widget.args.token.result.token;
         });
-        _getProducts();
       }
     }
+    _getCatalogs();
   }
 
-  _getProducts() {
-    context.bloc<ProductBloc>().add(GetProducts(tokenValue));
-  }
-
-  _generateToken() {
-    context.bloc<TokenBloc>().add(GenerateToken(
-      "owner@laukita.com", "owner"
-    ));
+  _getCatalogs() {
+    context.bloc<CatalogBloc>().add(GetCatalogs());
   }
 
   @override
@@ -50,257 +44,241 @@ class _HomePageState extends State<HomePage> {
     SizeConfig().init(context);
     
     return Scaffold(
-      body: BlocListener<TokenBloc, TokenState>(
-        listener: (_, state) {
-          if(state is TokenLoaded) {
-            if (state.token.code == 200) {
-              setState(() {
-                tokenValue = state.token.result?.token;
-              });
-              print(tokenValue);
-              _getProducts(); 
-            }
-            else {
-              _generateToken();
-            } 
-          }
-        },
-        child: Column(
-          children: <Widget>[
-            Container(
-              child: Stack(
-                children: <Widget>[
-                  rectangleActions(
-                    SizeConfig.safeBlockVertical * 7.5,
-                    true,
-                    <Widget>[
-                      rButtonWithCircleIcon(
-                        Material(
-                          color: orangeButtonColor,
-                          child: Container(
-                            margin: EdgeInsets.symmetric(vertical: 1.8),
-                            child: Padding(
-                              padding: EdgeInsets.all(3.0),
-                              child: Icon(
-                                RizalIcons.basket,
-                                size: SizeConfig.safeBlockHorizontal * 3.89294,
-                              ),
-                            ),
-                          ),
-                        ),
-                        BoxDecoration(
-                          color: Theme.of(context).accentColor,
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        'Shopping Cart',
-                        TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold
-                        ),
-                        () => Navigator.of(context).pushNamed(ShoppingCartPage.routeName),
-                        SizeConfig.safeBlockHorizontal * 29.3,
-                        SizeConfig.safeBlockHorizontal * 29.6
-                      ),
-                      rButtonWithCircleIcon(
-                        Material(
-                          color: orangeButtonColor,
-                          child: Padding(
-                            padding: const EdgeInsets.all(1.5),
-                            child: Icon(
-                              RizalIcons.points,
-                              size: SizeConfig.safeBlockHorizontal * 5.352798,
-                            ),
-                          ),
-                        ),
-                        BoxDecoration(
-                          color: Theme.of(context).accentColor,
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        '900 Pts',
-                        TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold
-                        ),
-                        null,
-                        SizeConfig.safeBlockHorizontal * 29.3,
-                        SizeConfig.safeBlockHorizontal * 29.6
-                      ),
-                      rButtonWithCircleIcon(
-                        Material(
-                          color: orangeButtonColor,
-                          child: Padding(
-                            padding: EdgeInsets.all(2.0),
-                            child: Icon(
-                              Icons.bookmark_border,
-                              size: SizeConfig.safeBlockHorizontal * 4.86618,
-                            ),
-                          ),
-                        ),
-                        BoxDecoration(
-                          color: Theme.of(context).accentColor,
-                          borderRadius: BorderRadius.circular(6.0),
-                        ),
-                        'Bookmark',
-                        TextStyle(
-                          fontSize: SizeConfig.safeBlockHorizontal * 2.8,
-                          fontWeight: FontWeight.bold
-                        ),
-                        null,
-                        SizeConfig.safeBlockHorizontal * 29.3,
-                        SizeConfig.safeBlockHorizontal * 29.6
-                      )
-                    ],
-                    padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 3.4)
-                  )
-                ],
-              ),
-            ),
-            Expanded(
-              child: ListView(
-                children: <Widget>[
-                  CarouselSlider(
-                    items: imageSliders,
-                    options: CarouselOptions(
-                      height: SizeConfig.safeBlockVertical * 30,
-                      autoPlay: true,
-                      enlargeCenterPage: true,
-                      aspectRatio: 3.0,
-                      onPageChanged: (index, reason) {
-                        setState(() {
-                          _currentSlider = index;
-                        });
-                      },
-                    ),
-                    carouselController: _imageSliderController
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: imgList.map((url) {
-                      int index = imgList.indexOf(url);
-                      return GestureDetector(
-                        onTap: () {
-                          _imageSliderController.animateToPage(index, duration: Duration(milliseconds: 800));
-                        },
+      body: Column(
+        children: <Widget>[
+          Container(
+            child: Stack(
+              children: <Widget>[
+                rectangleActions(
+                  SizeConfig.safeBlockVertical * 7.5,
+                  true,
+                  <Widget>[
+                    rButtonWithCircleIcon(
+                      Material(
+                        color: orangeButtonColor,
                         child: Container(
-                          width: SizeConfig.safeBlockHorizontal * 2.4,
-                          height: SizeConfig.safeBlockVertical * 1.5,
-                          margin: EdgeInsets.symmetric(
-                              vertical: 10.0, horizontal: 4.0),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _currentSlider == index
-                                ? Color.fromRGBO(0, 0, 0, 0.9)
-                                : Color.fromRGBO(0, 0, 0, 0.4),
+                          margin: EdgeInsets.symmetric(vertical: 1.8),
+                          child: Padding(
+                            padding: EdgeInsets.all(3.0),
+                            child: Icon(
+                              RizalIcons.basket,
+                              size: SizeConfig.safeBlockHorizontal * 3.89294,
+                            ),
                           ),
                         ),
-                      );
-                    }).toList(),
-                  ),
-                  containerList(
-                    BlocBuilder<ProductBloc, ProductState>(
-                      builder: (context, state) {
-                        if (state is ProductInitial) {
-                          return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
-                        } else if (state is ProductLoaded) {
-                          //List<DataProductModel> products = state.product.result.data.sublist(0, 10);
-                          if (state.product.code == 200) {
-                            List<DataProductModel> products = state.product.result.data;
-                            return cardList(
-                              SizeConfig.safeBlockVertical * 23,
-                              cardColorInt,
-                              listView: _buildProductCard(
-                                context,
-                                products,
-                                products.length
-                              )
-                            );
-                          }
-                          else if (state.product.message == 'invalid_token') {
-                            print(state.product.message);
-                            _generateToken();
-                            return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
-                          }
-                          else {
-                            return noInternetConnection(
-                              text: "Couldn't fetch products",
-                              action: _getProducts()
-                            );
-                          }
-                        } else if (state is ProductError) {
-                          return noInternetConnection(
-                            text: "Couldn't fetch products",
-                            action: _getProducts()
-                          );
-                        } else {
-                          return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
-                        }
-                      },
+                      ),
+                      BoxDecoration(
+                        color: Theme.of(context).accentColor,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      'Shopping Cart',
+                      TextStyle(
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                        fontWeight: FontWeight.bold
+                      ),
+                      () => Navigator.of(context).pushNamed(ShoppingCartPage.routeName),
+                      SizeConfig.safeBlockHorizontal * 29.3,
+                      SizeConfig.safeBlockHorizontal * 29.6
                     ),
-                    'Recommended For You',
-                    SizeConfig.safeBlockHorizontal * 4.2,
-                    SizeConfig.safeBlockHorizontal * 2.5
-                  ),
-                  containerList(
-                    BlocBuilder<ProductBloc, ProductState>(
-                      builder: (context, state) {
-                        if (state is ProductInitial) {
-                          return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
-                        } else if (state is ProductLoaded) {
-                          if (state.product.code == 200) {
-                            List<DataProductModel> products = state.product.result.data;
-                            return cardList(
-                              SizeConfig.safeBlockVertical * 23,
-                              cardColorInt,
-                              listView: _buildProductCard(
-                                context,
-                                products,
-                                products.length
-                              )
-                            );
-                          }
-                          else if (state.product.message == 'invalid_token') {
-                            print(state.product.message);
-                            _generateToken();
-                            return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
-                          }
-                          else {
-                            return noInternetConnection(
-                              text: "Couldn't fetch products",
-                              action: _getProducts()
-                            );
-                          }
-                        } else if (state is ProductError) {
-                          return noInternetConnection(
-                            text: "Couldn't fetch products",
-                            action: _getProducts()
-                          );
-                        } else {
-                          return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
-                        }
-                      },
+                    rButtonWithCircleIcon(
+                      Material(
+                        color: orangeButtonColor,
+                        child: Padding(
+                          padding: const EdgeInsets.all(1.5),
+                          child: Icon(
+                            RizalIcons.points,
+                            size: SizeConfig.safeBlockHorizontal * 5.352798,
+                          ),
+                        ),
+                      ),
+                      BoxDecoration(
+                        color: Theme.of(context).accentColor,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      '900 Pts',
+                      TextStyle(
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                        fontWeight: FontWeight.bold
+                      ),
+                      null,
+                      SizeConfig.safeBlockHorizontal * 29.3,
+                      SizeConfig.safeBlockHorizontal * 29.6
                     ),
-                    'Favorite and Best Reviewed',
-                    SizeConfig.safeBlockHorizontal * 4.2,
-                    SizeConfig.safeBlockHorizontal * 2.5
-                  ),
-                ],
-              ),
+                    rButtonWithCircleIcon(
+                      Material(
+                        color: orangeButtonColor,
+                        child: Padding(
+                          padding: EdgeInsets.all(2.0),
+                          child: Icon(
+                            Icons.bookmark_border,
+                            size: SizeConfig.safeBlockHorizontal * 4.86618,
+                          ),
+                        ),
+                      ),
+                      BoxDecoration(
+                        color: Theme.of(context).accentColor,
+                        borderRadius: BorderRadius.circular(6.0),
+                      ),
+                      'Bookmark',
+                      TextStyle(
+                        fontSize: SizeConfig.safeBlockHorizontal * 2.8,
+                        fontWeight: FontWeight.bold
+                      ),
+                      null,
+                      SizeConfig.safeBlockHorizontal * 29.3,
+                      SizeConfig.safeBlockHorizontal * 29.6
+                    )
+                  ],
+                  padding: EdgeInsets.symmetric(horizontal: SizeConfig.safeBlockHorizontal * 3.4)
+                )
+              ],
             ),
-          ],
-        ),
+          ),
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                CarouselSlider(
+                  items: imageSliders,
+                  options: CarouselOptions(
+                    height: SizeConfig.safeBlockVertical * 30,
+                    autoPlay: true,
+                    enlargeCenterPage: true,
+                    aspectRatio: 3.0,
+                    onPageChanged: (index, reason) {
+                      setState(() {
+                        _currentSlider = index;
+                      });
+                    },
+                  ),
+                  carouselController: _imageSliderController
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: imgList.map((url) {
+                    int index = imgList.indexOf(url);
+                    return GestureDetector(
+                      onTap: () {
+                        _imageSliderController.animateToPage(index, duration: Duration(milliseconds: 800));
+                      },
+                      child: Container(
+                        width: SizeConfig.safeBlockHorizontal * 2.4,
+                        height: SizeConfig.safeBlockVertical * 1.5,
+                        margin: EdgeInsets.symmetric(
+                            vertical: 10.0, horizontal: 4.0),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: _currentSlider == index
+                              ? Color.fromRGBO(0, 0, 0, 0.9)
+                              : Color.fromRGBO(0, 0, 0, 0.4),
+                        ),
+                      ),
+                    );
+                  }).toList(),
+                ),
+                containerList(
+                  BlocBuilder<CatalogBloc, CatalogState>(
+                    builder: (context, state) {
+                      if (state is CatalogInitial) {
+                        return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                      } else if (state is CatalogLoaded) {
+                        //List<DataProductModel> products = state.product.result.data.sublist(0, 10);
+                        if (state.catalogs.code == 200) {
+                          List<DataCatalogModel> catalogs = state.catalogs.result.data;
+                          return cardList(
+                            SizeConfig.safeBlockVertical * 23,
+                            cardColorInt,
+                            listView: _buildProductCard(
+                              context,
+                              catalogs,
+                              catalogs.length
+                            )
+                          );
+                        }
+                        // else if (state.product.message == 'invalid_token') {
+                        //   print(state.product.message);
+                        //   _generateToken();
+                        //   return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                        // }
+                        else {
+                          return noInternetConnection(
+                            text: "Couldn't fetch products",
+                            action: _getCatalogs()
+                          );
+                        }
+                      } else if (state is CatalogError) {
+                        return noInternetConnection(
+                          text: "Couldn't fetch products",
+                          action: _getCatalogs()
+                        );
+                      } else {
+                        return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                      }
+                    },
+                  ),
+                  'Recommended For You',
+                  SizeConfig.safeBlockHorizontal * 4.2,
+                  SizeConfig.safeBlockHorizontal * 2.5
+                ),
+                containerList(
+                  BlocBuilder<CatalogBloc, CatalogState>(
+                    builder: (context, state) {
+                      if (state is CatalogInitial) {
+                        return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                      } else if (state is CatalogLoaded) {
+                        if (state.catalogs.code == 200) {
+                          List<DataCatalogModel> catalogs = state.catalogs.result.data;
+                          return cardList(
+                            SizeConfig.safeBlockVertical * 23,
+                            cardColorInt,
+                            listView: _buildProductCard(
+                              context,
+                              catalogs,
+                              catalogs.length
+                            )
+                          );
+                        }
+                        // else if (state.product.message == 'invalid_token') {
+                        //   print(state.product.message);
+                        //   _generateToken();
+                        //   return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                        // }
+                        else {
+                          return noInternetConnection(
+                            text: "Couldn't fetch products",
+                            action: _getCatalogs()
+                          );
+                        }
+                      } else if (state is CatalogError) {
+                        return noInternetConnection(
+                          text: "Couldn't fetch products",
+                          action: _getCatalogs()
+                        );
+                      } else {
+                        return buildLoading(SizeConfig.safeBlockHorizontal * 9.73236009);
+                      }
+                    },
+                  ),
+                  'Favorite and Best Reviewed',
+                  SizeConfig.safeBlockHorizontal * 4.2,
+                  SizeConfig.safeBlockHorizontal * 2.5
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
     );
   }
 
-  _buildProductCard(BuildContext context, List<DataProductModel>products, int length) {
+  _buildProductCard(BuildContext context, List<DataCatalogModel>catalog, int length) {
     return ListView.builder(
       physics: BouncingScrollPhysics(),
       scrollDirection: Axis.horizontal,
       itemCount: length,
       itemBuilder: (context, i) {
         ScreenArgumentsModel argumentsValue = ScreenArgumentsModel(
-          product: products[i],
+          catalog: catalog[i],
         );
         return productCard(
           () => Navigator.of(context).pushNamed(
@@ -308,10 +286,10 @@ class _HomePageState extends State<HomePage> {
             arguments: argumentsValue
           ),
           SizeConfig.safeBlockHorizontal * 22.6273,
-          SizeConfig.safeBlockVertical * 0.151,
+          SizeConfig.safeBlockVertical,
           SizeConfig.safeBlockHorizontal * 2.8,
-          products[i].pdName,
-          i > 2 ? 'assets/images/3.jpg' : 'assets/images/$i.jpg'
+          catalog[i].ctName,
+          "$mediaUrl/${catalog[i].media[0].mdFileHashName}"
         );
       }
     );

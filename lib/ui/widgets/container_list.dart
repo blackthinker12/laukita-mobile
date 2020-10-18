@@ -70,19 +70,22 @@ Widget productCard(
     child: Card(
       child: Container(
         margin: EdgeInsets.all(10),
-        constraints: BoxConstraints(maxWidth: maxWidth, maxHeight: double.infinity),
+        constraints: BoxConstraints(maxWidth: maxWidth),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            Image.asset(imageUrl),
+            Image.network(imageUrl),
             SizedBox(height: space,),
-            Text(
-              title,
-              overflow: TextOverflow.visible,
-              maxLines: 3,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: fontSize,
-              ),
+            Expanded(
+              child:Text(
+                title,
+                overflow: TextOverflow.visible,
+                maxLines: 3,
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontSize: fontSize,
+                ),
+              )
             ),
           ],
         ),

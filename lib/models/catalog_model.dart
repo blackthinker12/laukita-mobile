@@ -1,6 +1,9 @@
 import 'dart:convert';
 import 'package:equatable/equatable.dart';
 
+CatalogModel catalogFromJson(String str) => CatalogModel.fromJson(json.decode(str));
+String catalogToJson(CatalogModel data) => json.encode(data.toJson());
+
 class CatalogModel extends Equatable {
   CatalogModel({
     this.message,
@@ -12,20 +15,26 @@ class CatalogModel extends Equatable {
   final int code;
   final ResultCatalogModel result;
 
-  factory CatalogModel.fromJson(Map<String, dynamic> json) => CatalogModel(
-    message: json["message"],
-    code: json["code"],
-    result: ResultCatalogModel.fromJson(json["result"]),
-  );
+  factory CatalogModel.fromJson(Map<String, dynamic> json) {
+    if (json["code"] == 200) {
+      return CatalogModel(
+        message: json["message"],
+        code: json["code"],
+        result: ResultCatalogModel.fromJson(json["result"]),
+      );
+    } else {
+      return CatalogModel(
+        message: json["message"],
+        code: json["code"]
+      );
+    }
+  } 
 
   Map<String, dynamic> toJson() => {
     "message": message,
     "code": code,
     "result": result.toJson(),
   };
-
-  static CatalogModel catalogFromJson(String str) => CatalogModel.fromJson(json.decode(str));
-  static String catalogToJson(CatalogModel data) => json.encode(data.toJson());
 
   @override
   List<Object> get props => [message, code, result];

@@ -12,3 +12,4 @@ part 'product_repository.dart';
 part 'cart_repository.dart';
 part 'installation_info_repository.dart';
 part 'onesignal_repository.dart';
+part 'catalog_repository.dart';

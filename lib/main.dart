@@ -121,6 +121,7 @@ class _MyAppState extends State<MyApp> {
       providers: [
         BlocProvider(create: (_) => PageBloc()),
         BlocProvider(create: (_) => TokenBloc(TokenRepository())),
+        BlocProvider(create: (_) => CatalogBloc(CatalogRepository())),
         BlocProvider(create: (_) => ProductBloc(ProductRepository())),
       ],
       child: MaterialApp(
