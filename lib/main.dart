@@ -134,6 +134,7 @@ class _MyAppState extends State<MyApp> {
           MainPage.routeName: (context) => MainPage(),
           ProductDetailPage.routeName: (context) => ProductDetailPage(),
           ShoppingCartPage.routeName: (context) => ShoppingCartPage(),
+          CatalogsPage.routeName: (context) => CatalogsPage(),
           '/scan': (_) => ScannerPage(),
           '/order_payment': (_) => OrderPaymentPage(),
           '/distribution_portal': (_) => DistributionPortalPage(),

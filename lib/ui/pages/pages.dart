@@ -26,7 +26,6 @@ import 'package:searchable_dropdown/searchable_dropdown.dart';
 import 'package:advertising_id/advertising_id.dart';
 import 'package:device_info/device_info.dart';
 import 'package:package_info/package_info.dart';
-import 'package:onesignal_flutter/onesignal_flutter.dart';
 
 import 'package:Laukita/shared/shared.dart';
 import 'package:Laukita/ui/widgets/widgets.dart';
@@ -58,3 +57,4 @@ part 'transaction_page/transaction_orders_page.dart';
 part 'transaction_page/transaction_supply_page.dart';
 part 'splash_screen.dart';
 part 'onboarding_page.dart';
+part 'catalogs_page.dart';

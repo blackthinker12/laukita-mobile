@@ -18,13 +18,13 @@ class CatalogBloc extends Bloc<CatalogEvent, CatalogState> {
     CatalogEvent event,
   ) async* {
     if (event is GetCatalogs) {
-      yield* _getCatalogs();
+      yield* _getCatalogs(perPage: event.perPage, page: event.page);
     }
   }
 
-  Stream<CatalogState> _getCatalogs() async*{
+  Stream<CatalogState> _getCatalogs({String perPage, String page}) async*{
     try {
-      CatalogModel catalogs = await catalogRepositories.getCatalogs();
+      CatalogModel catalogs = await catalogRepositories.getCatalogs(perPage: perPage, page: page);
       yield CatalogLoaded(catalogs);
     } catch (e) {
       yield CatalogError(e.toString());

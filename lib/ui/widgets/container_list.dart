@@ -4,7 +4,10 @@ Widget containerList(
   Widget contentList,
   String title,
   double fontSize,
-  double fontSizeReadMore
+  double fontSizeReadMore,
+  {
+    Function seeAllAction
+  }
 ) {
   return Container(
     color: Colors.white,
@@ -24,10 +27,13 @@ Widget containerList(
                 style: TextStyle(
                   fontWeight: FontWeight.bold, fontSize: fontSize),
               ),
-              Text(
-                'See All',
-                style: TextStyle(
-                  fontSize: fontSizeReadMore,
+              InkWell(
+                onTap: seeAllAction,
+                child: Text(
+                  'See All',
+                  style: TextStyle(
+                    fontSize: fontSizeReadMore,
+                  ),
                 ),
               )
             ]

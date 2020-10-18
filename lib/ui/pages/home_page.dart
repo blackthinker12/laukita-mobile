@@ -36,7 +36,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   _getCatalogs() {
-    context.bloc<CatalogBloc>().add(GetCatalogs());
+    context.bloc<CatalogBloc>().add(GetCatalogs(perPage: '5'));
   }
 
   @override
@@ -202,13 +202,13 @@ class _HomePageState extends State<HomePage> {
                         // }
                         else {
                           return noInternetConnection(
-                            text: "Couldn't fetch products",
+                            text: "Couldn't fetch catalogs",
                             action: _getCatalogs()
                           );
                         }
                       } else if (state is CatalogError) {
                         return noInternetConnection(
-                          text: "Couldn't fetch products",
+                          text: "Couldn't fetch catalogs",
                           action: _getCatalogs()
                         );
                       } else {
@@ -218,7 +218,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   'Recommended For You',
                   SizeConfig.safeBlockHorizontal * 4.2,
-                  SizeConfig.safeBlockHorizontal * 2.5
+                  SizeConfig.safeBlockHorizontal * 2.5,
+                  seeAllAction: () => Navigator.of(context).pushNamed(
+                    CatalogsPage.routeName,
+                  )
                 ),
                 containerList(
                   BlocBuilder<CatalogBloc, CatalogState>(
@@ -245,13 +248,13 @@ class _HomePageState extends State<HomePage> {
                         // }
                         else {
                           return noInternetConnection(
-                            text: "Couldn't fetch products",
+                            text: "Couldn't fetch catalogs",
                             action: _getCatalogs()
                           );
                         }
                       } else if (state is CatalogError) {
                         return noInternetConnection(
-                          text: "Couldn't fetch products",
+                          text: "Couldn't fetch catalogs",
                           action: _getCatalogs()
                         );
                       } else {
@@ -261,7 +264,10 @@ class _HomePageState extends State<HomePage> {
                   ),
                   'Favorite and Best Reviewed',
                   SizeConfig.safeBlockHorizontal * 4.2,
-                  SizeConfig.safeBlockHorizontal * 2.5
+                  SizeConfig.safeBlockHorizontal * 2.5,
+                  seeAllAction: () => Navigator.of(context).pushNamed(
+                    CatalogsPage.routeName,
+                  )
                 ),
               ],
             ),
@@ -281,10 +287,11 @@ class _HomePageState extends State<HomePage> {
           catalog: catalog[i],
         );
         return productCard(
-          () => Navigator.of(context).pushNamed(
-            ProductDetailPage.routeName,
-            arguments: argumentsValue
-          ),
+          () {},
+          // () => Navigator.of(context).pushNamed(
+          //   ProductDetailPage.routeName,
+          //   arguments: argumentsValue
+          // ),
           SizeConfig.safeBlockHorizontal * 22.6273,
           SizeConfig.safeBlockVertical,
           SizeConfig.safeBlockHorizontal * 2.8,
