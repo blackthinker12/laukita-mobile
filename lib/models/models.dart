@@ -8,3 +8,4 @@ export 'product_model.dart';
 export 'screen_arguments_model.dart';
 export 'cart_model.dart';
 export 'add_device_onesignal.dart';
+export 'catalog_model.dart';
