@@ -301,7 +301,7 @@ packages:
       name: flushbar
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.9.1"
+    version: "1.10.4"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -331,9 +331,11 @@ packages:
   flutter_cupertino_date_picker:
     dependency: "direct main"
     description:
-      name: flutter_cupertino_date_picker
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: master
+      resolved-ref: "3e3ab8cfa963c78da991d029c5a754f1993825de"
+      url: "https://github.com/rizalhrm/flutter-cupertino-date-picker"
+    source: git
     version: "1.0.26+2"
   flutter_image:
     dependency: transitive
