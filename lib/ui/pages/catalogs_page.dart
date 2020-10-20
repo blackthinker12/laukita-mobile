@@ -55,7 +55,6 @@ class _CatalogsPageState extends State<CatalogsPage> {
       ),
       body: GridView.count(
         crossAxisCount: 2,
-        // Generate 100 widgets that display their index in the List.
         children: List.generate(100, (index) {
           return Center(
             child: Text(
